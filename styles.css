@@ -1,0 +1,43 @@
+* {box-sizing: border-box;}
+h1 {margin: 0.5em 0;}
+nav ul {list-style-type: none; margin: 0; padding: 0; background-color: #eee;}
+nav ul:after, .row:after {content: " "; display: table; clear: both;}
+nav ul li, .col {float: left;}
+nav ul li {margin-right: 15px;}
+nav ul li:hover {background-color: #ddd;}
+nav ul li a, h1 a {text-decoration: none; color: inherit;}
+.width-3 {width: 25%;}
+.width-4 {width: 33.33333333%;}
+.width-8 {width: 66.66666667%;}
+.width-9 {width: 75%;}
+.width-12 {width: 100%;}
+section {padding: 0 15px;}
+article {padding: 0 15px; border: 1px solid black; border-radius: 5px;}
+p {margin: 15px 0;}
+.inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px;
+               border: 1px solid black; border-radius: 5px;}
+.inputs-panel label {display: inline-block; width: 100%;}
+.inputs-panel input, .inputs-panel select {display: block; width: 100%; margin: 10px 0; padding: 5px;}
+.outputs-panel {padding: 0 15px;}
+#retireTable {border-collapse: collapse;}
+#retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
+#retireTable tbody th {border-right: 2px solid black;}
+#retireTable th, #retireTable td {padding: 3px 4px; text-align: center; font-size: 0.8em;}
+#ror-th {white-space: nowrap; vertical-align: middle; width: 1.5em;}
+#ror-th div {transform: rotate(-90deg); margin: 0 -7.5em;}
+
+.rdbu1 {background-color: #b2182b;}
+.rdbu2 {background-color: #d6604d;}
+.rdbu3 {background-color: #f4a582;}
+.rdbu4 {background-color: #fddbc7;}
+.rdbu5 {background-color: #f7f7f7;}
+.rdbu6 {background-color: #d1e5f0;}
+.rdbu7 {background-color: #92c5de;}
+.rdbu8 {background-color: #4393c3;}
+.rdbu9 {background-color: #2166ac;}
+
+
+
+
+
+

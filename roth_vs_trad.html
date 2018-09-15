@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adulting: Roth vs. Traditional</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="js/roth_vs_trad.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="row">
+    <div class="col width-3 inputs-panel">
+      <h2>Input</h2>
+      <div>
+        <label for="currAge">Current Age</label>
+        <input type="number" id="currAge" value="25" step="1"/>
+      </div>
+      <div>
+        <label for="retireAge">Age at Retirement</label>
+        <input type="number" id="retireAge" value="65" step="1"/>
+      </div>
+      <div>
+        <label for="contribs">Yearly Contributions</label>
+        <input type="number" id="contribs" value="5000"/>
+      </div>
+      <div>
+        <label for="currTax">Current Tax Rate</label>
+        <input type="number" id="currTax" value="15" step="1"/>
+      </div>
+      <div>
+        <label for="rorTaxSavings">Rate of Return on Tax Savings</label>
+        <input type="number" id="rorTaxSavings" value="0" step="1"/>
+      </div>
+      <div>
+        <label for="catchup">Catch-Up Contributions?</label>
+        <select id="catchup">
+          <option value="0">None</option>
+          <option value="1000">$1000 (as in an IRA)</option>
+          <option value="6000">$6000 (as in a 401(k)</option>
+        </select>
+      </div>
+      <div>
+        <button id="submit">Calculate!</button>
+      </div>
+    </div>
+    <div class="col width-9 outputs-panel">
+      <p>This table demonstrates the value of a Roth Account over a traditional account no the day your retire (after applicable taxes are taken out). Blue indicates that the Roth performs better, whereas red indicates that the traditional performs better.</p>
+      <table id="retireTable" class="width-12">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th colspan="16">Retirement Tax Rate</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th>16</th>
+            <th>17</th>
+            <th>18</th>
+            <th>19</th>
+            <th>20</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="ror-th" rowspan="20">
+              <div>Rate of Return on Retirement Savings</div>
+            </th>
+            <th>20</th>
+            <td id="cell-20-5">0</td>
+            <td id="cell-20-6">0</td>
+            <td id="cell-20-7">0</td>
+            <td id="cell-20-8">0</td>
+            <td id="cell-20-9">0</td>
+            <td id="cell-20-10">0</td>
+            <td id="cell-20-11">0</td>
+            <td id="cell-20-12">0</td>
+            <td id="cell-20-13">0</td>
+            <td id="cell-20-14">0</td>
+            <td id="cell-20-15">0</td>
+            <td id="cell-20-16">0</td>
+            <td id="cell-20-17">0</td>
+            <td id="cell-20-18">0</td>
+            <td id="cell-20-19">0</td>
+            <td id="cell-20-20">0</td>
+          </tr>
+          <tr>
+            <th>19</th>
+            <td id="cell-19-5">0</td>
+            <td id="cell-19-6">0</td>
+            <td id="cell-19-7">0</td>
+            <td id="cell-19-8">0</td>
+            <td id="cell-19-9">0</td>
+            <td id="cell-19-10">0</td>
+            <td id="cell-19-11">0</td>
+            <td id="cell-19-12">0</td>
+            <td id="cell-19-13">0</td>
+            <td id="cell-19-14">0</td>
+            <td id="cell-19-15">0</td>
+            <td id="cell-19-16">0</td>
+            <td id="cell-19-17">0</td>
+            <td id="cell-19-18">0</td>
+            <td id="cell-19-19">0</td>
+            <td id="cell-19-20">0</td>
+          </tr>
+          <tr>
+            <th>18</th>
+            <td id="cell-18-5">0</td>
+            <td id="cell-18-6">0</td>
+            <td id="cell-18-7">0</td>
+            <td id="cell-18-8">0</td>
+            <td id="cell-18-9">0</td>
+            <td id="cell-18-10">0</td>
+            <td id="cell-18-11">0</td>
+            <td id="cell-18-12">0</td>
+            <td id="cell-18-13">0</td>
+            <td id="cell-18-14">0</td>
+            <td id="cell-18-15">0</td>
+            <td id="cell-18-16">0</td>
+            <td id="cell-18-17">0</td>
+            <td id="cell-18-18">0</td>
+            <td id="cell-18-19">0</td>
+            <td id="cell-18-20">0</td>
+          </tr>
+          <tr>
+            <th>17</th>
+            <td id="cell-17-5">0</td>
+            <td id="cell-17-6">0</td>
+            <td id="cell-17-7">0</td>
+            <td id="cell-17-8">0</td>
+            <td id="cell-17-9">0</td>
+            <td id="cell-17-10">0</td>
+            <td id="cell-17-11">0</td>
+            <td id="cell-17-12">0</td>
+            <td id="cell-17-13">0</td>
+            <td id="cell-17-14">0</td>
+            <td id="cell-17-15">0</td>
+            <td id="cell-17-16">0</td>
+            <td id="cell-17-17">0</td>
+            <td id="cell-17-18">0</td>
+            <td id="cell-17-19">0</td>
+            <td id="cell-17-20">0</td>
+          </tr>
+          <tr>
+            <th>16</th>
+            <td id="cell-16-5">0</td>
+            <td id="cell-16-6">0</td>
+            <td id="cell-16-7">0</td>
+            <td id="cell-16-8">0</td>
+            <td id="cell-16-9">0</td>
+            <td id="cell-16-10">0</td>
+            <td id="cell-16-11">0</td>
+            <td id="cell-16-12">0</td>
+            <td id="cell-16-13">0</td>
+            <td id="cell-16-14">0</td>
+            <td id="cell-16-15">0</td>
+            <td id="cell-16-16">0</td>
+            <td id="cell-16-17">0</td>
+            <td id="cell-16-18">0</td>
+            <td id="cell-16-19">0</td>
+            <td id="cell-16-20">0</td>
+          </tr>
+          <tr>
+            <th>15</th>
+            <td id="cell-15-5">0</td>
+            <td id="cell-15-6">0</td>
+            <td id="cell-15-7">0</td>
+            <td id="cell-15-8">0</td>
+            <td id="cell-15-9">0</td>
+            <td id="cell-15-10">0</td>
+            <td id="cell-15-11">0</td>
+            <td id="cell-15-12">0</td>
+            <td id="cell-15-13">0</td>
+            <td id="cell-15-14">0</td>
+            <td id="cell-15-15">0</td>
+            <td id="cell-15-16">0</td>
+            <td id="cell-15-17">0</td>
+            <td id="cell-15-18">0</td>
+            <td id="cell-15-19">0</td>
+            <td id="cell-15-20">0</td>
+          </tr>
+          <tr>
+            <th>14</th>
+            <td id="cell-14-5">0</td>
+            <td id="cell-14-6">0</td>
+            <td id="cell-14-7">0</td>
+            <td id="cell-14-8">0</td>
+            <td id="cell-14-9">0</td>
+            <td id="cell-14-10">0</td>
+            <td id="cell-14-11">0</td>
+            <td id="cell-14-12">0</td>
+            <td id="cell-14-13">0</td>
+            <td id="cell-14-14">0</td>
+            <td id="cell-14-15">0</td>
+            <td id="cell-14-16">0</td>
+            <td id="cell-14-17">0</td>
+            <td id="cell-14-18">0</td>
+            <td id="cell-14-19">0</td>
+            <td id="cell-14-20">0</td>
+          </tr>
+          <tr>
+            <th>13</th>
+            <td id="cell-13-5">0</td>
+            <td id="cell-13-6">0</td>
+            <td id="cell-13-7">0</td>
+            <td id="cell-13-8">0</td>
+            <td id="cell-13-9">0</td>
+            <td id="cell-13-10">0</td>
+            <td id="cell-13-11">0</td>
+            <td id="cell-13-12">0</td>
+            <td id="cell-13-13">0</td>
+            <td id="cell-13-14">0</td>
+            <td id="cell-13-15">0</td>
+            <td id="cell-13-16">0</td>
+            <td id="cell-13-17">0</td>
+            <td id="cell-13-18">0</td>
+            <td id="cell-13-19">0</td>
+            <td id="cell-13-20">0</td>
+          </tr>
+          <tr>
+            <th>12</th>
+            <td id="cell-12-5">0</td>
+            <td id="cell-12-6">0</td>
+            <td id="cell-12-7">0</td>
+            <td id="cell-12-8">0</td>
+            <td id="cell-12-9">0</td>
+            <td id="cell-12-10">0</td>
+            <td id="cell-12-11">0</td>
+            <td id="cell-12-12">0</td>
+            <td id="cell-12-13">0</td>
+            <td id="cell-12-14">0</td>
+            <td id="cell-12-15">0</td>
+            <td id="cell-12-16">0</td>
+            <td id="cell-12-17">0</td>
+            <td id="cell-12-18">0</td>
+            <td id="cell-12-19">0</td>
+            <td id="cell-12-20">0</td>
+          </tr>
+          <tr>
+            <th>11</th>
+            <td id="cell-11-5">0</td>
+            <td id="cell-11-6">0</td>
+            <td id="cell-11-7">0</td>
+            <td id="cell-11-8">0</td>
+            <td id="cell-11-9">0</td>
+            <td id="cell-11-10">0</td>
+            <td id="cell-11-11">0</td>
+            <td id="cell-11-12">0</td>
+            <td id="cell-11-13">0</td>
+            <td id="cell-11-14">0</td>
+            <td id="cell-11-15">0</td>
+            <td id="cell-11-16">0</td>
+            <td id="cell-11-17">0</td>
+            <td id="cell-11-18">0</td>
+            <td id="cell-11-19">0</td>
+            <td id="cell-11-20">0</td>
+          </tr>
+          <tr>
+            <th>10</th>
+            <td id="cell-10-5">0</td>
+            <td id="cell-10-6">0</td>
+            <td id="cell-10-7">0</td>
+            <td id="cell-10-8">0</td>
+            <td id="cell-10-9">0</td>
+            <td id="cell-10-10">0</td>
+            <td id="cell-10-11">0</td>
+            <td id="cell-10-12">0</td>
+            <td id="cell-10-13">0</td>
+            <td id="cell-10-14">0</td>
+            <td id="cell-10-15">0</td>
+            <td id="cell-10-16">0</td>
+            <td id="cell-10-17">0</td>
+            <td id="cell-10-18">0</td>
+            <td id="cell-10-19">0</td>
+            <td id="cell-10-20">0</td>
+          </tr>
+          <tr>
+            <th>9</th>
+            <td id="cell-9-5">0</td>
+            <td id="cell-9-6">0</td>
+            <td id="cell-9-7">0</td>
+            <td id="cell-9-8">0</td>
+            <td id="cell-9-9">0</td>
+            <td id="cell-9-10">0</td>
+            <td id="cell-9-11">0</td>
+            <td id="cell-9-12">0</td>
+            <td id="cell-9-13">0</td>
+            <td id="cell-9-14">0</td>
+            <td id="cell-9-15">0</td>
+            <td id="cell-9-16">0</td>
+            <td id="cell-9-17">0</td>
+            <td id="cell-9-18">0</td>
+            <td id="cell-9-19">0</td>
+            <td id="cell-9-20">0</td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td id="cell-8-5">0</td>
+            <td id="cell-8-6">0</td>
+            <td id="cell-8-7">0</td>
+            <td id="cell-8-8">0</td>
+            <td id="cell-8-9">0</td>
+            <td id="cell-8-10">0</td>
+            <td id="cell-8-11">0</td>
+            <td id="cell-8-12">0</td>
+            <td id="cell-8-13">0</td>
+            <td id="cell-8-14">0</td>
+            <td id="cell-8-15">0</td>
+            <td id="cell-8-16">0</td>
+            <td id="cell-8-17">0</td>
+            <td id="cell-8-18">0</td>
+            <td id="cell-8-19">0</td>
+            <td id="cell-8-20">0</td>
+          </tr>
+          <tr>
+            <th>7</th>
+            <td id="cell-7-5">0</td>
+            <td id="cell-7-6">0</td>
+            <td id="cell-7-7">0</td>
+            <td id="cell-7-8">0</td>
+            <td id="cell-7-9">0</td>
+            <td id="cell-7-10">0</td>
+            <td id="cell-7-11">0</td>
+            <td id="cell-7-12">0</td>
+            <td id="cell-7-13">0</td>
+            <td id="cell-7-14">0</td>
+            <td id="cell-7-15">0</td>
+            <td id="cell-7-16">0</td>
+            <td id="cell-7-17">0</td>
+            <td id="cell-7-18">0</td>
+            <td id="cell-7-19">0</td>
+            <td id="cell-7-20">0</td>
+          </tr>
+          <tr>
+            <th>6</th>
+            <td id="cell-6-5">0</td>
+            <td id="cell-6-6">0</td>
+            <td id="cell-6-7">0</td>
+            <td id="cell-6-8">0</td>
+            <td id="cell-6-9">0</td>
+            <td id="cell-6-10">0</td>
+            <td id="cell-6-11">0</td>
+            <td id="cell-6-12">0</td>
+            <td id="cell-6-13">0</td>
+            <td id="cell-6-14">0</td>
+            <td id="cell-6-15">0</td>
+            <td id="cell-6-16">0</td>
+            <td id="cell-6-17">0</td>
+            <td id="cell-6-18">0</td>
+            <td id="cell-6-19">0</td>
+            <td id="cell-6-20">0</td>
+          </tr>
+          <tr>
+            <th>5</th>
+            <td id="cell-5-5">0</td>
+            <td id="cell-5-6">0</td>
+            <td id="cell-5-7">0</td>
+            <td id="cell-5-8">0</td>
+            <td id="cell-5-9">0</td>
+            <td id="cell-5-10">0</td>
+            <td id="cell-5-11">0</td>
+            <td id="cell-5-12">0</td>
+            <td id="cell-5-13">0</td>
+            <td id="cell-5-14">0</td>
+            <td id="cell-5-15">0</td>
+            <td id="cell-5-16">0</td>
+            <td id="cell-5-17">0</td>
+            <td id="cell-5-18">0</td>
+            <td id="cell-5-19">0</td>
+            <td id="cell-5-20">0</td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td id="cell-4-5">0</td>
+            <td id="cell-4-6">0</td>
+            <td id="cell-4-7">0</td>
+            <td id="cell-4-8">0</td>
+            <td id="cell-4-9">0</td>
+            <td id="cell-4-10">0</td>
+            <td id="cell-4-11">0</td>
+            <td id="cell-4-12">0</td>
+            <td id="cell-4-13">0</td>
+            <td id="cell-4-14">0</td>
+            <td id="cell-4-15">0</td>
+            <td id="cell-4-16">0</td>
+            <td id="cell-4-17">0</td>
+            <td id="cell-4-18">0</td>
+            <td id="cell-4-19">0</td>
+            <td id="cell-4-20">0</td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td id="cell-3-5">0</td>
+            <td id="cell-3-6">0</td>
+            <td id="cell-3-7">0</td>
+            <td id="cell-3-8">0</td>
+            <td id="cell-3-9">0</td>
+            <td id="cell-3-10">0</td>
+            <td id="cell-3-11">0</td>
+            <td id="cell-3-12">0</td>
+            <td id="cell-3-13">0</td>
+            <td id="cell-3-14">0</td>
+            <td id="cell-3-15">0</td>
+            <td id="cell-3-16">0</td>
+            <td id="cell-3-17">0</td>
+            <td id="cell-3-18">0</td>
+            <td id="cell-3-19">0</td>
+            <td id="cell-3-20">0</td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td id="cell-2-5">0</td>
+            <td id="cell-2-6">0</td>
+            <td id="cell-2-7">0</td>
+            <td id="cell-2-8">0</td>
+            <td id="cell-2-9">0</td>
+            <td id="cell-2-10">0</td>
+            <td id="cell-2-11">0</td>
+            <td id="cell-2-12">0</td>
+            <td id="cell-2-13">0</td>
+            <td id="cell-2-14">0</td>
+            <td id="cell-2-15">0</td>
+            <td id="cell-2-16">0</td>
+            <td id="cell-2-17">0</td>
+            <td id="cell-2-18">0</td>
+            <td id="cell-2-19">0</td>
+            <td id="cell-2-20">0</td>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td id="cell-1-5">0</td>
+            <td id="cell-1-6">0</td>
+            <td id="cell-1-7">0</td>
+            <td id="cell-1-8">0</td>
+            <td id="cell-1-9">0</td>
+            <td id="cell-1-10">0</td>
+            <td id="cell-1-11">0</td>
+            <td id="cell-1-12">0</td>
+            <td id="cell-1-13">0</td>
+            <td id="cell-1-14">0</td>
+            <td id="cell-1-15">0</td>
+            <td id="cell-1-16">0</td>
+            <td id="cell-1-17">0</td>
+            <td id="cell-1-18">0</td>
+            <td id="cell-1-19">0</td>
+            <td id="cell-1-20">0</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Assumptions: Tax savings from contributions to the tax-deferred account are invested at the rate input, but the gains are taxed each year at the current tax rate. All contributions are made at the beginning of the year and make the same ROR each year.</p>
+    </div>
+  </div>
+</body>
+</html>
