@@ -15,6 +15,6 @@ html(
     )
   )
 ) %>%
-  write2file(file = "index.html")
+  write2file(file = "docs/index.html")
 
 
