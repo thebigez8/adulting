@@ -1,7 +1,7 @@
 * {box-sizing: border-box;}
 h1 {margin: 0.5em 0;}
 nav ul {list-style-type: none; margin: 0; padding: 0; background-color: #eee;}
-nav ul:after, .row:after {content: " "; display: table; clear: both;}
+nav ul:after, .row:after, article:after {content: " "; display: table; clear: both;}
 nav ul li, .col {float: left;}
 nav ul li {margin-right: 15px;}
 nav ul li:hover {background-color: #ddd;}
@@ -12,8 +12,46 @@ nav ul li a, h1 a {text-decoration: none; color: inherit;}
 .width-9 {width: 75%;}
 .width-12 {width: 100%;}
 section {padding: 0 15px;}
-article {padding: 0 15px; border: 1px solid black; border-radius: 5px;}
+article {padding: 0 15px; border: 1px solid black; border-left-width: 5px;
+  border-top-right-radius: 5px; border-bottom-right-radius: 5px; margin-top: 10px;}
 p {margin: 15px 0;}
+
+.tag-filters input[type="checkbox"],
+  .tag-filters input[type="checkbox"]:checked ~ article {display:none;}
+#finance-tags:checked ~ article.finance,
+  #faith-tags:checked ~ article.faith,
+  #fun-tags:checked ~ article.fun,
+  #outdoors-tags:checked ~ article.outdoors {display: block;}
+.tag-filters label {display: inline-block; padding: 3px; cursor: pointer;
+  border: 2px solid black; border-radius: 5px;}
+.tag-filters input[type="checkbox"]:not(:checked) + label {background-color: #fff; color: black;}
+label.finance {background-color: #984ea3; border-color: #984ea3; color: white;}
+label.faith {background-color: #377eb8; border-color: #377eb8; color: white;}
+label.outdoors {background-color: #4daf4a; border-color: #4daf4a; color: white;}
+label.fun {background-color: #e41a1c; border-color: #e41a1c; color: white;}
+article.finance {border-left-color: #984ea3;}
+article.faith {border-left-color: #377eb8;}
+article.outdoors {border-left-color: #4daf4a;}
+article.fun {border-left-color: #e41a1c;}
+article div {float: right;}
+article div:after {font-size: 0.75em; text-align: right;}
+article.finance div:after {content: "Filed under Finance";}
+article.faith div:after {content: "Filed under Faith";}
+article.outdoors div:after {content: "Filed under Outdoors";}
+article.fun div:after {content: "Filed under Fun";}
+
+/*
+  #e41a1c
+  #377eb8
+  #4daf4a
+  #984ea3
+  #ff7f00
+  #ffff33
+  #a65628
+  #f781bf
+  #999999
+*/
+
 .inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px;
                border: 1px solid black; border-radius: 5px;}
 .inputs-panel label {display: inline-block; width: 100%;}
