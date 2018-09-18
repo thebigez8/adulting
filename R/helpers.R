@@ -41,3 +41,4 @@ navbar <- function()
 
 source("R/index.R")
 source("R/roth_vs_trad.R")
+source("R/medical_plans.R")

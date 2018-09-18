@@ -54,8 +54,10 @@ article.fun div:after {content: "Filed under Fun";}
 
 .inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px;
                border: 1px solid black; border-radius: 5px;}
-.inputs-panel label {display: inline-block; width: 100%;}
-.inputs-panel input, .inputs-panel select {display: block; width: 100%; margin: 10px 0; padding: 5px;}
+.inputs-panel label, .inputs-table label {display: inline-block; width: 100%;}
+.inputs-panel input, .inputs-panel select,
+  .inputs-table input, .inputs-table select
+  {display: block; width: 100%; margin: 10px 0; padding: 5px;}
 .outputs-panel {padding: 0 15px;}
 #retireTable {border-collapse: collapse;}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
@@ -74,8 +76,7 @@ article.fun div:after {content: "Filed under Fun";}
 .rdbu8 {background-color: #4393c3;}
 .rdbu9 {background-color: #2166ac;}
 
-
-
-
+.border-collapse {border-collapse: collapse;}
+.bordered {border: 1px solid black;}
 
 
