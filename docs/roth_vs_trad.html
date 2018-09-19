@@ -22,37 +22,23 @@
   <div class="row">
     <div class="col width-3 inputs-panel bordered">
       <h2>Input</h2>
-      <div>
-        <label for="currAge">Current Age</label>
-        <input type="number" id="currAge" value="25" step="1"/>
-      </div>
-      <div>
-        <label for="retireAge">Age at Retirement</label>
-        <input type="number" id="retireAge" value="65" step="1"/>
-      </div>
-      <div>
-        <label for="contribs">Yearly Contributions</label>
-        <input type="number" id="contribs" value="5000"/>
-      </div>
-      <div>
-        <label for="currTax">Current Tax Rate</label>
-        <input type="number" id="currTax" value="15" step="1"/>
-      </div>
-      <div>
-        <label for="rorTaxSavings">Rate of Return on Tax Savings</label>
-        <input type="number" id="rorTaxSavings" value="0" step="1"/>
-      </div>
-      <div>
-        <label for="catchup">Catch-Up Contributions?</label>
-        <select id="catchup">
-          <option value="0">None</option>
-          <option value="1000">$1000 (as in an IRA)</option>
-          <option value="6000">$6000 (as in a 401(k)</option>
-        </select>
-      </div>
-      <div>
-        <button id="submit">Calculate!</button>
-      </div>
+      <label for="currAge">Current Age</label>
+      <input type="number" id="currAge" value="25" step="1"/>
+      <label for="retireAge">Age at Retirement</label>
+      <input type="number" id="retireAge" value="65" step="1"/>
+      <label for="contribs">Yearly Contributions</label>
+      <input type="number" id="contribs" value="5000"/>
+      <label for="currTax">Current Tax Rate</label>
+      <input type="number" id="currTax" value="15" step="1"/>
+      <label for="rorTaxSavings">Rate of Return on Tax Savings</label>
+      <input type="number" id="rorTaxSavings" value="0" step="1"/>
+      <label for="catchup">Catch-Up Contributions?</label>
+      <select id="catchup">
+        <option value="0">None</option>
+        <option value="1000">$1000 (as in an IRA)</option>
+        <option value="6000">$6000 (as in a 401(k)</option>
+      </select>
+      <button id="submit">Calculate!</button>
     </div>
     <div class="col width-9 outputs-panel">
       <p>This table demonstrates the value of a Roth Account over a traditional account no the day your retire (after applicable taxes are taken out). Blue indicates that the Roth performs better, whereas red indicates that the traditional performs better.</p>

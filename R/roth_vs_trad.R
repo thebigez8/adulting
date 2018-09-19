@@ -29,38 +29,24 @@ html(
       div(
         class="col width-3 inputs-panel bordered",
         h2("Input"),
-        div(
-          label(`for`="currAge", "Current Age"),
-          input(type="number", id="currAge", value=25, step=1)
+        label(`for`="currAge", "Current Age"),
+        input(type="number", id="currAge", value=25, step=1),
+        label(`for`="retireAge", "Age at Retirement"),
+        input(type="number", id="retireAge", value=65, step=1),
+        label(`for`="contribs", "Yearly Contributions"),
+        input(type="number", id="contribs", value=5000),
+        label(`for`="currTax", "Current Tax Rate"),
+        input(type="number", id="currTax", value=15, step=1),
+        label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
+        input(type="number", id="rorTaxSavings", value=0, step=1),
+        label(`for`="catchup", "Catch-Up Contributions?"),
+        select(
+          id="catchup",
+          option(value=0, "None"),
+          option(value=1000, "$1000 (as in an IRA)"),
+          option(value=6000, "$6000 (as in a 401(k)")
         ),
-        div(
-          label(`for`="retireAge", "Age at Retirement"),
-          input(type="number", id="retireAge", value=65, step=1)
-        ),
-        div(
-          label(`for`="contribs", "Yearly Contributions"),
-          input(type="number", id="contribs", value=5000)
-        ),
-        div(
-          label(`for`="currTax", "Current Tax Rate"),
-          input(type="number", id="currTax", value=15, step=1)
-        ),
-        div(
-          label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
-          input(type="number", id="rorTaxSavings", value=0, step=1)
-        ),
-        div(
-          label(`for`="catchup", "Catch-Up Contributions?"),
-          select(
-            id="catchup",
-            option(value=0, "None"),
-            option(value=1000, "$1000 (as in an IRA)"),
-            option(value=6000, "$6000 (as in a 401(k)")
-          )
-        ),
-        div(
-          button("Calculate!", id = "submit")
-        )
+        button("Calculate!", id = "submit")
       ),
       div(
         class = "col width-9 outputs-panel",

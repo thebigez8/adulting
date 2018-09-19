@@ -8,30 +8,20 @@ html(
       div(
         class="col width-3 inputs-panel bordered",
         h2("Input"),
-        div(
-          label(`for`="coi", "Coinsurance Rate"),
-          input(type="number", id="coi", value=20, step=1)
+        label(`for`="coi", "Coinsurance Rate"),
+        input(type="number", id="coi", value=20, step=1),
+        label(`for`="currTax", "Current Tax Rate"),
+        input(type="number", id="currTax", value=20, step=1),
+        label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
+        input(type="number", id="rorTaxSavings", value=5, step=1),
+        label(`for`="freqContribs", "Frequency of FSA/HSA Contributions"),
+        select(
+          id="freqContribs",
+          option(value=26, "Every Other Week"),
+          option(value=24, "Twice per Month"),
+          option(value=12, "Once per Month")
         ),
-        div(
-          label(`for`="currTax", "Current Tax Rate"),
-          input(type="number", id="currTax", value=20, step=1)
-        ),
-        div(
-          label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
-          input(type="number", id="rorTaxSavings", value=5, step=1)
-        ),
-        div(
-          label(`for`="freqContribs", "Frequency of FSA/HSA Contributions"),
-          select(
-            id="freqContribs",
-            option(value=26, "Every Other Week"),
-            option(value=24, "Twice per Month"),
-            option(value=12, "Once per Month")
-          )
-        ),
-        div(
-          button("Calculate!", id = "submit")
-        )
+        button("Calculate!", id = "submit")
       ),
       div(
         class = "col width-9 outputs-panel",
