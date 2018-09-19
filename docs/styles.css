@@ -8,12 +8,13 @@ nav ul li:hover {background-color: #ddd;}
 nav ul li a, h1 a {text-decoration: none; color: inherit;}
 .width-3 {width: 25%;}
 .width-4 {width: 33.33333333%;}
+.width-6 {width: 50%;}
 .width-8 {width: 66.66666667%;}
 .width-9 {width: 75%;}
 .width-12 {width: 100%;}
-section {padding: 0 15px;}
-article {padding: 0 15px; border: 1px solid black; border-left-width: 5px;
-  border-top-right-radius: 5px; border-bottom-right-radius: 5px; margin-top: 10px;}
+section, article {padding: 0 15px;}
+article {margin-top: 10px;}
+article.bordered{border-left-width: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
 p {margin: 15px 0;}
 
 .tag-filters input[type="checkbox"],
@@ -52,8 +53,7 @@ article.fun div:after {content: "Filed under Fun";}
   #999999
 */
 
-.inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px;
-               border: 1px solid black; border-radius: 5px;}
+.inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px;}
 .inputs-panel label, .inputs-table label {display: inline-block; width: 100%;}
 .inputs-panel input, .inputs-panel select,
   .inputs-table input, .inputs-table select

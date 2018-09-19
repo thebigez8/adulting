@@ -1,7 +1,7 @@
 make_article <- function(txt, desc, URL = "#", type = c("finance", "faith", "fun", "outdoors"))
 {
   article(
-    class = match.arg(type),
+    class = paste0("bordered ", match.arg(type)),
     h3(a(txt, href = URL)),
     p(desc),
     div()

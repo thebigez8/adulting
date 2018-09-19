@@ -6,7 +6,7 @@ html(
     div(
       class="row",
       div(
-        class="col width-3 inputs-panel",
+        class="col width-3 inputs-panel bordered",
         h2("Input"),
         div(
           label(`for`="coi", "Coinsurance Rate"),
