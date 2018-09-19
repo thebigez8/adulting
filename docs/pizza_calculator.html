@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Adulting: Pizza Calculator</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="js/pizza_calculator.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+    </ul>
+  </nav>
+  <h2>Pizza Calculator</h2>
+  <div class="row">
+    <div class="col width-4 inputs-panel pizza-box">
+      <div class="round bordered centered pizza">
+        <select id="diam1">
+          <option value="2">Diameter of the pizza:</option>
+          <option value="1">Radius of the pizza:</option>
+        </select>
+        <input type="number" id="size1" value="12"/>
+        <label for="cost1">Price</label>
+        <input type="number" id="cost1" value="10.99"/>
+      </div>
+      <p class="width-6 centered">
+        Price per square unit:
+        <span id="ppsu1"></span>
+      </p>
+    </div>
+    <div class="col width-4 inputs-panel pizza-box">
+      <div class="round bordered centered pizza">
+        <select id="diam2">
+          <option value="2">Diameter of the pizza:</option>
+          <option value="1">Radius of the pizza:</option>
+        </select>
+        <input type="number" id="size2" value="10"/>
+        <label for="cost2">Price</label>
+        <input type="number" id="cost2" value="8.99"/>
+      </div>
+      <p class="width-6 centered">
+        Price per square unit:
+        <span id="ppsu2"></span>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
