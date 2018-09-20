@@ -15,12 +15,13 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = NULL)
+HTMLhead <- function(titl, js = NULL, toggle = FALSE)
 {
   HTML(paste0(
     "<head>\n    ",
     tags$title(paste0("Adulting: ", titl)), "\n    ",
     link(rel="stylesheet", href="styles.css"), "\n    ",
+    if(toggle) paste0(script(src = "js/toggle.js"), "\n    "),
     js,
     "\n</head>"
   ))

@@ -3,7 +3,8 @@
 <head>
   <title>Adulting: Home</title>
   <link rel="stylesheet" href="styles.css"/>
-  
+  <script src="js/toggle.js"></script>
+  <script src="js/index.js"></script>
 </head>
 <body>
   <h1>
@@ -22,36 +23,32 @@
   <section class="tag-filters">
     <h2>New pages:</h2>
     <span>Filter:</span>
-    <input type="checkbox" id="finance-tags"/>
-    <label for="finance-tags" class="finance">Finance</label>
-    <input type="checkbox" id="faith-tags"/>
-    <label for="faith-tags" class="faith">Faith</label>
-    <input type="checkbox" id="fun-tags"/>
-    <label for="fun-tags" class="fun">Fun</label>
-    <input type="checkbox" id="outdoors-tags"/>
-    <label for="outdoors-tags" class="outdoors">Outdoors</label>
-    <article class="bordered finance">
+    <button type="button" id="finance-toggle" class="finance toggler">Finance</button>
+    <button type="button" id="faith-toggle" class="faith toggler">Faith</button>
+    <button type="button" id="fun-toggle" class="fun toggler">Fun</button>
+    <button type="button" id="outdoors-toggle" class="outdoors toggler">Outdoors</button>
+    <article class="toggleable bordered finance">
       <h3>
         <a href="roth_vs_trad.html">Roth vs. Traditional Retirement Account Calculator</a>
       </h3>
       <p>A calculator to determine whether a Roth or traditional retirement account makes more sense, given tax rates, rates of returns, etc.</p>
       <div></div>
     </article>
-    <article class="bordered faith">
+    <article class="toggleable bordered faith">
       <h3>
         <a href="#">An article about faith</a>
       </h3>
       <p>Test</p>
       <div></div>
     </article>
-    <article class="bordered fun">
+    <article class="toggleable bordered fun">
       <h3>
         <a href="#">An article about fun</a>
       </h3>
       <p>Another test</p>
       <div></div>
     </article>
-    <article class="bordered outdoors">
+    <article class="toggleable bordered outdoors">
       <h3>
         <a href="#">An article about outdoorsy stuff</a>
       </h3>

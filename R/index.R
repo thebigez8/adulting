@@ -1,28 +1,24 @@
 make_article <- function(txt, desc, URL = "#", type = c("finance", "faith", "fun", "outdoors"))
 {
   article(
-    class = paste0("bordered ", match.arg(type)),
+    class = paste0("toggleable bordered ", match.arg(type)),
     h3(a(txt, href = URL)),
     p(desc),
     div()
   )
 }
 html(
-  HTMLhead(titl = "Home"),
+  HTMLhead(titl = "Home", script(src = "js/index.js"), toggle = TRUE),
   body(
     navbar(),
     section(
       class = "tag-filters",
       h2("New pages:"),
       span("Filter:"),
-      input(type = "checkbox", id = "finance-tags"),
-      label("Finance", `for` = "finance-tags", class = "finance"),
-      input(type = "checkbox", id = "faith-tags"),
-      label("Faith", `for` = "faith-tags", class = "faith"),
-      input(type = "checkbox", id = "fun-tags"),
-      label("Fun", `for` = "fun-tags", class = "fun"),
-      input(type = "checkbox", id = "outdoors-tags"),
-      label("Outdoors", `for` = "outdoors-tags", class = "outdoors"),
+      button("Finance", type = "button", id = "finance-toggle", class = "finance toggler"),
+      button("Faith", type = "button", id = "faith-toggle", class = "faith toggler"),
+      button("Fun", type = "button", id = "fun-toggle", class = "fun toggler"),
+      button("Outdoors", type = "button", id = "outdoors-toggle", class = "outdoors toggler"),
       make_article(
         "Roth vs. Traditional Retirement Account Calculator",
         paste0(
