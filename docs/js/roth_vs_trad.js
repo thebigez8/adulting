@@ -46,20 +46,27 @@ function calcMoney()
     for(var rtax = 5; rtax <= 20; rtax++)
     {
       var x = document.getElementById("cell-" + ror + "-" + rtax);
-      var tmp = roth(currAge, retireAge, contribs, ror/100, catchup) -
-        trad(currAge, retireAge, contribs, ror/100, currTax, rtax/100, rorTaxSavings, catchup);
-      tmp = Math.round(tmp/1000);
+      var rth = roth(currAge, retireAge, contribs, ror/100, catchup);
+      var trd = trad(currAge, retireAge, contribs, ror/100, currTax, rtax/100, rorTaxSavings, catchup);
+      var dif = (rth - trd)/1000;
 
-      if(tmp <= -501) {x.className = "rdbu1";}
-      else if(tmp <= -358) {x.className = "rdbu2";}
-      else if(tmp <= -215) {x.className = "rdbu3";}
-      else if(tmp <= -72) {x.className = "rdbu4";}
-      else if(tmp <= 71) {x.className = "rdbu5";}
-      else if(tmp <= 214) {x.className = "rdbu6";}
-      else if(tmp <= 357) {x.className = "rdbu7";}
-      else if(tmp <= 500) {x.className = "rdbu8";}
+      if(dif <= -1000) {x.className = "rdbu1";}
+      else if(dif <= -250) {x.className = "rdbu2";}
+      else if(dif <= -62.5) {x.className = "rdbu3";}
+      else if(dif <= -15.625) {x.className = "rdbu4";}
+      else if(dif < 15.625) {x.className = "rdbu5";}
+      else if(dif < 62.5) {x.className = "rdbu6";}
+      else if(dif < 250) {x.className = "rdbu7";}
+      else if(dif < 1000) {x.className = "rdbu8";}
       else {x.className = "rdbu9"}
-      x.innerHTML = "$" + tmp + "k";
+      x.title = "$" + (rth/1000000).toFixed(3) + "M - $" + (trd/1000000).toFixed(3) + "M";
+      if(Math.abs(dif) < 1000)
+      {
+        x.innerHTML = "$" + dif.toFixed(0) + "k";
+      } else
+      {
+        x.innerHTML = "$" + (dif/1000).toFixed(2) + "M";
+      }
     }
   }
 }

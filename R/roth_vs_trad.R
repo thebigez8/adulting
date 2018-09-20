@@ -38,7 +38,7 @@ html(
         label(`for`="currTax", "Current Tax Rate"),
         input(type="number", id="currTax", value=15, step=1),
         label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
-        input(type="number", id="rorTaxSavings", value=0, step=1),
+        input(type="number", id="rorTaxSavings", value=2, step=1),
         label(`for`="catchup", "Catch-Up Contributions?"),
         select(
           id="catchup",
@@ -53,7 +53,8 @@ html(
         p0(
           "This table demonstrates the value of a Roth Account over a traditional account ",
           "no the day your retire (after applicable taxes are taken out). Blue indicates that ",
-          "the Roth performs better, whereas red indicates that the traditional performs better."
+          "the Roth performs better, whereas red indicates that the traditional performs better. ",
+          "Hover over each cell to find the final value of each account."
         ),
         retireTable(),
         p0(
