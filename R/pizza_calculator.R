@@ -30,6 +30,6 @@ html(
     )
   )
 ) %>%
-  write2file(file = "docs/pizza_calculator.html")
+  write2file(file = "docs/finance/pizza_calculator.html")
 
 

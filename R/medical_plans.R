@@ -137,6 +137,6 @@ html(
     )
   )
 ) %>%
-  write2file(file = "docs/medical_plans.html")
+  write2file(file = "docs/finance/medical_plans.html")
 
 

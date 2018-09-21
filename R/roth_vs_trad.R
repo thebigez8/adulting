@@ -66,6 +66,6 @@ html(
     )
   )
 ) %>%
-  write2file(file = "docs/roth_vs_trad.html")
+  write2file(file = "docs/finance/roth_vs_trad.html")
 
 
