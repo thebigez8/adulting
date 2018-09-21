@@ -6,8 +6,8 @@ pizza <- function(i)
       class="round bordered centered pizza",
       select(
         id = paste0("diam", i),
-        option("Diameter of the pizza:", value=2),
-        option("Radius of the pizza:", value=1)
+        option("Pizza Diameter:", value=2),
+        option("Pizza Radius:", value=1)
       ),
       input(type = "number", id = paste0("size", i), value = 14 - 2*i),
       label(`for` = paste0("cost", i), "Price"),

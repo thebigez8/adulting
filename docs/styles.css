@@ -49,7 +49,11 @@ article.fun div:after {content: "Filed under Fun";}
   #999999
 */
 
-.inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px;}
+.inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px; width: 100%;}
+@media (min-width: 576px){
+  .inputs-panel {width: 30%;}
+  .outputs-panel {width: 70%;}
+}
 .inputs-panel label, .inputs-table label {display: inline-block; width: 100%;}
 .inputs-panel input, .inputs-panel select,
   .inputs-table input, .inputs-table select
@@ -76,5 +80,7 @@ article.fun div:after {content: "Filed under Fun";}
 .bordered {border: 1px solid black;}
 .round {border-radius: 50%;}
 .centered {margin-left: auto; margin-right: auto;}
-.pizza {width: 300px; height: 300px; padding: 50px;}
-.pizza-box {min-width: 300px;}
+
+/*these float below each other when window resized */
+.pizza {width: 258px; height: 258px; padding: 50px;}
+.pizza-box {min-width: 258px;}
