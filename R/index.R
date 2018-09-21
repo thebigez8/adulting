@@ -8,9 +8,13 @@ make_article <- function(txt, desc, URL = "#", type = c("finance", "faith", "fun
   )
 }
 html(
-  HTMLhead(titl = "Home", script(src = "js/index.js"), toggle = TRUE),
+  HTMLhead(
+    titl = "Home", script(src = "js/index.js"), toggle = TRUE,
+    keywords = "Finance,Fun,Faith,Outdoors",
+    desc = "Adulting Home Page"
+  ),
   body(
-    navbar(),
+    navbar(updir = FALSE),
     section(
       class = "tag-filters",
       h2("New pages:"),

@@ -15,22 +15,26 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = NULL, toggle = FALSE)
+HTMLhead <- function(titl, js = NULL, toggle = FALSE, keywords = "", desc="")
 {
-  HTML(paste0(
-    "<head>\n    ",
-    tags$title(paste0("Adulting: ", titl)), "\n    ",
-    link(rel="stylesheet", href="styles.css"), "\n    ",
-    if(toggle) paste0(script(src = "js/toggle.js"), "\n    "),
+  HTML(paste0(paste(
+    "<head>",
+    tags$title(paste0("Adulting: ", titl)),
+    tags$meta(name="keywords", content=paste0("adulting,", keywords)),
+    tags$meta(name="description", content=desc),
+    tags$meta(name="author", content="E Heinzen"),
+    tags$meta(name="viewport", content="width=device-width, initial-scale: 1"),
+    link(rel="stylesheet", href=if(titl == "Home") "styles.css" else "../styles.css"),
+    if(toggle) script(src = "js/toggle.js"),
     js,
-    "\n</head>"
-  ))
+    sep = "\n    "
+  ), "\n</head>"))
 }
 
-navbar <- function()
+navbar <- function(updir = TRUE)
 {
   tagList(
-    h1(a("Adulting", href = "index.html")),
+    h1(a("Adulting", href = if(updir) "../index.html" else "index.html")),
     nav(
       ul(
         li(a(href = "#", "[This link coming soon]")),
