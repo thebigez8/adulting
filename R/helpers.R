@@ -23,7 +23,7 @@ HTMLhead <- function(titl, js = NULL, toggle = FALSE, keywords = "", desc="")
     tags$meta(name="keywords", content=paste0("adulting,", keywords)),
     tags$meta(name="description", content=desc),
     tags$meta(name="author", content="E Heinzen"),
-    tags$meta(name="viewport", content="width=device-width, initial-scale: 1"),
+    tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
     link(rel="stylesheet", href=if(titl == "Home") "styles.css" else "../styles.css"),
     if(toggle) script(src = "js/toggle.js"),
     js,
