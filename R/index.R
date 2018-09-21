@@ -1,12 +1,20 @@
-make_article <- function(txt, desc, URL = "#", type = c("finance", "faith", "fun", "outdoors"))
+make_article <- function(URL)
 {
+  met <- URL %>%
+    xml2::read_html() %>%
+    rvest::html_nodes("meta, title")
+  titl <- gsub("^Adulting: ", "", rvest::html_text(met[[1]]))
   article(
-    class = paste0("toggleable bordered ", match.arg(type)),
-    h3(a(txt, href = URL)),
-    p(desc),
+    class = paste0("toggleable bordered ", sub("^.*/(.*)/.*\\.html$", "\\1", URL)),
+    h3(a(titl, href = sub("docs/", "", URL))),
+    p(rvest::html_attrs(met)[[3]]["content"]),
     div()
   )
 }
+
+pgs <- list.files("docs", full.names = TRUE, "\\.html", recursive = TRUE) %>%
+  "["(. != "docs/index.html")
+
 html(
   HTMLhead(
     titl = "Home", script(src = "js/index.js"), toggle = TRUE,
@@ -23,16 +31,7 @@ html(
       button("Faith", type = "button", id = "faith-toggle", class = "faith toggler"),
       button("Fun", type = "button", id = "fun-toggle", class = "fun toggler"),
       button("Outdoors", type = "button", id = "outdoors-toggle", class = "outdoors toggler"),
-      make_article(
-        "Roth vs. Traditional Retirement Account Calculator",
-        paste0(
-          "A calculator to determine whether a Roth or traditional retirement account ",
-          "makes more sense, given tax rates, rates of returns, etc."
-        ), "roth_vs_trad.html", "finance"
-      ),
-      make_article("An article about faith", "Test", "#", "faith"),
-      make_article("An article about fun", "Another test", "#", "fun"),
-      make_article("An article about outdoorsy stuff", "Hiking rulez", "#", "outdoors")
+      purrr::map(pgs, make_article)
     )
   )
 ) %>%
