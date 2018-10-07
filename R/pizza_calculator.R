@@ -20,7 +20,7 @@ pizza <- function(i)
 
 html(
   HTMLhead(
-    titl = "Pizza Calculator", script(src = "../js/pizza_calculator.js"),
+    titl = "Pizza Calculator", "../js/pizza_calculator.js",
     keywords = "Pizza,Calculator,Small,Medium,Large",
     desc = "A calculator to determine which of two pizzas is a better price"
   ),

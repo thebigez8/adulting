@@ -17,12 +17,12 @@ pgs <- list.files("docs", full.names = TRUE, "\\.html", recursive = TRUE) %>%
 
 html(
   HTMLhead(
-    titl = "Home", script(src = "js/index.js"), toggle = TRUE,
+    titl = "Home", "js/index.js", toggle = TRUE, home = "",
     keywords = "Finance,Fun,Faith,Outdoors",
     desc = "Adulting Home Page"
   ),
   body(
-    navbar(updir = FALSE),
+    navbar(home = ""),
     section(
       class = "tag-filters",
       h2("New pages:"),

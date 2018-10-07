@@ -1,7 +1,7 @@
 
 html(
   HTMLhead(
-    titl = "Medical Plan Comparison", script(src = "../js/medical_plans.js"),
+    titl = "Medical Plan Comparison", "../js/medical_plans.js",
     keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay,Calculator",
     desc = "A comparison of two medical plans"
   ),

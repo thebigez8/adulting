@@ -22,7 +22,7 @@ retireTable <- function(ror = 20:1, retireTax = 5:20)
 
 html(
   HTMLhead(
-    titl = "Roth vs. Traditional", script(src = "../js/roth_vs_trad.js"),
+    titl = "Roth vs. Traditional", "../js/roth_vs_trad.js",
     keywords = "Roth,Traditional,Retirement,Roth IRA,IRA,401(k),403(b)",
     desc = "A comparison of Roth vs. Traditional Retirement Accounts"
   ),
