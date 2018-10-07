@@ -1,21 +1,21 @@
 
-retireTable <- function(ror = 20:1, retireTax = 5:20)
+retireTable <- function(ror = 1:20, retireTax = 35:5)
 {
-  rorRow <- function(r)
+  rtaxRow <- function(r)
   {
     tr(
-      if(r == ror[1]) th(id = "ror-th", div("Rate of Return on Retirement Savings"),
-                         rowspan = length(ror)),
-      th(r), purrr::map(retireTax, ~ td(0, id = paste0("cell-", r, "-", .x)))
+      if(r == retireTax[1]) th(id = "retiretax-th", div("Retirement Tax Rate"),
+                               rowspan = length(retireTax)),
+      th(r), purrr::map(ror, ~ td(0, id = paste0("cell-", r, "-", .x)))
     )
   }
   tags$table(
     id = "retireTable", class="width-12",
     thead(
-      tr(th(), th(), th("Retirement Tax Rate", colspan=length(retireTax))),
-      tr(th(), th(), purrr::map(retireTax, th))
+      tr(th(), th(), th("Rate of Return on Retirement Savings", colspan=length(ror))),
+      tr(th(), th(), purrr::map(ror, th))
     ),
-    tbody(purrr::map(ror, rorRow))
+    tbody(purrr::map(retireTax, rtaxRow))
   )
 }
 

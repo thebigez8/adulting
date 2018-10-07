@@ -35,9 +35,9 @@ function calcMoney()
   var catchup = Number(document.getElementById("catchup").value);
   for(var ror = 1; ror <= 20; ror++)
   {
-    for(var rtax = 5; rtax <= 20; rtax++)
+    for(var rtax = 5; rtax <= 35; rtax++)
     {
-      var x = document.getElementById("cell-" + ror + "-" + rtax);
+      var x = document.getElementById("cell-" + rtax + "-" + ror);
       var rth = roth(currAge, retireAge, contribs, ror/100, catchup);
       var trd = trad(currAge, retireAge, contribs, ror/100, currTax, rtax/100, rorTaxSavings, catchup);
       var dif = (rth - trd)/1000;

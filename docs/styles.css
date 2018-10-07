@@ -63,8 +63,8 @@ article.fun div:after {content: "Filed under Fun";}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
 #retireTable tbody th {border-right: 2px solid black;}
 #retireTable th, #retireTable td {padding: 3px 4px; text-align: center; font-size: 0.8em;}
-#ror-th {white-space: nowrap; vertical-align: middle; width: 1.5em;}
-#ror-th div {transform: rotate(-90deg); margin: 0 -7.5em;}
+#retiretax-th {white-space: nowrap; vertical-align: middle; width: 1.5em;}
+#retiretax-th div {transform: rotate(-90deg); margin: 0 -4em;}
 
 .rdbu1 {background-color: #b2182b;}
 .rdbu2 {background-color: #d6604d;}
