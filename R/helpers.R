@@ -4,7 +4,8 @@ Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
                                 "select", "option", "input", "link", "nav",
                                 "ul", "li", "label", "button", "script",
                                 "section", "article")]
-purrr::walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
+library(purrr)
+walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
 library(magrittr)
 p0 <- function(...) p(paste0(...))
 

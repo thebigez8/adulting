@@ -31,7 +31,7 @@ html(
       button("Faith", type = "button", id = "faith-toggle", class = "faith toggler"),
       button("Fun", type = "button", id = "fun-toggle", class = "fun toggler"),
       button("Outdoors", type = "button", id = "outdoors-toggle", class = "outdoors toggler"),
-      purrr::map(pgs, make_article)
+      map(pgs, make_article)
     )
   )
 ) %>%

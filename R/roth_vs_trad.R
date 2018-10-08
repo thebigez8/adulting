@@ -6,16 +6,16 @@ retireTable <- function(ror = 1:20, retireTax = 35:5)
     tr(
       if(r == retireTax[1]) th(id = "retiretax-th", div("Retirement Tax Rate"),
                                rowspan = length(retireTax)),
-      th(r), purrr::map(ror, ~ td(0, id = paste0("cell-", r, "-", .x)))
+      th(r), map(ror, ~ td(0, id = paste0("cell-", r, "-", .x)))
     )
   }
   tags$table(
     id = "retireTable", class="width-12",
     thead(
       tr(th(), th(), th("Rate of Return on Retirement Savings", colspan=length(ror))),
-      tr(th(), th(), purrr::map(ror, th))
+      tr(th(), th(), map(ror, th))
     ),
-    tbody(purrr::map(retireTax, rtaxRow))
+    tbody(map(retireTax, rtaxRow))
   )
 }
 
