@@ -2,7 +2,6 @@
 h1 {margin: 0.5em 0;}
 nav ul {list-style-type: none; margin: 0; padding: 0; background-color: #eee;}
 nav ul:after, .row:after, article:after {content: " "; display: table; clear: both;}
-nav ul li, .col {float: left;}
 nav ul li {margin-right: 15px;}
 nav ul li:hover {background-color: #ddd;}
 nav ul li a, h1 a {text-decoration: none; color: inherit;}
@@ -12,6 +11,8 @@ nav ul li a, h1 a {text-decoration: none; color: inherit;}
 .width-8 {width: 66.66666667%;}
 .width-9 {width: 75%;}
 .width-12 {width: 100%;}
+.right {float: right;}
+nav ul li, .col, .left {float: left;}
 section, article {padding: 0 15px;}
 article {margin-top: 10px;}
 article.bordered{border-left-width: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
@@ -30,12 +31,12 @@ article.finance {border-left-color: #984ea3;}
 article.faith {border-left-color: #377eb8;}
 article.outdoors {border-left-color: #4daf4a;}
 article.fun {border-left-color: #e41a1c;}
-article div {float: right;}
-article div:after {font-size: 0.75em; text-align: right;}
-article.finance div:after {content: "Filed under Finance";}
-article.faith div:after {content: "Filed under Faith";}
-article.outdoors div:after {content: "Filed under Outdoors";}
-article.fun div:after {content: "Filed under Fun";}
+article div.left {font-size: 0.75em; text-align: left;}
+article div.right:after {font-size: 0.75em; text-align: right;}
+article.finance div.right:after {content: "Filed under Finance";}
+article.faith div.right:after {content: "Filed under Faith";}
+article.outdoors div.right:after {content: "Filed under Outdoors";}
+article.fun div.right:after {content: "Filed under Fun";}
 
 /*
   #e41a1c

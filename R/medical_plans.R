@@ -3,7 +3,8 @@ html(
   HTMLhead(
     titl = "Medical Plan Comparison", "../js/medical_plans.js",
     keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay,Calculator",
-    desc = "A comparison of two medical plans"
+    desc = "A comparison of two medical plans",
+    date = "2018-09-18"
   ),
   body(
     class = "finance",

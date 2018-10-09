@@ -16,7 +16,8 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = NULL, toggle = FALSE, keywords = "", desc = "", home = "../")
+HTMLhead <- function(titl, js = NULL, toggle = FALSE,
+                     keywords = "", desc = "", home = "../", date)
 {
   HTML(paste0(paste(
     "<head>",
@@ -24,6 +25,7 @@ HTMLhead <- function(titl, js = NULL, toggle = FALSE, keywords = "", desc = "", 
     tags$meta(name="keywords", content=paste0("adulting,", keywords)),
     tags$meta(name="description", content=desc),
     tags$meta(name="author", content="E Heinzen"),
+    tags$meta(name="date", content=date),
     tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
     link(rel="stylesheet", href=paste0(home, "styles.css")),
     if(toggle) script(src = paste0(home, "js/toggle.js")),

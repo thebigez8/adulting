@@ -6,22 +6,31 @@ make_article <- function(URL)
   clss <- pg %>%
     rvest::html_nodes("body") %>%
     rvest::html_attr("class", default = "")
-  article(
-    class = paste0("toggleable bordered ", clss),
-    h3(a(titl, href = sub("docs/", "", URL))),
-    p(rvest::html_attrs(met)[[3]]["content"]),
-    div()
+  date <- rvest::html_attrs(met)[[5]]["content"]
+  list(
+    article(
+      class = paste0("toggleable bordered ", clss),
+      h3(a(titl, href = sub("docs/", "", URL))),
+      p(rvest::html_attrs(met)[[3]]["content"]),
+      div(class = "left", date),
+      div(class = "right")
+    ),
+    date = date
   )
 }
 
 pgs <- list.files("docs", full.names = TRUE, "\\.html", recursive = TRUE) %>%
-  "["(. != "docs/index.html")
+  "["(. != "docs/index.html") %>%
+  map(make_article) %>%
+  "["(order(map_chr(., "date"), decreasing = TRUE)) %>%
+  map(1)
 
 html(
   HTMLhead(
     titl = "Home", "js/index.js", toggle = TRUE, home = "",
     keywords = "Finance,Fun,Faith,Outdoors",
-    desc = "Adulting Home Page"
+    desc = "Adulting Home Page",
+    date = "2018-10-08"
   ),
   body(
     navbar(home = ""),
@@ -33,7 +42,7 @@ html(
       button("Faith", type = "button", id = "faith-toggle", class = "faith toggler"),
       button("Fun", type = "button", id = "fun-toggle", class = "fun toggler"),
       button("Outdoors", type = "button", id = "outdoors-toggle", class = "outdoors toggler"),
-      map(pgs, make_article)
+      pgs
     )
   )
 ) %>%

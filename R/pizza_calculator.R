@@ -22,7 +22,8 @@ html(
   HTMLhead(
     titl = "Pizza Calculator", "../js/pizza_calculator.js",
     keywords = "Pizza,Calculator,Small,Medium,Large",
-    desc = "A calculator to determine which of two pizzas is a better price"
+    desc = "A calculator to determine which of two pizzas is a better price",
+    date = "2018-09-19"
   ),
   body(
     class = "finance",

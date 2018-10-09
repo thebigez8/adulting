@@ -24,7 +24,8 @@ html(
   HTMLhead(
     titl = "Roth vs. Traditional", "../js/roth_vs_trad.js",
     keywords = "Roth,Traditional,Retirement,Roth IRA,IRA,401(k),403(b)",
-    desc = "A comparison of Roth vs. Traditional Retirement Accounts"
+    desc = "A comparison of Roth vs. Traditional Retirement Accounts",
+    date = "2018-09-15"
   ),
   body(
     class = "finance",
