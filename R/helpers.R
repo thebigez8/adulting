@@ -7,7 +7,7 @@ Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
 library(purrr)
 walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
 library(magrittr)
-p0 <- function(...) p(paste0(...))
+p0 <- function(..., as.html = FALSE) p(if(as.html) HTML(paste0(...)) else paste0(...))
 
 write2file <- function(x, file)
 {
@@ -16,7 +16,7 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = NULL, toggle = FALSE,
+HTMLhead <- function(titl, js = paste0(home, "js/blank.js"), toggle = FALSE,
                      keywords = "", desc = "", home = "../", date)
 {
   HTML(paste0(paste(
@@ -29,7 +29,7 @@ HTMLhead <- function(titl, js = NULL, toggle = FALSE,
     tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
     link(rel="stylesheet", href=paste0(home, "styles.css")),
     if(toggle) script(src = paste0(home, "js/toggle.js")),
-    if(!is.null(js)) script(src = js),
+    script(src = js),
     script(src = paste0(home, "js/init.js")),
     sep = "\n    "
   ), "\n</head>"))
