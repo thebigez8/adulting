@@ -12,8 +12,8 @@ make_article <- function(URL)
       class = paste0("toggleable bordered ", clss),
       h3(a(titl, href = sub("docs/", "", URL))),
       p(rvest::html_attrs(met)[[3]]["content"]),
-      div(class = "left", date),
-      div(class = "right")
+      div(class = "left text-left", date),
+      div(class = "right text-right")
     ),
     date = date
   )

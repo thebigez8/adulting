@@ -36,7 +36,6 @@ html(
           "traditional health plan."
         ),
         tags$table(
-          class="border-collapse",
           thead(tr(th(), th("Traditional"), th("High Deductible"))),
           tbody(
             class="inputs-table",

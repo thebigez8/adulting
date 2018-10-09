@@ -13,10 +13,13 @@ nav ul li a, h1 a {text-decoration: none; color: inherit;}
 .width-12 {width: 100%;}
 .right {float: right;}
 nav ul li, .col, .left {float: left;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}
 section, article {padding: 0 15px;}
 article {margin-top: 10px;}
 article.bordered{border-left-width: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
 p {margin: 15px 0;}
+th, td {text-align: center; padding: 5px 10px;}
 
 .hidden {display:none;}
 button:focus {outline: none;}
@@ -31,8 +34,7 @@ article.finance {border-left-color: #984ea3;}
 article.faith {border-left-color: #377eb8;}
 article.outdoors {border-left-color: #4daf4a;}
 article.fun {border-left-color: #e41a1c;}
-article div.left {font-size: 0.75em; text-align: left;}
-article div.right:after {font-size: 0.75em; text-align: right;}
+article div {font-size: 0.75em;}
 article.finance div.right:after {content: "Filed under Finance";}
 article.faith div.right:after {content: "Filed under Faith";}
 article.outdoors div.right:after {content: "Filed under Outdoors";}
@@ -60,10 +62,9 @@ article.fun div.right:after {content: "Filed under Fun";}
   .inputs-table input, .inputs-table select
   {display: block; width: 100%; margin: 10px 0; padding: 5px;}
 .outputs-panel {padding: 0 15px;}
-#retireTable {border-collapse: collapse;}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
 #retireTable tbody th {border-right: 2px solid black;}
-#retireTable th, #retireTable td {padding: 3px 4px; text-align: center; font-size: 0.8em;}
+#retireTable th, #retireTable td {padding: 3px 4px; font-size: 0.8em;}
 #retiretax-th {white-space: nowrap; vertical-align: middle; width: 1.5em;}
 #retiretax-th div {transform: rotate(-90deg); margin: 0 -4em;}
 
@@ -77,8 +78,9 @@ article.fun div.right:after {content: "Filed under Fun";}
 .rdbu8 {background-color: #4393c3;}
 .rdbu9 {background-color: #2166ac;}
 
-.border-collapse {border-collapse: collapse;}
+table {border-collapse: collapse;}
 .bordered {border: 1px solid black;}
+table.bordered th, table.bordered td {border: 1px solid black;}
 .round {border-radius: 50%;}
 .centered {margin-left: auto; margin-right: auto;}
 
