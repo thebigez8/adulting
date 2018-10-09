@@ -46,7 +46,7 @@ navbar <- function(home = "../")
   )
 }
 
-source("R/index.R")
 source("R/roth_vs_trad.R")
 source("R/medical_plans.R")
 source("R/pizza_calculator.R")
+source("R/index.R")

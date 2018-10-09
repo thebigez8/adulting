@@ -25,6 +25,7 @@ html(
     desc = "A calculator to determine which of two pizzas is a better price"
   ),
   body(
+    class = "finance",
     navbar(),
     h2("Pizza Calculator"),
     div(

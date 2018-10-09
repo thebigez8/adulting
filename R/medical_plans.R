@@ -6,6 +6,7 @@ html(
     desc = "A comparison of two medical plans"
   ),
   body(
+    class = "finance",
     navbar(),
     div(
       class="row",

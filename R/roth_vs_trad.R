@@ -27,6 +27,7 @@ html(
     desc = "A comparison of Roth vs. Traditional Retirement Accounts"
   ),
   body(
+    class = "finance",
     navbar(),
     div(
       class="row",

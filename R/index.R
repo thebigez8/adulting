@@ -1,11 +1,13 @@
 make_article <- function(URL)
 {
-  met <- URL %>%
-    xml2::read_html() %>%
-    rvest::html_nodes("meta, title")
+  pg <- xml2::read_html(URL)
+  met <- rvest::html_nodes(pg, "meta, title")
   titl <- gsub("^Adulting: ", "", rvest::html_text(met[[1]]))
+  clss <- pg %>%
+    rvest::html_nodes("body") %>%
+    rvest::html_attr("class", default = "")
   article(
-    class = paste0("toggleable bordered ", sub("^.*/(.*)/.*\\.html$", "\\1", URL)),
+    class = paste0("toggleable bordered ", clss),
     h3(a(titl, href = sub("docs/", "", URL))),
     p(rvest::html_attrs(met)[[3]]["content"]),
     div()
