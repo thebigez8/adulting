@@ -4,12 +4,15 @@
 #   html
 # }
 
-state.parks <- read.csv("rawdata/state_parks.csv", header = TRUE, stringsAsFactors = FALSE)
-park_row <- function(name, ID, date, hc.len, len, hc.rating, rating, experience)
+state.parks <- "rawdata/state_parks.csv" %>%
+  read.csv(header = TRUE, stringsAsFactors = FALSE) %>%
+  dplyr::arrange(-as.numeric(as.Date(date)))
+park_row <- function(name, ID, date, hc.len, len, summer, hc.rating, rating, experience)
 {
   home <- paste0("https://www.dnr.state.mn.us/state_parks/park.html?id=", ID, "#homepage")
   trails <- sub("#homepage", "#trails", home, fixed = TRUE)
-  mappdf <- paste0("https://files.dnr.state.mn.us/maps/state_parks/", ID, ".pdf")
+  if(summer == "Y") summer <- "_summer"
+  mappdf <- paste0("https://files.dnr.state.mn.us/maps/state_parks/", ID, summer, ".pdf")
   tr(
     th(a(name, href = home)),
     td(date),
@@ -47,7 +50,8 @@ html(
         th("Hiking Club Trail Rating", tags$br(), "(Total Rating)")
       ),
       tbody(
-        pmap(state.parks, park_row)
+        pmap(state.parks, park_row),
+        tr(td(colspan = 3), td(sum(state.parks$hc.len)), td())
       )
     )
 

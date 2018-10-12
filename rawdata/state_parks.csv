@@ -1,3 +1,14 @@
-"name","ID","date","hc.len","len","hc.rating","rating","experience"
-"Whitewater","spk00280","2016-08-01",2.2,10,4,5,""
-"Nerstrand Big Woods","spk00241","2016-08-15",2.2,11,4,4,""
+name,ID,date,hc.len,len,summer,hc.rating,rating,experience
+Afton,spk00100,2018-05-28,2.5,20,Y,3,3,Cool in the winter
+Beaver Creek Valley,spk00112,2018-05-22,6.2,8,,3,3,Creek
+Buffalo River,spk00124,2018-09-21,2.5,12,,2.5,2.5,
+Carley,spk00130,2018-09-09,1.8,5,,4,4.5,Like Whitewater
+Fort Snelling,spk00154,2018-05-28,3,18,Y,1.5,1.5,Mosquitoes
+Frontenac,spk00160,,2.6,13,Y,4,4,snake
+Great River Bluffs,spk00244,,2.5,6.5,Y,3.5,4,views
+John A. Latsch,spk00177,2018-09-09,0,0.5,,3.5,3.5,steps
+Lake Louise,spk00214,2018-09-08,1.3,11.6,,1,3,water crossings
+Myre-Big Island,spk00175,2018-09-01,6.2,16,,1.5,1.5,frogs
+Nerstrand Big Woods,spk00241,,2.2,11,,4,4,waterfall
+Rice Lake,spk00250,,2.4,5,,1.5,1.5,meh
+Whitewater,spk00280,,2.2,10,,4,5,
