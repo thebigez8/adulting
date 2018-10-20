@@ -62,7 +62,7 @@ html(
           "the Roth performs better, whereas red indicates that the traditional performs better. ",
           "Hover over each cell to find the final value of each account."
         ),
-        retireTable(),
+        div(class="scroller-x", retireTable()),
         p0(
           "Assumptions: Tax savings from contributions to the tax-deferred account are invested ",
           "at the rate input, but the gains are taxed each year at the current tax rate. ",
