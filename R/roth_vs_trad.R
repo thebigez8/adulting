@@ -58,7 +58,7 @@ html(
         class = "col width-9 outputs-panel",
         p0(
           "This table demonstrates the value of a Roth Account over a traditional account ",
-          "no the day your retire (after applicable taxes are taken out). Blue indicates that ",
+          "on the day your retire (after applicable taxes are taken out). Blue indicates that ",
           "the Roth performs better, whereas red indicates that the traditional performs better. ",
           "Hover over each cell to find the final value of each account."
         ),
