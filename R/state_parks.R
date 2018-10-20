@@ -23,6 +23,7 @@ park_row <- function(name, ID, date, hc.len, len, summer, hc.rating, rating, exp
 }
 
 html(
+  class = "outdoors",
   HTMLhead(
     titl = "MN State Parks", home = "../../",
     keywords = "Hiking,MN,Hiking Club,Hiking Trails,Minnesota,State Parks",
@@ -30,7 +31,6 @@ html(
     date = "2018-10-08"
   ),
   body(
-    class = "outdoors",
     navbar(home = "../../"),
     h2("Minnesota State Parks"),
     p0(

@@ -19,6 +19,7 @@ pizza <- function(i)
 }
 
 html(
+  class = "finance",
   HTMLhead(
     titl = "Pizza Calculator", "../js/pizza_calculator.js",
     keywords = "Pizza,Calculator,Small,Medium,Large",
@@ -26,7 +27,6 @@ html(
     date = "2018-09-19"
   ),
   body(
-    class = "finance",
     navbar(),
     h2("Pizza Calculator"),
     div(

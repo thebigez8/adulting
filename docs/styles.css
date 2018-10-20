@@ -1,6 +1,19 @@
 * {box-sizing: border-box;}
-h1 {margin: 0.5em 0;}
-nav ul {list-style-type: none; margin: 0; padding: 0; background-color: #eee;}
+html.home {background-color: #eee;}
+html.finance {background-color: #984ea3;}
+html.faith {background-color: #377eb8;}
+html.outdoors {background-color: #4daf4a;}
+html.fun {background-color: #e41a1c;}
+body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px;}
+h1 {margin: 8px 0;}
+html h1:after {font-size: 0.5em;}
+html.home h1:after {content: "HOME";}
+html.finance h1:after {content: "FINANCE"; color: #984ea3;}
+html.faith h1:after {content: "FAITH"; color: #377eb8;}
+html.outdoors h1:after {content: "OUTDOORS"; color: #4daf4a;}
+html.fun h1:after {content: "FUN"; color: #e41a1c;}
+nav {background-color: #eee; margin: 0 -8px; padding: 0 8px;}
+nav ul {list-style-type: none; margin: 0; padding: 0;}
 nav ul:after, .row:after, article:after {content: " "; display: table; clear: both;}
 nav ul li {margin-right: 15px;}
 nav ul li:hover {background-color: #ddd;}
@@ -15,7 +28,7 @@ nav ul li a, h1 a {text-decoration: none; color: inherit;}
 nav ul li, .col, .left {float: left;}
 .text-left {text-align: left;}
 .text-right {text-align: right;}
-section, article {padding: 0 15px;}
+article {padding: 0 15px;}
 article {margin-top: 10px;}
 article.bordered{border-left-width: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
 p {margin: 15px 0;}
@@ -62,6 +75,7 @@ article.fun div.right:after {content: "Filed under Fun";}
   .inputs-table input, .inputs-table select
   {display: block; width: 100%; margin: 10px 0; padding: 5px;}
 .outputs-panel {padding: 0 15px;}
+.scroller-x {overflow-x: scroll;}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
 #retireTable tbody th {border-right: 2px solid black;}
 #retireTable th, #retireTable td {padding: 3px 4px; font-size: 0.8em;}

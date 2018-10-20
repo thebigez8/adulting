@@ -3,9 +3,7 @@ make_article <- function(URL)
   pg <- xml2::read_html(URL)
   met <- rvest::html_nodes(pg, "meta, title")
   titl <- gsub("^Adulting: ", "", rvest::html_text(met[[1]]))
-  clss <- pg %>%
-    rvest::html_nodes("body") %>%
-    rvest::html_attr("class", default = "")
+  clss <- rvest::html_attr(pg, "class", default = "")
   date <- rvest::html_attrs(met)[[5]]["content"]
   list(
     article(
@@ -26,6 +24,7 @@ pgs <- list.files("docs", full.names = TRUE, "\\.html", recursive = TRUE) %>%
   map(1)
 
 html(
+  class = "home",
   HTMLhead(
     titl = "Home", "js/index.js", toggle = TRUE, home = "",
     keywords = "Finance,Fun,Faith,Outdoors",
