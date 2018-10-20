@@ -41,8 +41,8 @@ html(
             class="inputs-table",
             tr(
               th("Yearly Premiums"),
-              td(input(type="number", id="premium1", value=1920, step=1)),
-              td(input(type="number", id="premium2", value=504, step=1))
+              td(input(type="number", id="premium1", value=2100, step=1)),
+              td(input(type="number", id="premium2", value=540, step=1))
             ),
             tr(
               th("Per-Person Deductible"),
@@ -68,11 +68,11 @@ html(
               th("Yearly HSA/FSA contributions"),
               td(
                 label(`for`="fsa", "FSA"),
-                input(type="number", id="fsa", value=2650, step=1)
+                input(type="number", id="fsa", value=2700, step=1)
               ),
               td(
                 label(`for`="hsa", "HSA"),
-                input(type="number", id="hsa", value=3450, step=1)
+                input(type="number", id="hsa", value=7000, step=1)
               )
             )
           ),
@@ -86,7 +86,7 @@ html(
             tr(
               th("Person 1 Copays"),
               td(input(type="number", id="copay11", value=25, step=1)),
-              td(input(type="number", id="copay12", value=25, step=1))
+              td(input(type="number", id="copay12", value=0, step=1))
             ),
             tr(
               th("Person 2 Medical Expenses"),
@@ -96,7 +96,7 @@ html(
             tr(
               th("Person 2 Copays"),
               td(input(type="number", id="copay21", value=25, step=1)),
-              td(input(type="number", id="copay22", value=25, step=1))
+              td(input(type="number", id="copay22", value=0, step=1))
             ),
             tr(
               th("Person 3 Medical Expenses"),
