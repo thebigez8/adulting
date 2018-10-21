@@ -4,7 +4,7 @@ html.finance {background-color: #984ea3;}
 html.faith {background-color: #377eb8;}
 html.outdoors {background-color: #4daf4a;}
 html.fun {background-color: #e41a1c;}
-body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px;}
+body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px; font-size: 16px;}
 h1 {margin: 8px 0;}
 html h1:after {font-size: 0.5em;}
 html.home h1:after {content: "HOME";}
@@ -24,15 +24,11 @@ nav ul li a, h1 a {text-decoration: none; color: inherit;}
 .width-8 {width: 66.66666667%;}
 .width-9 {width: 75%;}
 .width-12 {width: 100%;}
-@media (max-width: 575px){
-  .col {width: 100%;} /* overrule any other widths specified */
-}
 .right {float: right;}
 nav ul li, .col, .left {float: left;}
 .text-left {text-align: left;}
 .text-right {text-align: right;}
-article {padding: 0 15px;}
-article {margin-top: 10px;}
+article {padding: 0 15px; margin-top: 10px;}
 article.bordered{border-left-width: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
 p {margin: 15px 0;}
 th, td {text-align: center; padding: 5px 10px;}
@@ -74,7 +70,7 @@ article.fun div.right:after {content: "Filed under Fun";}
 .inputs-panel input, .inputs-panel select,
   .inputs-table input, .inputs-table select
   {display: block; width: 100%; margin: 10px 0; padding: 5px;}
-.scroller-x {overflow-x: scroll;}
+.scroller-x {overflow-x: auto;}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
 #retireTable tbody th {border-right: 2px solid black;}
 #retireTable th, #retireTable td {padding: 3px 4px; font-size: 0.8em;}
@@ -100,3 +96,10 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 /*these float below each other when window resized */
 .pizza {width: 258px; height: 258px; padding: 50px;}
 .pizza-box {min-width: 258px;}
+
+@media (max-width: 575px){
+  .col {width: 100%;} /* overrule any other widths specified */
+  .outputs-panel {padding: 0;}
+  th, td {padding: 5px;}
+  table {font-size: 0.8em;}
+}
