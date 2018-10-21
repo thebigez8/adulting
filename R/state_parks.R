@@ -42,19 +42,21 @@ html(
       "."
     ),
     p("Here's a list of all the state parks whose hiking club trail I've completed:"),
-    tags$table(
-      class = "bordered",
-      thead(
-        th("Park"), th("Date Visited"), th("Map"),
-        th("Hiking Club Length", tags$br(), "(Total Trails)"),
-        th("Hiking Club Trail Rating", tags$br(), "(Total Rating)")
-      ),
-      tbody(
-        pmap(state.parks, park_row),
-        tr(td(colspan = 3), td(sum(state.parks$hc.len)), td())
+    div(
+      class = "scroller-x",
+      tags$table(
+        class = "bordered",
+        thead(
+          th("Park"), th("Date Visited"), th("Map"),
+          th("Hiking Club Length", tags$br(), "(Total Trails)"),
+          th("Hiking Club Trail Rating", tags$br(), "(Total Rating)")
+        ),
+        tbody(
+          pmap(state.parks, park_row),
+          tr(td(colspan = 3), td(sum(state.parks$hc.len)), td())
+        )
       )
     )
-
   )
 ) %>%
   write2file(file = "docs/outdoors/MN_state_parks/index.html")
