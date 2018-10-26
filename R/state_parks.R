@@ -28,7 +28,7 @@ html(
     titl = "MN State Parks", home = "../../",
     keywords = "Hiking,MN,Hiking Club,Hiking Trails,Minnesota,State Parks",
     desc = "Information about and reviews of MN State Parks",
-    date = "2018-10-08"
+    date = "2018-10-25"
   ),
   body(
     navbar(home = "../../"),
