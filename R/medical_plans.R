@@ -17,7 +17,7 @@ html(
         label(`for`="coi", "Coinsurance Rate"),
         input(type="number", id="coi", value=20, step=1),
         label(`for`="currTax", "Current Tax Rate"),
-        input(type="number", id="currTax", value=20, step=1),
+        input(type="number", id="currTax", value=35, step=1),
         label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
         input(type="number", id="rorTaxSavings", value=5, step=1),
         label(`for`="freqContribs", "Frequency of FSA/HSA Contributions"),
@@ -26,8 +26,7 @@ html(
           option(value=26, "Every Other Week"),
           option(value=24, "Twice per Month"),
           option(value=12, "Once per Month")
-        ),
-        button("Calculate!", id = "submit")
+        )
       ),
       div(
         class = "col width-9 outputs-panel",
@@ -127,6 +126,7 @@ html(
               td(id="oop2")
             ),
             tr(
+              class = "thickbottom",
               th("Tax Savings + Interest Gained"),
               td(id="savings1"),
               td(id="savings2")

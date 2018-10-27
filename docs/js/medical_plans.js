@@ -1,7 +1,16 @@
 
 function init()
 {
-  document.getElementById("submit").addEventListener("click", calcMoney);
+  var inputs = document.getElementsByTagName("input");
+  for(var i=0; i < inputs.length; i++)
+  {
+    inputs[i].addEventListener("change", calcMoney);
+  }
+  var selects = document.getElementsByTagName("select");
+  for(var j=0; j < selects.length; j++)
+  {
+    selects[j].addEventListener("change", calcMoney);
+  }
   calcMoney();
 }
 
