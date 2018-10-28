@@ -6,10 +6,27 @@ function init()
   {
     inputs[i].addEventListener("change", calcMoney);
   }
-  var freqContribs = document.getElementById("freqContribs");
-  freqContribs.addEventListener("change", calcMoney);
+  document.getElementById("freqContribs").addEventListener("change", calcMoney);
+  document.getElementById("mayobasic").addEventListener("click", mayobasic);
+  document.getElementById("mayoselect").addEventListener("click", mayoselect);
+  document.getElementById("mayopremier").addEventListener("click", mayopremier);
+
+  mayoselect();
+  mayobasic();
   calcMoney();
 }
+
+function mayopresets(premium, ppdeduct, famdeduct, ppoopm, famoopm, column)
+{
+  document.getElementById("premium" + column).value = premium;
+  document.getElementById("ppdeduct" + column).value = ppdeduct;
+  document.getElementById("famdeduct" + column).value = famdeduct;
+  document.getElementById("ppoopm" + column).value = ppoopm;
+  document.getElementById("famoopm" + column).value = famoopm;
+}
+function mayopremier(){mayopresets(310*12, 500, 1000, 2500, 5000, 1);}
+function mayoselect(){mayopresets(175*12, 1000, 2000, 4000, 8000, 1);}
+function mayobasic(){mayopresets(45*12, 4000, 4000, 5000, 10000, 2);}
 
 function medicalplan(costs, copays, ppdeduct, famdeduct, ppoopm, famoopm)
 {

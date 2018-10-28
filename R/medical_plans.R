@@ -26,6 +26,13 @@ html(
           option(value=26, "Every Other Week"),
           option(value=24, "Twice per Month"),
           option(value=12, "Once per Month")
+        ),
+        label("Presets:"),
+        div(
+          class = "row",
+          button(class = "left width-4", id = "mayopremier", "Premier"),
+          button(class = "left width-4", id = "mayoselect", "Select"),
+          button(class = "left width-4", id = "mayobasic", "Basic")
         )
       ),
       div(
@@ -40,28 +47,28 @@ html(
             class="inputs-table",
             tr(
               th("Yearly Premiums"),
-              td(input(type="number", id="premium1", value=2100, step=1)),
-              td(input(type="number", id="premium2", value=540, step=1))
+              td(input(type="number", id="premium1", step=1)),
+              td(input(type="number", id="premium2", step=1))
             ),
             tr(
               th("Per-Person Deductible"),
-              td(input(type="number", id="ppdeduct1", value=1000, step=1)),
-              td(input(type="number", id="ppdeduct2", value=4000, step=1))
+              td(input(type="number", id="ppdeduct1", step=1)),
+              td(input(type="number", id="ppdeduct2", step=1))
             ),
             tr(
               th("Family Deductible"),
-              td(input(type="number", id="famdeduct1", value=2000, step=1)),
-              td(input(type="number", id="famdeduct2", value=4000, step=1))
+              td(input(type="number", id="famdeduct1", step=1)),
+              td(input(type="number", id="famdeduct2", step=1))
             ),
             tr(
               th("Per-Person Out of Pocket Max"),
-              td(input(type="number", id="ppoopm1", value=4000, step=1)),
-              td(input(type="number", id="ppoopm2", value=5000, step=1))
+              td(input(type="number", id="ppoopm1", step=1)),
+              td(input(type="number", id="ppoopm2", step=1))
             ),
             tr(
               th("Family Out of Pocket Max"),
-              td(input(type="number", id="famoopm1", value=8000, step=1)),
-              td(input(type="number", id="famoopm2", value=10000, step=1))
+              td(input(type="number", id="famoopm1", step=1)),
+              td(input(type="number", id="famoopm2", step=1))
             ),
             tr(
               th("Yearly HSA/FSA contributions"),
