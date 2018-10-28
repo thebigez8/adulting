@@ -6,11 +6,8 @@ function init()
   {
     inputs[i].addEventListener("change", calcMoney);
   }
-  var selects = document.getElementsByTagName("select");
-  for(var j=0; j < selects.length; j++)
-  {
-    selects[j].addEventListener("change", calcMoney);
-  }
+  var freqContribs = document.getElementById("freqContribs");
+  freqContribs.addEventListener("change", calcMoney);
   calcMoney();
 }
 
@@ -79,6 +76,9 @@ function calcMoney()
     document.getElementById("copay32").value,
     document.getElementById("copay42").value
   ];
+
+  var premium1 = Number(document.getElementById("premium1").value);
+  var premium2 = Number(document.getElementById("premium2").value);
   var ppdeduct1 = Number(document.getElementById("ppdeduct1").value);
   var ppdeduct2 = Number(document.getElementById("ppdeduct2").value);
   var famdeduct1 = Number(document.getElementById("famdeduct1").value);
@@ -90,11 +90,8 @@ function calcMoney()
 
   var fsa = Number(document.getElementById("fsa").value);
   var oop1 = Math.max(fsa, medicalplan(costs1, copays1, ppdeduct1, famdeduct1, ppoopm1, famoopm1)) +
-    Number(document.getElementById("premium1").value);
-  var oop2 = medicalplan(costs2, copays2, ppdeduct2, famdeduct2, ppoopm2, famoopm2) +
-    Number(document.getElementById("premium2").value);
-
-
+    premium1;
+  var oop2 = medicalplan(costs2, copays2, ppdeduct2, famdeduct2, ppoopm2, famoopm2) + premium2;
 
   document.getElementById("oop1").innerHTML = '$' + oop1.toFixed(2);
   document.getElementById("oop2").innerHTML = '$' + oop2.toFixed(2);
@@ -105,8 +102,9 @@ function calcMoney()
   var ror = Number(document.getElementById("rorTaxSavings").value) / 100;
   var freqContribs = Number(document.getElementById("freqContribs").value);
 
-  var fsaSavings = tax * fsa;
-  var hsaSavings = (tax * hsa) - hsa; // minus hsa to even out value of contributions minus interest
+  var fsaSavings = tax * (fsa + premium1);
+   // minus hsa because we're adding it in when we calculate our interest gained
+  var hsaSavings = (tax * (hsa + premium2)) - hsa;
   for(var i=1; i <= freqContribs; i++)
   {
     hsaSavings += (hsa / freqContribs) * Math.pow(1 + ror, i / freqContribs);
