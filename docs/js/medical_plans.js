@@ -16,23 +16,42 @@ function init()
   calcMoney();
 }
 
-function mayopresets(premium, ppdeduct, famdeduct, ppoopm, famoopm, column)
+function mayopresets(premium, ppdeduct, famdeduct, ppoopm, famoopm, coi, column)
 {
   document.getElementById("premium" + column).value = premium;
   document.getElementById("ppdeduct" + column).value = ppdeduct;
   document.getElementById("famdeduct" + column).value = famdeduct;
   document.getElementById("ppoopm" + column).value = ppoopm;
   document.getElementById("famoopm" + column).value = famoopm;
+  document.getElementById("coi" + column).value = coi;
+  calcMoney();
 }
-function mayopremier(){mayopresets(310*12, 500, 1000, 2500, 5000, 1);}
-function mayoselect(){mayopresets(175*12, 1000, 2000, 4000, 8000, 1);}
-function mayobasic(){mayopresets(45*12, 4000, 4000, 5000, 10000, 2);}
+function mayopremier(){mayopresets(310*12, 500, 1000, 2500, 5000, 20, 1);}
+function mayoselect(){mayopresets(175*12, 1000, 2000, 4000, 8000, 20, 1);}
+function mayobasic(){mayopresets(45*12, 4000, 4000, 5000, 10000, 20, 2);}
 
-function medicalplan(costs, copays, ppdeduct, famdeduct, ppoopm, famoopm)
+function medicalplan(column)
 {
+  var ppdeduct = Number(document.getElementById("ppdeduct" + column).value);
+  var famdeduct = Number(document.getElementById("famdeduct" + column).value);
+  var ppoopm = Number(document.getElementById("ppoopm" + column).value);
+  var famoopm = Number(document.getElementById("famoopm" + column).value);
+  var coi = Number(document.getElementById("coi" + column).value) / 100;
+  var costs = [
+    document.getElementById("cost1" + column).value,
+    document.getElementById("cost2" + column).value,
+    document.getElementById("cost3" + column).value,
+    document.getElementById("cost4" + column).value
+  ];
+  var copays = [
+    document.getElementById("copay1" + column).value,
+    document.getElementById("copay2" + column).value,
+    document.getElementById("copay3" + column).value,
+    document.getElementById("copay4" + column).value
+  ];
+
   var totalSpent = 0;
   var spentDeduct = 0;
-  var coi = Number(document.getElementById("coi").value) / 100;
   for(var i=0; i < costs.length; i++)
   {
     var cost = Number(costs[i]);
@@ -69,46 +88,12 @@ function medicalplan(costs, copays, ppdeduct, famdeduct, ppoopm, famoopm)
 
 function calcMoney()
 {
-  var costs1 = [
-    document.getElementById("cost11").value,
-    document.getElementById("cost21").value,
-    document.getElementById("cost31").value,
-    document.getElementById("cost41").value
-  ];
-  var costs2 = [
-    document.getElementById("cost12").value,
-    document.getElementById("cost22").value,
-    document.getElementById("cost32").value,
-    document.getElementById("cost42").value
-  ];
-  var copays1 = [
-    document.getElementById("copay11").value,
-    document.getElementById("copay21").value,
-    document.getElementById("copay31").value,
-    document.getElementById("copay41").value
-  ];
-  var copays2 = [
-    document.getElementById("copay12").value,
-    document.getElementById("copay22").value,
-    document.getElementById("copay32").value,
-    document.getElementById("copay42").value
-  ];
-
   var premium1 = Number(document.getElementById("premium1").value);
   var premium2 = Number(document.getElementById("premium2").value);
-  var ppdeduct1 = Number(document.getElementById("ppdeduct1").value);
-  var ppdeduct2 = Number(document.getElementById("ppdeduct2").value);
-  var famdeduct1 = Number(document.getElementById("famdeduct1").value);
-  var famdeduct2 = Number(document.getElementById("famdeduct2").value);
-  var ppoopm1 = Number(document.getElementById("ppoopm1").value);
-  var ppoopm2 = Number(document.getElementById("ppoopm2").value);
-  var famoopm1 = Number(document.getElementById("famoopm1").value);
-  var famoopm2 = Number(document.getElementById("famoopm2").value);
 
   var fsa = Number(document.getElementById("fsa").value);
-  var oop1 = Math.max(fsa, medicalplan(costs1, copays1, ppdeduct1, famdeduct1, ppoopm1, famoopm1)) +
-    premium1;
-  var oop2 = medicalplan(costs2, copays2, ppdeduct2, famdeduct2, ppoopm2, famoopm2) + premium2;
+  var oop1 = Math.max(fsa, medicalplan(1)) + premium1;
+  var oop2 = medicalplan(2) + premium2;
 
   document.getElementById("oop1").innerHTML = '$' + oop1.toFixed(2);
   document.getElementById("oop2").innerHTML = '$' + oop2.toFixed(2);

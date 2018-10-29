@@ -14,12 +14,10 @@ html(
       div(
         class="col width-3 inputs-panel bordered",
         h2("Input"),
-        label(`for`="coi", "Coinsurance Rate"),
-        input(type="number", id="coi", value=20, step=1),
-        label(`for`="currTax", "Current Tax Rate"),
-        input(type="number", id="currTax", value=35, step=1),
         label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
         input(type="number", id="rorTaxSavings", value=5, step=1),
+        label(`for`="currTax", "Current Tax Rate"),
+        input(type="number", id="currTax", value=35, step=1),
         label(`for`="freqContribs", "Frequency of FSA/HSA Contributions"),
         select(
           id="freqContribs",
@@ -69,6 +67,11 @@ html(
               th("Family Out of Pocket Max"),
               td(input(type="number", id="famoopm1", step=1)),
               td(input(type="number", id="famoopm2", step=1))
+            ),
+            tr(
+              th("Coinsurance Rate"),
+              td(input(type="number", id="coi1", step=1)),
+              td(input(type="number", id="coi2", step=1))
             ),
             tr(
               th("Yearly HSA/FSA contributions"),
