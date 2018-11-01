@@ -7,28 +7,52 @@ function init()
     inputs[i].addEventListener("change", calcMoney);
   }
   document.getElementById("freqContribs").addEventListener("change", calcMoney);
+  document.getElementById("coverage").addEventListener("change", updateCoverage);
   document.getElementById("mayobasic").addEventListener("click", mayobasic);
   document.getElementById("mayoselect").addEventListener("click", mayoselect);
   document.getElementById("mayopremier").addEventListener("click", mayopremier);
 
-  mayoselect();
   mayobasic();
-  calcMoney();
+  mayopremier();
 }
 
-function mayopresets(premium, ppdeduct, famdeduct, ppoopm, famoopm, coi, column)
+function updateCoverage()
 {
-  document.getElementById("premium" + column).value = premium;
+  mayobasic();
+  mayopremier();
+  (toggle(this))();
+}
+
+function mayopresets(singlepremium, singlededuct, singleoopm,
+                     fampremium, ppdeduct, famdeduct, ppoopm, famoopm,
+                     coi, singlefsahsa, famfsahsa, column)
+{
+  if(document.getElementById("coverage").value == "single")
+  {
+    for(var i = 2; i <= 4; i++)
+    {
+      document.getElementById("cost" + i + column).value = 0;
+      document.getElementById("copay" + i + column).value = 0;
+    }
+    fampremium = singlepremium;
+    ppdeduct = singlededuct;
+    famdeduct = singlededuct;
+    ppoopm = singleoopm;
+    famoopm = singleoopm;
+    famfsahsa = singlefsahsa;
+  }
+  document.getElementById("premium" + column).value = fampremium;
   document.getElementById("ppdeduct" + column).value = ppdeduct;
   document.getElementById("famdeduct" + column).value = famdeduct;
   document.getElementById("ppoopm" + column).value = ppoopm;
   document.getElementById("famoopm" + column).value = famoopm;
   document.getElementById("coi" + column).value = coi;
+  document.getElementById("fsahsa" + column).value = famfsahsa;
   calcMoney();
 }
-function mayopremier(){mayopresets(310*12, 500, 1000, 2500, 5000, 20, 1);}
-function mayoselect(){mayopresets(175*12, 1000, 2000, 4000, 8000, 20, 1);}
-function mayobasic(){mayopresets(45*12, 4000, 4000, 5000, 10000, 20, 2);}
+function mayopremier(){mayopresets(105*12, 500, 2500, 310*12, 500, 1000, 2500, 5000, 20, 2700, 2700, 1);}
+function mayoselect(){mayopresets(60*12, 1000, 4000, 175*12, 1000, 2000, 4000, 8000, 20, 2700, 2700, 1);}
+function mayobasic(){mayopresets(20*12, 2000, 5000, 45*12, 4000, 4000, 5000, 10000, 20, 3500, 7000, 2);}
 
 function medicalplan(column)
 {
@@ -91,7 +115,7 @@ function calcMoney()
   var premium1 = Number(document.getElementById("premium1").value);
   var premium2 = Number(document.getElementById("premium2").value);
 
-  var fsa = Number(document.getElementById("fsa").value);
+  var fsa = Number(document.getElementById("fsahsa1").value);
   var oop1 = Math.max(fsa, medicalplan(1)) + premium1;
   var oop2 = medicalplan(2) + premium2;
 
@@ -99,9 +123,9 @@ function calcMoney()
   document.getElementById("oop2").innerHTML = '$' + oop2.toFixed(2);
 
   // fsa and hsa
-  var hsa = Number(document.getElementById("hsa").value);
+  var hsa = Number(document.getElementById("fsahsa2").value);
   var tax = Number(document.getElementById("currTax").value) / 100;
-  var ror = Number(document.getElementById("rorTaxSavings").value) / 100;
+  var ror = Number(document.getElementById("rorHSA").value) / 100;
   var freqContribs = Number(document.getElementById("freqContribs").value);
 
   var fsaSavings = tax * (fsa + premium1);

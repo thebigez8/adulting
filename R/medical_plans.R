@@ -2,7 +2,7 @@
 html(
   class = "finance",
   HTMLhead(
-    titl = "Medical Plan Comparison", "../js/medical_plans.js",
+    titl = "Medical Plan Comparison", "../js/medical_plans.js", toggle = TRUE,
     keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay,Calculator",
     desc = "A comparison of two medical plans",
     date = "2018-09-18"
@@ -19,8 +19,15 @@ html(
       div(
         class="col width-3 inputs-panel bordered",
         h2("Input"),
-        label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
-        input(type="number", id="rorTaxSavings", value=5, step=1),
+        label(`for`="coverage", "Coverage"),
+        select(
+          id="coverage",
+          class = "toggler", `data-target` = "family",
+          option(value="single", "Single"),
+          option(value="family", "Family", selected = "selected")
+        ),
+        label(`for`="rorHSA", "Rate of Return on HSA"),
+        input(type="number", id="rorHSA", value=5, step=1),
         label(`for`="currTax", "Current Tax Rate"),
         input(type="number", id="currTax", value=35, step=1),
         label(`for`="freqContribs", "Frequency of FSA/HSA Contributions"),
@@ -54,21 +61,23 @@ html(
               td(input(type="number", id="premium2", step=1))
             ),
             tr(
-              th("Per-Person Deductible"),
+              th(span("Per-Person", class = "toggleable family"), "Deductible"),
               td(input(type="number", id="ppdeduct1", step=1)),
               td(input(type="number", id="ppdeduct2", step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Family Deductible"),
               td(input(type="number", id="famdeduct1", step=1)),
               td(input(type="number", id="famdeduct2", step=1))
             ),
             tr(
-              th("Per-Person Out of Pocket Max"),
+              th(span("Per-Person", class = "toggleable family"), "Out of Pocket Max"),
               td(input(type="number", id="ppoopm1", step=1)),
               td(input(type="number", id="ppoopm2", step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Family Out of Pocket Max"),
               td(input(type="number", id="famoopm1", step=1)),
               td(input(type="number", id="famoopm2", step=1))
@@ -81,53 +90,60 @@ html(
             tr(
               th("Yearly HSA/FSA contributions"),
               td(
-                label(`for`="fsa", "FSA"),
-                input(type="number", id="fsa", value=2700, step=1)
+                label(`for`="fsahsa1", "FSA"),
+                input(type="number", id="fsahsa1", value=2700, step=1)
               ),
               td(
-                label(`for`="hsa", "HSA"),
-                input(type="number", id="hsa", value=7000, step=1)
+                label(`for`="fsahsa2", "HSA"),
+                input(type="number", id="fsahsa2", value=7000, step=1)
               )
             )
           ),
           tbody(
+            id = "expenses",
             class="inputs-table bordered",
             tr(
-              th("Person 1 Medical Expenses"),
+              th(span("Person 1", class = "toggleable family"), "Medical Expenses"),
               td(input(type="number", id="cost11", value=10000, step=1)),
               td(input(type="number", id="cost12", value=10000, step=1))
             ),
             tr(
-              th("Person 1 Copays"),
-              td(input(type="number", id="copay11", value=25, step=1)),
+              th(span("Person 1", class = "toggleable family"), "Copays"),
+              td(input(type="number", id="copay11", value=0, step=1)),
               td(input(type="number", id="copay12", value=0, step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Person 2 Medical Expenses"),
               td(input(type="number", id="cost21", value=5000, step=1)),
               td(input(type="number", id="cost22", value=5000, step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Person 2 Copays"),
-              td(input(type="number", id="copay21", value=25, step=1)),
+              td(input(type="number", id="copay21", value=0, step=1)),
               td(input(type="number", id="copay22", value=0, step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Person 3 Medical Expenses"),
               td(input(type="number", id="cost31", value=500, step=1)),
               td(input(type="number", id="cost32", value=500, step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Person 3 Copays"),
               td(input(type="number", id="copay31", value=0, step=1)),
               td(input(type="number", id="copay32", value=0, step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Person 4 Medical Expenses"),
               td(input(type="number", id="cost41", value=0, step=1)),
               td(input(type="number", id="cost42", value=0, step=1))
             ),
             tr(
+              class = "toggleable family",
               th("Person 4 Copays"),
               td(input(type="number", id="copay41", value=0, step=1)),
               td(input(type="number", id="copay42", value=0, step=1))
