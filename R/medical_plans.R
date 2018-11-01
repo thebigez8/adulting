@@ -9,6 +9,11 @@ html(
   ),
   body(
     navbar(),
+    disclaimer(
+      "This app is only intended to be used as a guide to help decide ",
+      "which plan to select. It is a simplification, and as such, actual costs and savings may differ ",
+      "from what is presented here."
+    ),
     div(
       class="row",
       div(

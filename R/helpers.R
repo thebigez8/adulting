@@ -7,7 +7,9 @@ Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
 library(purrr)
 walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
 library(magrittr)
-p0 <- function(..., as.html = FALSE) p(if(as.html) HTML(paste0(...)) else paste0(...))
+p0 <- function(..., as.html = FALSE, class = "")
+  p(if(as.html) HTML(paste0(...)) else paste0(...), class = if(class != "") class)
+disclaimer <- function(...) p0(class = "disclaimer", ...)
 
 write2file <- function(x, file)
 {

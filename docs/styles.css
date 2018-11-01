@@ -94,6 +94,8 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 .centered {margin-left: auto; margin-right: auto;}
 .thickbottom {border-bottom: 2px solid black;}
 
+.disclaimer:before {content: "DISCLAIMER: "; color: #f00; margin-bottom: 0;}
+
 /*these float below each other when window resized */
 .pizza {width: 258px; height: 258px; padding: 50px;}
 .pizza-box {min-width: 258px;}
