@@ -1,18 +1,22 @@
 
-function toggle()
+function toggle(source)
 {
-  this.classList.toggle("inactive");
-  var y = document.getElementsByClassName("toggleable " + this.id.replace("-toggle", ""));
-  for(var j = 0; j < y.length; j++)
+  function out()
   {
-    if(this.classList.contains("inactive"))
+    source.classList.toggle("inactive");
+    var y = document.getElementsByClassName("toggleable " + source.dataset.target);
+    for(var j = 0; j < y.length; j++)
     {
-      y[j].classList.add("hidden");
-    } else
-    {
-      y[j].classList.remove("hidden");
+      if(source.classList.contains("inactive"))
+      {
+        y[j].classList.add("hidden");
+      } else
+      {
+        y[j].classList.remove("hidden");
+      }
     }
   }
+  return out;
 }
 
 function linkTogglers()
@@ -20,6 +24,12 @@ function linkTogglers()
   var x = document.getElementsByClassName("toggler");
   for(var i = 0; i < x.length; i++)
   {
-    x[i].addEventListener("click", toggle);
+    if(x[i].tagName == "BUTTON")
+    {
+      x[i].addEventListener("click", toggle(x[i]));
+    } else
+    {
+      x[i].addEventListener("change", toggle(x[i]));
+    }
   }
 }

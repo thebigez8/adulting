@@ -37,10 +37,10 @@ html(
       class = "tag-filters",
       h2("New pages:"),
       span("Filter:"),
-      button("Finance", type = "button", id = "finance-toggle", class = "finance toggler"),
-      button("Faith", type = "button", id = "faith-toggle", class = "faith toggler"),
-      button("Fun", type = "button", id = "fun-toggle", class = "fun toggler"),
-      button("Outdoors", type = "button", id = "outdoors-toggle", class = "outdoors toggler"),
+      button("Finance", type = "button", class = "finance toggler", `data-target` = "finance"),
+      button("Faith", type = "button", class = "faith toggler", `data-target` = "faith"),
+      button("Fun", type = "button", class = "fun toggler", `data-target` = "fun"),
+      button("Outdoors", type = "button", class = "outdoors toggler", `data-target` = "outdoors"),
       pgs
     )
   )
