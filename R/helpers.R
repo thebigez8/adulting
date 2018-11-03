@@ -10,6 +10,7 @@ library(magrittr)
 p0 <- function(..., as.html = FALSE, class = "")
   p(if(as.html) HTML(paste0(...)) else paste0(...), class = if(class != "") class)
 disclaimer <- function(...) p0(class = "disclaimer", ...)
+overlay <- function(...) div(class = "overlay hidden", p0(...))
 
 write2file <- function(x, file)
 {
@@ -18,7 +19,7 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = paste0(home, "js/blank.js"), toggle = FALSE,
+HTMLhead <- function(titl, js = "blank",
                      keywords = "", desc = "", home = "../", date)
 {
   HTML(paste0(paste(
@@ -30,9 +31,7 @@ HTMLhead <- function(titl, js = paste0(home, "js/blank.js"), toggle = FALSE,
     tags$meta(name="date", content=date),
     tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
     link(rel="stylesheet", href=paste0(home, "styles.css")),
-    if(toggle) script(src = paste0(home, "js/toggle.js")),
-    script(src = js),
-    script(src = paste0(home, "js/init.js")),
+    paste0(map_chr(c(js, "init"), ~ paste(script(src = paste0(home, "js/", .x, ".js")))), collapse = "\n    "),
     sep = "\n    "
   ), "\n</head>"))
 }

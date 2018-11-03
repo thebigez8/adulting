@@ -14,6 +14,8 @@ function init()
 
   mayobasic();
   mayopremier();
+
+  linkOverlays();
 }
 
 function updateCoverage()

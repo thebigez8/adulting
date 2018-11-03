@@ -2,7 +2,7 @@
 html(
   class = "finance",
   HTMLhead(
-    titl = "Medical Plan Comparison", "../js/medical_plans.js", toggle = TRUE,
+    titl = "Medical Plan Comparison", js = c("toggle", "overlay", "medical_plans"),
     keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay,Calculator",
     desc = "A comparison of two medical plans",
     date = "2018-09-18"

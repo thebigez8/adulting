@@ -26,7 +26,7 @@ pgs <- list.files("docs", full.names = TRUE, "\\.html", recursive = TRUE) %>%
 html(
   class = "home",
   HTMLhead(
-    titl = "Home", "js/index.js", toggle = TRUE, home = "",
+    titl = "Home", js = c("toggle", "index"), home = "",
     keywords = "Finance,Fun,Faith,Outdoors",
     desc = "Adulting Home Page",
     date = "2018-10-08"

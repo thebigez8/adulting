@@ -53,15 +53,15 @@ article.outdoors div.right:after {content: "Filed under Outdoors";}
 article.fun div.right:after {content: "Filed under Fun";}
 
 /*
-  #e41a1c
-  #377eb8
-  #4daf4a
-  #984ea3
-  #ff7f00
-  #ffff33
-  #a65628
-  #f781bf
-  #999999
+  #e41a1c, 228,26,28
+  #377eb8, 55,126,184
+  #4daf4a, 77,175,74
+  #984ea3, 152,78,163
+  #ff7f00, 255,127,0
+  #ffff33, 255,255,51
+  #a65628, 166,86,40
+  #f781bf, 247,129,191
+  #999999, 153,153,153
 */
 
 .inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px;}
@@ -71,6 +71,7 @@ article.fun div.right:after {content: "Filed under Fun";}
   .inputs-table input, .inputs-table select
   {display: block; width: 100%; margin: 10px 0; padding: 5px;}
 .scroller-x {overflow-x: auto;}
+.scroller-none {overflow: hidden;}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
 #retireTable tbody th {border-right: 2px solid black;}
 #retireTable th, #retireTable td {padding: 3px 4px; font-size: 0.8em;}
@@ -95,6 +96,9 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 .thickbottom {border-bottom: 2px solid black;}
 
 .disclaimer:before {content: "DISCLAIMER: "; color: #f00; margin-bottom: 0;}
+.overlay {height: 100%; width: 100%; position: fixed; z-index: 2; top: 0; left: 0; overflow: auto;}
+.overlay p {background-color: #fff; width: 400px; height: 400px; margin: 15% auto; padding: 5px 10px;}
+html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.5);}
 
 /*these float below each other when window resized */
 .pizza {width: 258px; height: 258px; padding: 50px;}
