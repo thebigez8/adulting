@@ -28,7 +28,16 @@ html(
         ),
         label(`for`="rorHSA", "Rate of Return on HSA"),
         input(type="number", id="rorHSA", value=5, step=1),
-        label(`for`="currTax", "Current Tax Rate"),
+        div(
+          class="row",
+          div(class="left", label(`for`="currTax", "Current Tax Rate")),
+          div(class="left", overlay(
+            "help-button", button.class = "finance", as.html = TRUE,
+            "Note that contributions to HSAs and FSAs, along with medical premiums, ",
+            "are entirely tax-free. In other words, they are not subject to federal, ",
+            "state, or FICA tax. See ", a("[link coming soon]", href = "#"), " for more details."
+          ))
+        ),
         input(type="number", id="currTax", value=35, step=1),
         label(`for`="freqContribs", "Frequency of FSA/HSA Contributions"),
         select(

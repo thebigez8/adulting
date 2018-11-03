@@ -35,9 +35,11 @@ th, td {text-align: center; padding: 5px 10px;}
 
 .hidden {display:none;}
 button:focus {outline: none;}
-button.toggler {display: inline-block; padding: 3px; color: white;
+button.toggler {display: inline-block; padding: 3px; color: #fff;
   cursor: pointer; border: 2px solid black; border-radius: 5px;}
-button.toggler.inactive {background-color: #fff; color: black;}
+button.overlay-toggler {border: 1px solid black; border-radius: 5px; font-size: 0.75em;
+  color: #fff; padding: 1px 3px; margin: 0 0 0 5px; cursor: pointer;}
+button.toggler.inactive, button.overlay-toggler:hover {background-color: #fff; color: black;}
 button.finance {background-color: #984ea3; border-color: #984ea3;}
 button.faith {background-color: #377eb8; border-color: #377eb8;}
 button.outdoors {background-color: #4daf4a; border-color: #4daf4a;}
@@ -97,7 +99,7 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 
 .disclaimer:before {content: "DISCLAIMER: "; color: #f00; margin-bottom: 0;}
 .overlay {height: 100%; width: 100%; position: fixed; z-index: 2; top: 0; left: 0; overflow: auto;}
-.overlay p {background-color: #fff; width: 400px; height: 400px; margin: 15% auto; padding: 5px 10px;}
+.overlay p {background-color: #fff; width: 50%; margin: 50px auto; padding: 10px 10px;}
 html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.5);}
 
 /*these float below each other when window resized */
@@ -107,6 +109,7 @@ html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,
 @media (max-width: 575px){
   .col {width: 100%;} /* overrule any other widths specified */
   .outputs-panel {padding: 0;}
+  .overlay p {width: 90%;}
   th, td {padding: 5px;}
   table {font-size: 0.8em;}
 }

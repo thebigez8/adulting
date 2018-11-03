@@ -3,7 +3,7 @@ function showOverlay(source)
 {
   function out()
   {
-    document.body.classList.add("scoller-none");
+    document.body.classList.add("scroller-none");
     var y = document.getElementById(source.dataset.target);
     y.classList.remove("hidden");
   }

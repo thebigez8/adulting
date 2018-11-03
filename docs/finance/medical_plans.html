@@ -38,7 +38,17 @@
       </select>
       <label for="rorHSA">Rate of Return on HSA</label>
       <input type="number" id="rorHSA" value="5" step="1"/>
-      <label for="currTax">Current Tax Rate</label>
+      <div class="row">
+        <div class="left">
+          <label for="currTax">Current Tax Rate</label>
+        </div>
+        <div class="left">
+          <button class="overlay-toggler finance" data-target="help-button">?</button>
+          <div class="overlay hidden" id="help-button">
+            <p>Note that contributions to HSAs and FSAs, along with medical premiums, are entirely tax-free. In other words, they are not subject to federal, state, or FICA tax. See <a href="#">[link coming soon]</a> for more details.</p>
+          </div>
+        </div>
+      </div>
       <input type="number" id="currTax" value="35" step="1"/>
       <label for="freqContribs">Frequency of FSA/HSA Contributions</label>
       <select id="freqContribs">

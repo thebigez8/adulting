@@ -10,7 +10,13 @@ library(magrittr)
 p0 <- function(..., as.html = FALSE, class = "")
   p(if(as.html) HTML(paste0(...)) else paste0(...), class = if(class != "") class)
 disclaimer <- function(...) p0(class = "disclaimer", ...)
-overlay <- function(...) div(class = "overlay hidden", p0(...))
+overlay <- function(id, ..., button.class = "")
+{
+  tagList(
+    button(class = paste("overlay-toggler", button.class), "?", `data-target` = id),
+    div(class = "overlay hidden", id = id, p0(...))
+  )
+}
 
 write2file <- function(x, file)
 {
