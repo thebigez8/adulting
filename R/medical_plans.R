@@ -1,3 +1,21 @@
+fsahsahelp <- overlay(
+  "fsa-hsa-help", button.class = "finance", as.html = TRUE,
+  "There are different rules governing how much you can contribute to an ",
+  "HSA vs. an FSA. In short, ", em("each plan holder"), " is allowed to contribute ",
+  "$2650 in 2019 to an FSA (so that if you're on a family plan, you're stuck at $2650). On ",
+  "the flip side, if you're on a single-coverage HDHP, you can contribute $3500 ",
+  "in 2019 to an HSA, and $7000 if you have family coverage. Finally, note that ",
+  "contributions to an FSA are usually lost (although some plans allow for small roll-overs), ",
+  "so that you shouldn't contribute more to an FSA than your yearly expenses. On the other ",
+  "hand, HSAs roll over (and can accrue interest!), so there's no need to limit contributions ",
+  "based on yearly expenses. See ", a("[link coming soon]", href = "#"), " for more details."
+)
+copayshelp <- overlay(
+  "copays-help", button.class = "finance", as.html = TRUE,
+  "Note that copays are counted differently than normal medical expenses. ",
+  "In general, copays count toward the out-of-pocket maximum, but not toward ",
+  "a deductible. See ", a("[link coming soon]", href = "#"), " for more details."
+)
 
 html(
   class = "finance",
@@ -32,7 +50,7 @@ html(
           class="row",
           div(class="left", label(`for`="currTax", "Current Tax Rate")),
           div(class="left", overlay(
-            "help-button", button.class = "finance", as.html = TRUE,
+            "tax-help", button.class = "finance", as.html = TRUE,
             "Note that contributions to HSAs and FSAs, along with medical premiums, ",
             "are entirely tax-free. In other words, they are not subject to federal, ",
             "state, or FICA tax. See ", a("[link coming soon]", href = "#"), " for more details."
@@ -97,7 +115,10 @@ html(
               td(input(type="number", id="coi2", step=1))
             ),
             tr(
-              th("Yearly HSA/FSA contributions"),
+              th(
+                html0("Yearly HSA/FSA contributions", fsahsahelp[[1]]),
+                fsahsahelp[[2]]
+              ),
               td(
                 label(`for`="fsahsa1", "FSA"),
                 input(type="number", id="fsahsa1", value=2700, step=1)
@@ -117,7 +138,10 @@ html(
               td(input(type="number", id="cost12", value=10000, step=1))
             ),
             tr(
-              th(span("Person 1", class = "toggleable family"), "Copays"),
+              th(
+                html0(span("Person 1 ", class = "toggleable family"), "Copays", copayshelp[[1]]),
+                copayshelp[[2]]
+              ),
               td(input(type="number", id="copay11", value=0, step=1)),
               td(input(type="number", id="copay12", value=0, step=1))
             ),

@@ -99,8 +99,9 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 
 .disclaimer:before {content: "DISCLAIMER: "; color: #f00; margin-bottom: 0;}
 .overlay {height: 100%; width: 100%; position: fixed; z-index: 2; top: 0; left: 0; overflow: auto;}
-.overlay p {background-color: #fff; width: 50%; margin: 50px auto; padding: 10px 10px;}
-html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.5);}
+.overlay p {background-color: #fff; width: 50%; margin: 50px auto; padding: 10px 10px;
+  text-align: center; font-weight: normal;}
+html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.8);}
 
 /*these float below each other when window resized */
 .pizza {width: 258px; height: 258px; padding: 50px;}

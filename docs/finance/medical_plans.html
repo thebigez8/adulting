@@ -43,8 +43,8 @@
           <label for="currTax">Current Tax Rate</label>
         </div>
         <div class="left">
-          <button class="overlay-toggler finance" data-target="help-button">?</button>
-          <div class="overlay hidden" id="help-button">
+          <button class="overlay-toggler finance" data-target="tax-help">?</button>
+          <div class="overlay hidden" id="tax-help">
             <p>Note that contributions to HSAs and FSAs, along with medical premiums, are entirely tax-free. In other words, they are not subject to federal, state, or FICA tax. See <a href="#">[link coming soon]</a> for more details.</p>
           </div>
         </div>
@@ -135,7 +135,12 @@
             </td>
           </tr>
           <tr>
-            <th>Yearly HSA/FSA contributions</th>
+            <th>
+              Yearly HSA/FSA contributions<button class="overlay-toggler finance" data-target="fsa-hsa-help">?</button>
+              <div class="overlay hidden" id="fsa-hsa-help">
+                <p>There are different rules governing how much you can contribute to an HSA vs. an FSA. In short, <em>each plan holder</em> is allowed to contribute $2650 in 2019 to an FSA (so that if you're on a family plan, you're stuck at $2650). On the flip side, if you're on a single-coverage HDHP, you can contribute $3500 in 2019 to an HSA, and $7000 if you have family coverage. Finally, note that contributions to an FSA are usually lost (although some plans allow for small roll-overs), so that you shouldn't contribute more to an FSA than your yearly expenses. On the other hand, HSAs roll over (and can accrue interest!), so there's no need to limit contributions based on yearly expenses. See <a href="#">[link coming soon]</a> for more details.</p>
+              </div>
+            </th>
             <td>
               <label for="fsahsa1">FSA</label>
               <input type="number" id="fsahsa1" value="2700" step="1"/>
@@ -161,8 +166,10 @@
           </tr>
           <tr>
             <th>
-              <span class="toggleable family">Person 1</span>
-              Copays
+              <span class="toggleable family">Person 1 </span>Copays<button class="overlay-toggler finance" data-target="copays-help">?</button>
+              <div class="overlay hidden" id="copays-help">
+                <p>Note that copays are counted differently than normal medical expenses. In general, copays count toward the out-of-pocket maximum, but not toward a deductible. See <a href="#">[link coming soon]</a> for more details.</p>
+              </div>
             </th>
             <td>
               <input type="number" id="copay11" value="0" step="1"/>

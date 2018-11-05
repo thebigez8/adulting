@@ -3,12 +3,13 @@ Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
                                 "tr", "th", "td", "thead", "tbody", "p",
                                 "select", "option", "input", "link", "nav",
                                 "ul", "li", "label", "button", "script",
-                                "section", "article")]
+                                "section", "article", "em")]
 library(purrr)
 walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
 library(magrittr)
+html0 <- function(...) HTML(paste0(...))
 p0 <- function(..., as.html = FALSE, class = "")
-  p(if(as.html) HTML(paste0(...)) else paste0(...), class = if(class != "") class)
+  p(if(as.html) html0(...) else paste0(...), class = if(class != "") class)
 disclaimer <- function(...) p0(class = "disclaimer", ...)
 overlay <- function(id, ..., button.class = "")
 {
