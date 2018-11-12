@@ -3,7 +3,7 @@ Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
                                 "tr", "th", "td", "thead", "tbody", "p",
                                 "select", "option", "input", "link", "nav",
                                 "ul", "li", "label", "button", "script",
-                                "section", "article", "em")]
+                                "section", "article", "em", "dl", "dt", "dd", "dfn")]
 library(purrr)
 walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
 library(magrittr)
