@@ -1,15 +1,21 @@
-make_article <- function(URL)
+generate_article <- function(URL)
 {
   pg <- xml2::read_html(URL)
   met <- rvest::html_nodes(pg, "meta, title")
   titl <- gsub("^Adulting: ", "", rvest::html_text(met[[1]]))
   clss <- rvest::html_attr(pg, "class", default = "")
   date <- rvest::html_attrs(met)[[5]]["content"]
+  make_article(date, clss, titl, sub("docs/", "", URL),
+               rvest::html_attrs(met)[[3]]["content"])
+}
+
+make_article <- function(date, class, title, href, content)
+{
   list(
     article(
-      class = paste0("toggleable bordered ", clss),
-      h3(a(titl, href = sub("docs/", "", URL))),
-      p(rvest::html_attrs(met)[[3]]["content"]),
+      class = paste0("toggleable bordered ", class),
+      h3(a(title, href = href)),
+      p(content),
       div(class = "left text-left", date),
       div(class = "right text-right")
     ),
@@ -17,9 +23,15 @@ make_article <- function(URL)
   )
 }
 
+externals <- "rawdata/external_pages.csv" %>%
+  read.csv(header = TRUE, stringsAsFactors = FALSE) %>%
+  dplyr::mutate(content = paste("[EXTERNAL]", content)) %>%
+  pmap(make_article)
+
 pgs <- list.files("docs", full.names = TRUE, "\\.html", recursive = TRUE) %>%
   "["(. != "docs/index.html") %>%
-  map(make_article) %>%
+  map(generate_article) %>%
+  c(externals) %>%
   "["(order(map_chr(., "date"), decreasing = TRUE)) %>%
   map(1)
 
