@@ -66,7 +66,7 @@ tourcsv <- paste0(spk.repo, "optimal_map.csv")
 html(
   class = "outdoors",
   HTMLhead(
-    titl = "MN State Parks", home = "../../", js = c("overlay", "overlay_only"),
+    titl = "MN State Parks Tour", home = "../../", js = c("overlay", "overlay_only"),
     keywords = "MN,Minnesota,State Parks,three opt,travelling salesman",
     desc = "Efficient Tours of MN State Parks",
     date = "2018-11-19"
