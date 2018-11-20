@@ -61,4 +61,56 @@ html(
 ) %>%
   write2file(file = "docs/outdoors/MN_state_parks/index.html")
 
-
+spk.repo <- "https://raw.githubusercontent.com/thebigez8/state_parks/master/"
+tourcsv <- paste0(spk.repo, "optimal_map.csv")
+html(
+  class = "outdoors",
+  HTMLhead(
+    titl = "MN State Parks", home = "../../", js = c("overlay", "overlay_only"),
+    keywords = "MN,Minnesota,State Parks,three opt,travelling salesman",
+    desc = "Efficient Tours of MN State Parks",
+    date = "2018-11-19"
+  ),
+  body(
+    navbar(home = "../../"),
+    h2("Minnesota State Parks and Recreation Areas Tour"),
+    p0(
+      "Using a ", a("three-opt algorithm", href = paste0(spk.repo, "three_opt.cpp")),
+      ", we found the following proposed shortest tour of all the MN state parks and ",
+      "recreation areas. The route is about 2850 miles long.", as.html = TRUE
+    ),
+    overlay.img(
+      id = "larger-image",
+      src = paste0(spk.repo, "MN_state_parks_route.png"),
+      alt1 = "State Park Route Map", alt2 = "Larger State Park Route Map"
+    ),
+    p0(
+      "Constructing a tour like this turns out to be a hard problem known as the ",
+      '"Travelling Salesman" problem. While there are ',
+      a("algorithms", href = "http://www.math.uwaterloo.ca/tsp/index.html"),
+      " that can find the guaranteed shortest route, they get complicated, and ",
+      "complicated is no fun to program. Here, we'll try out the three-opt algorithm.",
+      as.html = TRUE
+    ),
+    p0(
+      "In short, the ", dfn("three-opt algorithm"),
+      " starts with a random tour of the parks and at each step ",
+      "considers three pairs of connected parks. If a rearrangement of the connections ",
+      "gives a shorter tour, the algorithm picks the shortest such rearrangement. ",
+      "This continues until no better rearrangement is found. It is important to run the ",
+      "algorithm many times to ensure that it picks the ", em("best"), " route instead of ",
+      "just a good one. Nevertheless, three-opt remains a heuristic, so the route presented here ",
+      "still may not be the ", em("best"), ". All we do is propose that it's ",
+      a("pretty good", href = "https://twitter.com/MathIsEH/status/1062203770816344064"),
+      ".", as.html = TRUE
+    ),
+    p0(
+      "For reference, here are the parks in order of the route (also ",
+      a("in a CSV", href = tourcsv), "):", as.html = TRUE
+    ),
+    ul(
+      map(sub(" MN", "", readLines(tourcsv)), li)
+    )
+  )
+) %>%
+  write2file(file = "docs/outdoors/MN_state_parks/MN_state_park_tour.html")

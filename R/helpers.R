@@ -18,6 +18,13 @@ overlay <- function(id, ..., button.class = "")
     div(class = "overlay hidden", id = id, p0(...))
   )
 }
+overlay.img <- function(id, src, alt1, alt2)
+{
+  tagList(
+    img(src = src, class = "overlay-toggler", `data-target` = id, alt = alt1),
+    div(class = "overlay hidden", id = id, img(src = src, alt = alt2))
+  )
+}
 
 write2file <- function(x, file)
 {

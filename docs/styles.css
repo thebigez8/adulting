@@ -39,6 +39,8 @@ button.toggler {display: inline-block; padding: 3px; color: #fff;
   cursor: pointer; border: 2px solid black; border-radius: 5px;}
 button.overlay-toggler {border: 1px solid black; border-radius: 5px; font-size: 0.75em;
   color: #fff; padding: 1px 3px; margin: 0 0 0 5px; cursor: pointer;}
+img.overlay-toggler {cursor: pointer;}
+img.overlay-toggler:hover {opacity: 0.5;}
 button.toggler.inactive, button.overlay-toggler:hover {background-color: #fff; color: black;}
 button.finance {background-color: #984ea3; border-color: #984ea3;}
 button.faith {background-color: #377eb8; border-color: #377eb8;}
@@ -101,7 +103,10 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 .overlay {height: 100%; width: 100%; position: fixed; z-index: 2; top: 0; left: 0; overflow: auto;}
 .overlay p {background-color: #fff; width: 50%; margin: 50px auto; padding: 10px 10px;
   text-align: center; font-weight: normal;}
+.overlay img {width: auto; height: auto; margin: 50px auto; display: block;}
 html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.8);}
+html.outdoors .overlay {background-color: ;#4daf4a; background-color: rgba(77,175,74,0.8);}
+img {width: 300px; height: auto;}
 
 /*these float below each other when window resized */
 .pizza {width: 258px; height: 258px; padding: 50px;}

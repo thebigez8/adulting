@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="outdoors">
+<head>
+  <title>Adulting: MN State Parks</title>
+  <meta name="keywords" content="adulting,MN,Minnesota,State Parks,three opt,travelling salesman"/>
+  <meta name="description" content="Efficient Tours of MN State Parks"/>
+  <meta name="author" content="E Heinzen"/>
+  <meta name="date" content="2018-11-19"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../../styles.css"/>
+  <script src="../../js/overlay.js"></script>
+  <script src="../../js/overlay_only.js"></script>
+  <script src="../../js/init.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="../../index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+    </ul>
+  </nav>
+  <h2>Minnesota State Parks and Recreation Areas Tour</h2>
+  <p>Using a <a href="https://raw.githubusercontent.com/thebigez8/state_parks/master/three_opt.cpp">three-opt algorithm</a>, we found the following proposed shortest tour of all the MN state parks and recreation areas. The route is about 2850 miles long.</p>
+  <img src="https://raw.githubusercontent.com/thebigez8/state_parks/master/MN_state_parks_route.png" class="overlay-toggler" data-target="larger-image" alt="State Park Route Map"/>
+  <div class="overlay hidden" id="larger-image">
+    <img src="https://raw.githubusercontent.com/thebigez8/state_parks/master/MN_state_parks_route.png" alt="Larger State Park Route Map"/>
+  </div>
+  <p>Constructing a tour like this turns out to be a hard problem known as the "Travelling Salesman" problem. While there are <a href="http://www.math.uwaterloo.ca/tsp/index.html">algorithms</a> that can find the guaranteed shortest route, they get complicated, and complicated is no fun to program. Here, we'll try out the three-opt algorithm.</p>
+  <p>In short, the <dfn>three-opt algorithm</dfn> starts with a random tour of the parks and at each step considers three pairs of connected parks. If a rearrangement of the connections gives a shorter tour, the algorithm picks the shortest such rearrangement. This continues until no better rearrangement is found. It is important to run the algorithm many times to ensure that it picks the <em>best</em> route instead of just a good one. Nevertheless, three-opt remains a heuristic, so the route presented here still may not be the <em>best</em>. All we do is propose that it's <a href="https://twitter.com/MathIsEH/status/1062203770816344064">pretty good</a>.</p>
+  <p>For reference, here are the parks in order of the route (also <a href="https://raw.githubusercontent.com/thebigez8/state_parks/master/optimal_map.csv">in a CSV</a>):</p>
+  <ul>
+    <li>Tettegouche State Park</li>
+    <li>Temperance River State Park</li>
+    <li>Grand Portage State Park</li>
+    <li>Judge C.R. Magney State Park</li>
+    <li>Cascade River State Park</li>
+    <li>George H. Crosby-Manitou State Park</li>
+    <li>Bear Head Lake State Park</li>
+    <li>Lake Vermilion-Soudan Underground Mine State Park</li>
+    <li>Iron Range Off-Highway Vehicle State Recreation Area</li>
+    <li>McCarthy Beach State Park</li>
+    <li>Scenic State Park</li>
+    <li>Hill Annex Mine State Park</li>
+    <li>Schoolcraft State Park</li>
+    <li>Itasca State Park</li>
+    <li>La Salle Lake State Recreation Area</li>
+    <li>Lake Bemidji State Park</li>
+    <li>Big Bog State Recreation Area</li>
+    <li>Franz Jevne State Park</li>
+    <li>Zippel Bay State Park</li>
+    <li>Hayes Lake State Park</li>
+    <li>Lake Bronson State Park</li>
+    <li>Old Mill State Park</li>
+    <li>Red River State Recreation Area</li>
+    <li>Buffalo River State Park</li>
+    <li>Maplewood State Park</li>
+    <li>Glendalough State Park</li>
+    <li>Lake Carlos State Park</li>
+    <li>Glacial Lakes State Park</li>
+    <li>Sibley State Park</li>
+    <li>Monson Lake State Park</li>
+    <li>Big Stone Lake State Park</li>
+    <li>Lac qui Parle State Park</li>
+    <li>Upper Sioux Agency State Park</li>
+    <li>Camden State Park</li>
+    <li>Split Rock Creek State Park</li>
+    <li>Blue Mounds State Park</li>
+    <li>Lake Shetek State Park</li>
+    <li>Kilen Woods State Park</li>
+    <li>Fort Ridgely State Park</li>
+    <li>Flandrau State Park</li>
+    <li>Minneopa State Park</li>
+    <li>Sakatah Lake State Park</li>
+    <li>Nerstrand Big Woods State Park</li>
+    <li>Rice Lake State Park</li>
+    <li>Myre-Big Island State Park</li>
+    <li>Lake Louise State Park</li>
+    <li>Forestville/Mystery Cave State Park</li>
+    <li>Beaver Creek Valley State Park</li>
+    <li>Great River Bluffs State Park</li>
+    <li>John A. Latsch State Park</li>
+    <li>Whitewater State Park</li>
+    <li>Carley State Park</li>
+    <li>Frontenac State Park</li>
+    <li>Afton State Park</li>
+    <li>William O'Brien State Park</li>
+    <li>Interstate State Park</li>
+    <li>Wild River State Park</li>
+    <li>Fort Snelling State Park</li>
+    <li>Minnesota Valley State Recreation Area</li>
+    <li>Greenleaf Lake State Recreation Area</li>
+    <li>Lake Maria State Park</li>
+    <li>Charles A. Lindbergh State Park</li>
+    <li>Crow Wing State Park</li>
+    <li>Cuyuna Country State Recreation Area</li>
+    <li>Mille Lacs Kathio State Park</li>
+    <li>Father Hennepin State Park</li>
+    <li>St. Croix State Park</li>
+    <li>Banning State Park</li>
+    <li>Moose Lake State Park</li>
+    <li>Savanna Portage State Park</li>
+    <li>Jay Cooke State Park</li>
+    <li>Gooseberry Falls State Park</li>
+    <li>Split Rock Lighthouse State Park</li>
+    <li>Tettegouche State Park</li>
+  </ul>
+</body>
+</html>
