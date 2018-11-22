@@ -2,7 +2,7 @@ library(htmltools)
 Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
                                 "tr", "th", "td", "thead", "tbody", "p",
                                 "select", "option", "input", "link", "nav",
-                                "ul", "li", "label", "button", "script",
+                                "ul", "ol", "li", "label", "button", "script",
                                 "section", "article", "em", "dl", "dt", "dd", "dfn")]
 library(purrr)
 walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
@@ -67,4 +67,5 @@ source("R/roth_vs_trad.R")
 source("R/medical_plans.R")
 source("R/pizza_calculator.R")
 source("R/state_parks.R")
+source("R/grocery.R")
 source("R/index.R")

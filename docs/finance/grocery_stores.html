@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="finance">
+<head>
+  <title>Adulting: Grocery Store Analysis</title>
+  <meta name="keywords" content="adulting,Aldi,Target,Costco,Walmart,Hy-Vee,Groceries,Linear Model"/>
+  <meta name="description" content="An analysis of 27 grocery items to determine the cheapest of 5 grocery stores"/>
+  <meta name="author" content="E Heinzen"/>
+  <meta name="date" content="2018-11-21"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../styles.css"/>
+  <script src="../js/overlay.js"></script>
+  <script src="../js/overlay_only.js"></script>
+  <script src="../js/init.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="../index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+      <li>
+        <a href="#">[This link coming soon]</a>
+      </li>
+    </ul>
+  </nav>
+  <p class="disclaimer">This page may not generalize to all family consumptions or geographic areas, nor does the analysis presented consider all possible items or stores.</p>
+  <h2>Which Grocery Store is Cheapest?</h2>
+  <p>I like saving money, which led me to a natural question: how can I save money on groceries? To answer this question, I selected 27 common items and 5 stores, and over the span of 3 days visited each store to record the price (and size) of each item. Where possible, I tried to find comparable items across the stores (which ended up being harder than I thought). Some items I simply couldn't find (Where does Hy-Vee keep its olive oil? Why was Target out of chicken strips? Can I petition Aldi to carry Annie's Mac and Cheese?). Where more than one choice existed for a certain item, I'd usually pick the cheapest (which almost always ended up being the store's own brand). This is an important qualification of this analysis: the prices here aren't necessarily for the highest quality item.</p>
+  <p>Using R, I normalized the data to calculate a price per unit (thanks to Costco for selling things in far more enormous quantities than I need). I then calculated the price per item per month (since if I only have to buy an expensive item once per year at a store but everything else is cheap, I'll still want to go there). This is the second important qualification of this analysis: I had to estimate how many times per month we bought each item. Turns out we (I) eat a lot of Annie's mac and cheese and chicken strips. I guarantee that no one else has the same grocery purchase profile as the one I settled on.</p>
+  <p>The results shook out like this:</p>
+  <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month.png" class="overlay-toggler" data-target="price-per-month-plot" alt="Plot of Price per Month per Item at Each Store"/>
+  <div class="overlay hidden" id="price-per-month-plot">
+    <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month.png" alt="Larger Plot"/>
+  </div>
+  <p>I ran a linear model to predict the price per month per item based on store and item (taking advantage of the factorial design). The full results are <a href="https://raw.githubusercontent.com/thebigez8/grocery/master/results.md">here</a>, but I'll summarize them here:</p>
+  <ol>
+    <li>Aldi is the cheapest</li>
+    <li>Target is on average $0.54 more expensive per month per item than Aldi (p = 0.06)</li>
+    <li>Costco is on average $0.67 more expensive per month per item than Aldi (p = 0.06)</li>
+    <li>Walmart is on average $0.84 more expensive per month per item than Aldi (p &lt; 0.01)</li>
+    <li>Hy-Vee is on average $1.11 more expensive per month per item than Aldi (p &lt; 0.01)</li>
+  </ol>
+  <p>To be fair, Target is helped by the fact that I have the Target app and a RedCard, which means all items are essentially already 5% off for me. At all the other stores, I took into account my 2% cash back on my normal credit card.</p>
+  <p>To make sure these results weren't driven by a single item, I ran a sensitivity analysis, removing each item in turn and recalculating the model. In all models, Aldi remained the cheapest, and Hy-Vee remained the most expensive, but there was a small amount of variability in the second through fourth place spots, suggesting that a few items are unusually expensive at Costco and Walmart.</p>
+  <p>So what did we learn?</p>
+  <ol>
+    <li>Aldi is cheap. Yikes.</li>
+    <li>For all food that Aldi doesn't sell (or for emergency grocery runs), we'll go to Target, which is the closest to our home anyway.</li>
+    <li>My wife's impression that Hy-Vee was too expensive was correct.</li>
+  </ol>
+</body>
+</html>
