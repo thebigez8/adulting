@@ -105,7 +105,7 @@ table.bordered th, table.bordered td {border: 1px solid black;}
   text-align: center; font-weight: normal;}
 .overlay img {width: auto; max-width: 800px; height: auto; margin: 50px auto; display: block;}
 html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.8);}
-html.outdoors .overlay {background-color: ;#4daf4a; background-color: rgba(77,175,74,0.8);}
+html.outdoors .overlay {background-color: #4daf4a; background-color: rgba(77,175,74,0.8);}
 img {width: 300px; height: auto;}
 
 /*these float below each other when window resized */
