@@ -1,6 +1,11 @@
 
 function init()
 {
+  var inputs = document.getElementsByTagName("input");
+  for(var i=0; i < inputs.length; i++)
+  {
+    if(inputs[i].type == "number") inputs[i].addEventListener("change", validateNumber);
+  }
   document.getElementById("submit").addEventListener("click", calcMoney);
   calcMoney();
 }

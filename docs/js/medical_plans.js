@@ -4,6 +4,7 @@ function init()
   var inputs = document.getElementsByTagName("input");
   for(var i=0; i < inputs.length; i++)
   {
+    if(inputs[i].type == "number") inputs[i].addEventListener("change", validateNumber);
     inputs[i].addEventListener("change", calcMoney);
   }
   document.getElementById("freqContribs").addEventListener("change", calcMoney);
@@ -23,6 +24,10 @@ function updateCoverage()
   mayobasic();
   mayopremier();
   (toggle(this))();
+  if(document.getElementById("coverage").value == "single")
+  {
+    document.getElementById("fsahsa2").max = 3500;
+  } else document.getElementById("fsahsa2").max = 7000;
 }
 
 function mayopresets(singlepremium, singlededuct, singleoopm,
