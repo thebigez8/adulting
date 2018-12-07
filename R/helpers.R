@@ -29,15 +29,22 @@ overlay.img <- function(id, src, alt1, alt2)
 write2file <- function(x, file)
 {
   cat("<!DOCTYPE html>",
-      gsub("^  ", "", capture.output(x)),
+      gsub("<(/?)header>", "<\\1head>", gsub("^  ", "", capture.output(x))),
       file = file, append = FALSE, sep = "\n")
 }
 
 HTMLhead <- function(titl, js = "blank",
                      keywords = "", desc = "", home = "../", date)
 {
-  HTML(paste0(paste(
-    "<head>",
+  tags$header(
+    HTML("<!-- Global site tag (gtag.js) - Google Analytics -->"),
+    tags$script(async=NA, src="https://www.googletagmanager.com/gtag/js?id=UA-130554917-1"),
+    tags$script(
+      "window.dataLayer = window.dataLayer || [];",
+      "function gtag(){dataLayer.push(arguments);}",
+      "gtag('js', new Date());",
+      "gtag('config', 'UA-130554917-1');"
+    ),
     tags$title(paste0("Adulting: ", titl)),
     tags$meta(name="keywords", content=paste0("adulting,", keywords)),
     tags$meta(name="description", content=desc),
@@ -45,9 +52,8 @@ HTMLhead <- function(titl, js = "blank",
     tags$meta(name="date", content=date),
     tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
     link(rel="stylesheet", href=paste0(home, "styles.css")),
-    paste0(map_chr(c(js, "init"), ~ paste(script(src = paste0(home, "js/", .x, ".js")))), collapse = "\n    "),
-    sep = "\n    "
-  ), "\n</head>"))
+    map(c(js, "init"), ~ script(src = paste0(home, "js/", .x, ".js")))
+  )
 }
 
 navbar <- function(home = "../")
