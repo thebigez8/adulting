@@ -42,7 +42,7 @@ html(
         label(`for`="contribs", "Yearly Contributions"),
         input(type="number", id="contribs", value=5000, min=0),
         label(`for`="currTax", "Current Tax Rate"),
-        input(type="number", id="currTax", value=15, step=1, min=0, max=100),
+        input(type="number", id="currTax", value=30, step=1, min=0, max=100),
         label(`for`="rorTaxSavings", "Rate of Return on Tax Savings"),
         input(type="number", id="rorTaxSavings", value=2, step=1, min=0),
         label(`for`="catchup", "Catch-Up Contributions?"),
