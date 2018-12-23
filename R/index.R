@@ -28,7 +28,7 @@ get_pgs <- function(clss)
   externals <- "rawdata/external_pages.csv" %>%
     read.csv(header = TRUE, stringsAsFactors = FALSE) %>%
     dplyr::mutate(content = paste("[EXTERNAL]", content)) %>%
-    dplyr::filter(class == clss) %>%
+    dplyr::filter(class == clss | clss == "") %>%
     pmap(make_article)
 
   patt <- paste0("docs/", clss, if(clss != "") "/")
@@ -55,7 +55,7 @@ html(
     section(
       class = "tag-filters",
       h2("New pages:"),
-      span("Filter new pages by tag:"),
+      span("Filter by tag:"),
       button(
         "Finance", type = "button", `data-target` = "finance",
         class = "finance theme-bg theme-border toggler"
