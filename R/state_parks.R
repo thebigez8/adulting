@@ -23,7 +23,7 @@ park_row <- function(name, ID, date, hc.len, len, summer, hc.rating, rating, exp
 }
 
 html(
-  class = "outdoors",
+  class = "outdoors theme-bg",
   HTMLhead(
     titl = "MN State Parks", home = "../../",
     keywords = "Hiking,MN,Hiking Club,Hiking Trails,Minnesota,State Parks",
@@ -64,7 +64,7 @@ html(
 spk.repo <- "https://raw.githubusercontent.com/thebigez8/state_parks/master/"
 tourcsv <- paste0(spk.repo, "optimal_map.csv")
 html(
-  class = "outdoors",
+  class = "outdoors theme-bg",
   HTMLhead(
     titl = "MN State Parks Tour", home = "../../", js = c("overlay", "overlay_only"),
     keywords = "MN,Minnesota,State Parks,three opt,travelling salesman",

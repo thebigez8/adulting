@@ -20,7 +20,7 @@ copayshelp <- overlay(
 )
 
 html(
-  class = "finance",
+  class = "finance theme-bg",
   HTMLhead(
     titl = "Medical Plan Comparison", js = c("toggle", "overlay", "medical_plans"),
     keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay,Calculator",
@@ -217,7 +217,7 @@ html(
 
 dd0 <- function(..., as.html = FALSE) dd(if(as.html) html0(...) else paste0(...))
 html(
-  class = "finance",
+  class = "finance theme-bg",
   HTMLhead(
     titl = "Medical Plan Definitions", js = "blank",
     keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay",

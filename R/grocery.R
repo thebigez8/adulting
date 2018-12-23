@@ -12,7 +12,7 @@ groc.df <- groc.repo %>%
     p = ifelse(p < 0.01, "p < 0.01", paste0("p = ", round(p, 2)))
   )
 html(
-  class = "finance",
+  class = "finance theme-bg",
   HTMLhead(
     titl = "Grocery Store Analysis", js = c("overlay", "overlay_only"),
     keywords = "Aldi,Target,Costco,Walmart,Hy-Vee,Groceries,Linear Model",

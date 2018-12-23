@@ -14,7 +14,10 @@ disclaimer <- function(...) p0(class = "disclaimer", ...)
 overlay <- function(id, ..., button.class = "")
 {
   tagList(
-    button(class = paste("overlay-toggler", button.class), "?", `data-target` = id),
+    button(
+      class = paste("overlay-toggler theme-bg theme-border", button.class),
+      "?", `data-target` = id
+    ),
     div(class = "overlay hidden", id = id, p0(...))
   )
 }
@@ -62,16 +65,33 @@ navbar <- function(home = "../")
     h1(a("Adulting", href = paste0(home, "index.html"))),
     nav(
       ul(
-        li(a(href = "#", "[This link coming soon]")),
-        li(a(href = "#", "[This link coming soon]"))
+        class = "row",
+        li(
+          class = "left finance theme-bg theme-border",
+          a(href = paste0(home, "finance/index.html"), "Finance")
+        ),
+        li(
+          class = "left faith theme-bg theme-border",
+          a(href = paste0(home, "faith/index.html"), "Faith")
+        ),
+        li(
+          class = "left fun theme-bg theme-border",
+          a(href = paste0(home, "fun/index.html"), "Fun")
+        ),
+        li(
+          class = "left outdoors theme-bg theme-border",
+          a(href = paste0(home, "outdoors/index.html"), "Outdoors")
+        ),
+        li(
+          class = "left home theme-bg theme-border",
+          a(href = paste0(home, "about.html"), "About")
+        )
       )
     )
   )
 }
 
-source("R/roth_vs_trad.R")
-source("R/medical_plans.R")
-source("R/pizza_calculator.R")
-source("R/state_parks.R")
-source("R/grocery.R")
-source("R/index.R")
+list.files("R/", "\\.R$", full.names = TRUE) %>%
+  "["(. != "R/helpers.R") %>%
+  "["(order(. == "R/index.R")) %>%
+  walk(~ source(print(.x)))

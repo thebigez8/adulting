@@ -1,61 +1,3 @@
-* {box-sizing: border-box;}
-html.home {background-color: #eee;}
-html.finance {background-color: #984ea3;}
-html.faith {background-color: #377eb8;}
-html.outdoors {background-color: #4daf4a;}
-html.fun {background-color: #e41a1c;}
-body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px; font-size: 16px;}
-h1 {margin: 8px 0;}
-html h1:after {font-size: 0.5em;}
-html.home h1:after {content: "HOME";}
-html.finance h1:after {content: "FINANCE"; color: #984ea3;}
-html.faith h1:after {content: "FAITH"; color: #377eb8;}
-html.outdoors h1:after {content: "OUTDOORS"; color: #4daf4a;}
-html.fun h1:after {content: "FUN"; color: #e41a1c;}
-nav {background-color: #eee; margin: 0 -8px; padding: 0 8px;}
-nav ul {list-style-type: none; margin: 0; padding: 0;}
-nav ul:after, .row:after, article:after {content: " "; display: table; clear: both;}
-nav ul li {margin-right: 15px;}
-nav ul li:hover {background-color: #ddd;}
-nav ul li a, h1 a {text-decoration: none; color: inherit;}
-.width-3 {width: 25%;}
-.width-4 {width: 33.33333333%;}
-.width-6 {width: 50%;}
-.width-8 {width: 66.66666667%;}
-.width-9 {width: 75%;}
-.width-12 {width: 100%;}
-.right {float: right;}
-nav ul li, .col, .left {float: left;}
-.text-left {text-align: left;}
-.text-right {text-align: right;}
-article {padding: 0 15px; margin-top: 10px;}
-article.bordered{border-left-width: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
-p {margin: 15px 0;}
-th, td {text-align: center; padding: 5px 10px;}
-
-.hidden {display:none;}
-button:focus {outline: none;}
-button.toggler {display: inline-block; padding: 3px; color: #fff;
-  cursor: pointer; border: 2px solid black; border-radius: 5px;}
-button.overlay-toggler {border: 1px solid black; border-radius: 5px; font-size: 0.75em;
-  color: #fff; padding: 1px 3px; margin: 0 0 0 5px; cursor: pointer;}
-img.overlay-toggler {cursor: pointer;}
-img.overlay-toggler:hover {opacity: 0.5;}
-button.toggler.inactive, button.overlay-toggler:hover {background-color: #fff; color: black;}
-button.finance {background-color: #984ea3; border-color: #984ea3;}
-button.faith {background-color: #377eb8; border-color: #377eb8;}
-button.outdoors {background-color: #4daf4a; border-color: #4daf4a;}
-button.fun {background-color: #e41a1c; border-color: #e41a1c;}
-article.finance {border-left-color: #984ea3;}
-article.faith {border-left-color: #377eb8;}
-article.outdoors {border-left-color: #4daf4a;}
-article.fun {border-left-color: #e41a1c;}
-article div {font-size: 0.75em;}
-article.finance div.right:after {content: "Filed under Finance";}
-article.faith div.right:after {content: "Filed under Faith";}
-article.outdoors div.right:after {content: "Filed under Outdoors";}
-article.fun div.right:after {content: "Filed under Fun";}
-
 /*
   #e41a1c, 228,26,28
   #377eb8, 55,126,184
@@ -68,12 +10,80 @@ article.fun div.right:after {content: "Filed under Fun";}
   #999999, 153,153,153
 */
 
+.home.theme-bg {background-color: #eee; color: #000;}
+.finance.theme-bg {background-color: #984ea3}
+.faith.theme-bg {background-color: #377eb8;}
+.fun.theme-bg {background-color: #e41a1c;}
+.outdoors.theme-bg {background-color: #4daf4a;}
+html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.8);}
+html.outdoors .overlay {background-color: #4daf4a; background-color: rgba(77,175,74,0.8);}
+
+.home.theme-bg {border-color: #eee;}
+.finance.theme-border {border-color: #984ea3}
+.faith.theme-border {border-color: #377eb8;}
+.fun.theme-border {border-color: #e41a1c;}
+.outdoors.theme-border {border-color: #4daf4a;}
+
+* {box-sizing: border-box;}
+body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px; font-size: 16px;}
+h1 {margin: 8px 0;}
+html h1:after {font-size: 0.5em;}
+html.home h1:after {content: "HOME";}
+html.finance h1:after {content: "FINANCE"; color: #984ea3;}
+html.faith h1:after {content: "FAITH"; color: #377eb8;}
+html.outdoors h1:after {content: "OUTDOORS"; color: #4daf4a;}
+html.fun h1:after {content: "FUN"; color: #e41a1c;}
+nav {background-color: #eee; margin: 0 -8px; padding: 0;}
+.row:after, article:after {content: " "; display: table; clear: both;}
+nav ul {list-style-type: none; margin: 0; padding: 0;}
+nav ul li.theme-bg:hover, button.toggler.inactive, button.overlay-toggler:hover
+  {background-color: #fff; color: black;}
+nav ul li {border: solid 2px black; color: #fff;}
+nav ul li a {padding: 5px 10px; display: inline-block;}
+nav ul li a, h1 a {text-decoration: none; color: inherit;}
+.width-3 {width: 25%;}
+.width-4 {width: 33.33333333%;}
+.width-6 {width: 50%;}
+.width-8 {width: 66.66666667%;}
+.width-9 {width: 75%;}
+.width-12 {width: 100%;}
+.right {float: right;}
+.col, .left {float: left;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+p {margin: 15px 0;}
+th, td {text-align: center; padding: 5px 10px;}
+
+.hidden {display:none;}
+button:focus {outline: none;}
+button.toggler {display: inline-block; padding: 3px; color: #fff;
+  cursor: pointer; border: 2px solid black; border-radius: 5px;}
+button.overlay-toggler {border: 1px solid black; border-radius: 5px; font-size: 0.75em;
+  color: #fff; padding: 1px 3px; margin: 0 0 0 5px; cursor: pointer;}
+img.overlay-toggler {cursor: pointer;}
+img.overlay-toggler:hover {opacity: 0.5;}
+
+article {padding: 0 15px; margin-top: 10px;}
+article.bordered{border-left-width: 5px; border-radius: 0 5px 5px 0;}
+article.finance {border-left-color: #984ea3;}
+article.faith {border-left-color: #377eb8;}
+article.outdoors {border-left-color: #4daf4a;}
+article.fun {border-left-color: #e41a1c;}
+article div {font-size: 0.75em;}
+article.finance div.right:after {content: "Filed under Finance";}
+article.faith div.right:after {content: "Filed under Faith";}
+article.outdoors div.right:after {content: "Filed under Outdoors";}
+article.fun div.right:after {content: "Filed under Fun";}
+
+
+
 .inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px;}
 .outputs-panel {padding: 0 15px;}
 .inputs-panel label, .inputs-table label {display: inline-block; width: 100%;}
 .inputs-panel input, .inputs-panel select,
   .inputs-table input, .inputs-table select
   {display: block; width: 100%; margin: 10px 0; padding: 5px;}
+.inputs-panel input:read-only {background-color: #ddd;}
 .scroller-x {overflow-x: auto;}
 .scroller-none {overflow: hidden;}
 #retireTable thead th ~ th ~ th {border-bottom: 2px solid black;}
@@ -104,8 +114,6 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 .overlay p {background-color: #fff; width: 50%; margin: 50px auto; padding: 10px 10px;
   text-align: center; font-weight: normal;}
 .overlay img {width: auto; max-width: 800px; height: auto; margin: 50px auto; display: block;}
-html.finance .overlay {background-color: #984ea3; background-color: rgba(152,78,163,0.8);}
-html.outdoors .overlay {background-color: #4daf4a; background-color: rgba(77,175,74,0.8);}
 img {width: 300px; height: auto;}
 
 /*these float below each other when window resized */

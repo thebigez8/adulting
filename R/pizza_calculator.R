@@ -19,7 +19,7 @@ pizza <- function(i)
 }
 
 html(
-  class = "finance",
+  class = "finance theme-bg",
   HTMLhead(
     titl = "Pizza Calculator", js = "pizza_calculator",
     keywords = "Pizza,Calculator,Small,Medium,Large",
