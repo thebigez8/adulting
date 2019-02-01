@@ -3,13 +3,15 @@ groc.repo <- "https://raw.githubusercontent.com/thebigez8/grocery/master/"
 groc.df <- groc.repo %>%
   paste0("results.md") %>%
   readLines() %>%
-  grep(pattern = "^Store", value = TRUE) %>%
+  grep(pattern = "^(Store|Item)", value = TRUE) %>%
+  gsub(pattern = "(\\D)\\s(\\D)", replacement = "\\1\\2") %>%
   gsub(pattern = "\\s+", replacement = " ") %>%
+  gsub(pattern = "< 2e-16", replacement = "2e-16") %>%
   read.delim(header = FALSE, text = ., sep = " ") %>%
   setNames(c("term", "estimate", "std.error", "t", "p")) %>%
   dplyr::mutate(
-    estimate = round(estimate, 2),
-    p = ifelse(p < 0.01, "p < 0.01", paste0("p = ", round(p, 2)))
+    estimate = round(exp(estimate), 2),
+    p = ifelse(p < 0.001, "p < 0.001", paste0("p = ", round(p, 3)))
   )
 html(
   class = "finance theme-bg",
@@ -53,18 +55,18 @@ html(
       alt1 = "Plot of Price per Month per Item at Each Store", alt2 = "Larger Plot"
     ),
     p0(
-      "I ran a linear model to predict the price per month per item based on store and item ",
-      "(taking advantage of the factorial design). The full results are ",
+      "I ran a linear model to predict the (natural log of) price per month per item based ",
+      "on store and item (taking advantage of the factorial design). The full results are ",
       a("here", href = paste0(groc.repo, "results.md")), ", but I'll summarize them here:",
       as.html = TRUE
     ),
     ol(
       li("Aldi is the cheapest"),
-      map(c("Target", "Costco", "Walmart", "Hy-Vee"), function(store, trm = paste0("Store", store))
+      map(c("Costco", "Target", "Walmart", "Hy-Vee"), function(store, trm = paste0("Store", store))
         li(paste0(
-          store, " is on average $",
+          store, " is on average ",
           groc.df$estimate[groc.df$term == trm],
-          " more expensive per month per item than Aldi (",
+          " times more expensive per month per item than Aldi (",
           groc.df$p[groc.df$term == trm], ")"
         ))
       )
@@ -77,18 +79,21 @@ html(
     p0(
       "To make sure these results weren't driven by a single item, I ran a sensitivity analysis, ",
       "removing each item in turn and recalculating the model. In all models, Aldi remained the ",
-      "cheapest, and Hy-Vee remained the most expensive, but there was a small amount of variability ",
-      "in the second through fourth place spots, suggesting that a few items are unusually ",
-      "expensive at Costco and Walmart."
+      "cheapest. Costco traded spots with Target in 4/27 models, and Walmart traded spots with ",
+      "Hy-Vee in 5/27 models."
     ),
     p("So what did we learn?"),
     ol(
       li("Aldi is cheap. Yikes."),
       li(paste0(
+        "Costco might live up to its reputation (but is the membership cost-effective? That's ",
+        "a question for another day...)."
+      )),
+      li(paste0(
         "For all food that Aldi doesn't sell (or for emergency grocery runs), we'll go to Target, ",
         "which is the closest to our home anyway."
       )),
-      li("My wife's impression that Hy-Vee was too expensive was correct.")
+      li("Walmart and Hy-Vee are just too expensive.")
     )
   )
 ) %>%

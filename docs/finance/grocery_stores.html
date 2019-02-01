@@ -52,21 +52,22 @@
   <div class="overlay hidden" id="price-per-month-plot">
     <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month.png" alt="Larger Plot"/>
   </div>
-  <p>I ran a linear model to predict the price per month per item based on store and item (taking advantage of the factorial design). The full results are <a href="https://raw.githubusercontent.com/thebigez8/grocery/master/results.md">here</a>, but I'll summarize them here:</p>
+  <p>I ran a linear model to predict the (natural log of) price per month per item based on store and item (taking advantage of the factorial design). The full results are <a href="https://raw.githubusercontent.com/thebigez8/grocery/master/results.md">here</a>, but I'll summarize them here:</p>
   <ol>
     <li>Aldi is the cheapest</li>
-    <li>Target is on average $0.54 more expensive per month per item than Aldi (p = 0.06)</li>
-    <li>Costco is on average $0.67 more expensive per month per item than Aldi (p = 0.06)</li>
-    <li>Walmart is on average $0.84 more expensive per month per item than Aldi (p &lt; 0.01)</li>
-    <li>Hy-Vee is on average $1.11 more expensive per month per item than Aldi (p &lt; 0.01)</li>
+    <li>Costco is on average 1.19 times more expensive per month per item than Aldi (p = 0.041)</li>
+    <li>Target is on average 1.2 times more expensive per month per item than Aldi (p = 0.006)</li>
+    <li>Walmart is on average 1.29 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+    <li>Hy-Vee is on average 1.29 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
   </ol>
   <p>To be fair, Target is helped by the fact that I have the Target app and a RedCard, which means all items are essentially already 5% off for me. At all the other stores, I took into account my 2% cash back on my normal credit card.</p>
-  <p>To make sure these results weren't driven by a single item, I ran a sensitivity analysis, removing each item in turn and recalculating the model. In all models, Aldi remained the cheapest, and Hy-Vee remained the most expensive, but there was a small amount of variability in the second through fourth place spots, suggesting that a few items are unusually expensive at Costco and Walmart.</p>
+  <p>To make sure these results weren't driven by a single item, I ran a sensitivity analysis, removing each item in turn and recalculating the model. In all models, Aldi remained the cheapest. Costco traded spots with Target in 4/27 models, and Walmart traded spots with Hy-Vee in 5/27 models.</p>
   <p>So what did we learn?</p>
   <ol>
     <li>Aldi is cheap. Yikes.</li>
+    <li>Costco might live up to its reputation (but is the membership cost-effective? That's a question for another day...).</li>
     <li>For all food that Aldi doesn't sell (or for emergency grocery runs), we'll go to Target, which is the closest to our home anyway.</li>
-    <li>My wife's impression that Hy-Vee was too expensive was correct.</li>
+    <li>Walmart and Hy-Vee are just too expensive.</li>
   </ol>
 </body>
 </html>
