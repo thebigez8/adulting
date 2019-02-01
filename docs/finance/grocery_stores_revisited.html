@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="finance theme-bg">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130554917-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-130554917-1');
+  </script>
+  <title>Adulting: Grocery Store Analysis, Revisited</title>
+  <meta name="keywords" content="adulting,Aldi,Target,Costco,Walmart,Hy-Vee,Cub,Trader Joe&#39;s,Kwik Trip,Groceries,Linear Model,Linear Mixed Effects Model"/>
+  <meta name="description" content="An analysis of 45 grocery items to determine the cheapest of 8 grocery stores"/>
+  <meta name="author" content="E Heinzen"/>
+  <meta name="date" content="2019-01-31"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../styles.css"/>
+  <script src="../js/overlay.js"></script>
+  <script src="../js/overlay_only.js"></script>
+  <script src="../js/init.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="../index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul class="row">
+      <li class="left finance theme-bg theme-border">
+        <a href="../finance/index.html">Finance</a>
+      </li>
+      <li class="left faith theme-bg theme-border">
+        <a href="../faith/index.html">Faith</a>
+      </li>
+      <li class="left fun theme-bg theme-border">
+        <a href="../fun/index.html">Fun</a>
+      </li>
+      <li class="left outdoors theme-bg theme-border">
+        <a href="../outdoors/index.html">Outdoors</a>
+      </li>
+      <li class="left home theme-bg theme-border">
+        <a href="../about.html">About</a>
+      </li>
+    </ul>
+  </nav>
+  <p class="disclaimer">This page may not generalize to all family consumptions or geographic areas, nor does the analysis presented consider all possible items or stores.</p>
+  <h2>Which Grocery Store is Cheapest, Revisited</h2>
+  <p>In a <a href="grocery_stores.html">previous article</a>, I spent three days searching groceries stores for various items to figure out, on average, which of the stores we shop at was the cheapest. Since that article, friends and family alike have suggested a similar exercise for other stores. So like a true penny-pincher, I spent 7 hours on a Saturday tracking down prices (with only a few dirty looks from employees). This time, I selected 45 common items and 5 stores. Once again, where possible, I tried to find comparable items across the stores (which was still harder than I thought), and I'd usually pick the cheapest version of an item if there were multiple choices. This is an important qualification of this analysis: the prices here aren't necessarily for the highest quality item.</p>
+  <p>Using R, I normalized the data to calculate a price per unit. I then calculated the price per item per month (since if I only have to buy an expensive item once per year at a store but everything else is cheap, I'll still want to go there). This is the second important qualification of this analysis: I had to estimate how many times per month we bought each item. I guarantee that no one else has the same grocery purchase profile as the one I used.</p>
+  <p>The results shook out like this (visit #1 on the left, #2 on the right):</p>
+  <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month2.png" class="overlay-toggler" data-target="price-per-month-plot" alt="Plot of Price per Month per Item at Each Store"/>
+  <div class="overlay hidden" id="price-per-month-plot">
+    <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month2.png" alt="Larger Plot"/>
+  </div>
+  <p>I ran a linear mixed effects model to predict the (natural log of) price per month oer item, using items and seasonality (of certain produce) as random effects and store as a fixed effect. The full results are <a href="https://raw.githubusercontent.com/thebigez8/grocery/master/results2.md">here</a>, but I'll summarize them here:</p>
+  <ol>
+    <li>Aldi is still the cheapest</li>
+    <li>Costco is on average 1.09 times more expensive per month per item than Aldi (p = 0.11)</li>
+    <li>Target is on average 1.15 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+    <li>Walmart is on average 1.21 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+    <li>Hy-Vee is on average 1.31 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+    <li>Cub is on average 1.39 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+    <li>Trader Joe's is on average 1.4 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+    <li>Kwik Trip is on average 1.83 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
+  </ol>
+  <p>Once again, Target is helped by the fact that I have the Target app and a RedCard, which means all items are essentially already 5% off for me. At all the other stores, I took into account my 2% cash back on my normal credit card.</p>
+  <p>To make sure these results weren't driven by a single item, I ran a sensitivity analysis, removing each item in turn and recalculating the model. Cub traded spots with Trader Joe's in 5/45 models, but all other stores remained firm in their rankings.</p>
+  <p>So what did we learn?</p>
+  <ol>
+    <li>Aldi is still dirt cheap.</li>
+    <li>Costco gained some ground on Aldi with the inclusion of more items.</li>
+    <li>We didn't find a new store that was cheaper than the ones at which we previously shopped.</li>
+  </ol>
+</body>
+</html>
