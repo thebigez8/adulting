@@ -45,17 +45,17 @@
   </nav>
   <p class="disclaimer">This page may not generalize to all family consumptions or geographic areas, nor does the analysis presented consider all possible items or stores.</p>
   <h2>Which Grocery Store is Cheapest, Revisited</h2>
-  <p>In a <a href="grocery_stores.html">previous article</a>, I spent three days searching groceries stores for various items to figure out, on average, which of the stores we shop at was the cheapest. Since that article, friends and family alike have suggested a similar exercise for other stores. So like a true penny-pincher, I spent 7 hours on a Saturday tracking down prices (with only a few dirty looks from employees). This time, I selected 45 common items and 5 stores. Once again, where possible, I tried to find comparable items across the stores (which was still harder than I thought), and I'd usually pick the cheapest version of an item if there were multiple choices. This is an important qualification of this analysis: the prices here aren't necessarily for the highest quality item.</p>
+  <p>In a <a href="grocery_stores.html">previous article</a>, I searched grocery stores for various items to figure out, on average, which of the stores at which we shop was the cheapest. In the time Since that article, friends and family alike have suggested a similar exercise for other stores, so like a true penny-pincher, I spent 7 hours on a Saturday tracking down prices (with only a few dirty looks from employees). This time, I selected 45 common items and 5 stores. Once again, where possible, I tried to find comparable items across the stores (which was still harder than I thought), and I'd usually pick the cheapest version of an item if there were multiple choices. This is an important qualification of this analysis: the prices here aren't necessarily for the highest quality item.</p>
   <p>Using R, I normalized the data to calculate a price per unit. I then calculated the price per item per month (since if I only have to buy an expensive item once per year at a store but everything else is cheap, I'll still want to go there). This is the second important qualification of this analysis: I had to estimate how many times per month we bought each item. I guarantee that no one else has the same grocery purchase profile as the one I used.</p>
   <p>The results shook out like this (visit #1 on the left, #2 on the right):</p>
   <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month2.png" class="overlay-toggler" data-target="price-per-month-plot" alt="Plot of Price per Month per Item at Each Store"/>
   <div class="overlay hidden" id="price-per-month-plot">
     <img src="https://raw.githubusercontent.com/thebigez8/grocery/master/price_per_month2.png" alt="Larger Plot"/>
   </div>
-  <p>I ran a linear mixed effects model to predict the (natural log of) price per month oer item, using items and seasonality (of certain produce) as random effects and store as a fixed effect. The full results are <a href="https://raw.githubusercontent.com/thebigez8/grocery/master/results2.md">here</a>, but I'll summarize them here:</p>
+  <p>I ran a linear mixed effects model to predict the (natural log of) price per month per item, using Item and Seasonality (of certain produce) as random effects and Store as a fixed effect. The full results are <a href="https://raw.githubusercontent.com/thebigez8/grocery/master/results2.md">here</a>, but I'll summarize them briefly below:</p>
   <ol>
     <li>Aldi is still the cheapest</li>
-    <li>Costco is on average 1.09 times more expensive per month per item than Aldi (p = 0.11)</li>
+    <li>Costco is on average 1.09 times more expensive per month per item than Aldi (p = 0.111)</li>
     <li>Target is on average 1.15 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
     <li>Walmart is on average 1.21 times more expensive per month per item than Aldi (p &lt; 0.001)</li>
     <li>Hy-Vee is on average 1.31 times more expensive per month per item than Aldi (p &lt; 0.001)</li>

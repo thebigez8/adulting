@@ -133,10 +133,10 @@ html(
     ),
     h2("Which Grocery Store is Cheapest, Revisited"),
     p0(
-      "In a ", a("previous article", href = "grocery_stores.html"), ", I spent three days ",
-      "searching groceries stores for various items to figure out, on average, which of the ",
-      "stores we shop at was the cheapest. Since that article, friends and family alike have ",
-      "suggested a similar exercise for other stores. So like a true penny-pincher, I spent ",
+      "In a ", a("previous article", href = "grocery_stores.html"), ", I searched grocery stores ",
+      "for various items to figure out, on average, which of the stores at which we shop was the ",
+      "cheapest. In the time Since that article, friends and family alike have ",
+      "suggested a similar exercise for other stores, so like a true penny-pincher, I spent ",
       "7 hours on a Saturday tracking down prices (with only a few dirty looks from employees). ",
       "This time, I selected 45 common items and 5 stores. Once again, where possible, I tried to ",
       "find comparable items across the stores (which was still harder than I thought), and I'd ",
@@ -158,10 +158,10 @@ html(
       alt1 = "Plot of Price per Month per Item at Each Store", alt2 = "Larger Plot"
     ),
     p0(
-      "I ran a linear mixed effects model to predict the (natural log of) price per month oer item, ",
-      "using items and seasonality (of certain produce) as random effects and store as a fixed ",
+      "I ran a linear mixed effects model to predict the (natural log of) price per month per item, ",
+      "using Item and Seasonality (of certain produce) as random effects and Store as a fixed ",
       "effect. The full results are ", a("here", href = paste0(groc.repo, "results2.md")),
-      ", but I'll summarize them here:",
+      ", but I'll summarize them briefly below:",
       as.html = TRUE
     ),
     ol(
