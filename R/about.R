@@ -2,9 +2,9 @@
 html(
   class = "home theme-bg",
   HTMLhead(
-    titl = "Home", js = c("toggle", "index"), home = "",
+    titl = "About", js = c("toggle", "index"), home = "",
     keywords = "Finance,Fun,Faith,Outdoors",
-    desc = "Adulting Home Page",
+    desc = "About Adulting",
     date = "2018-10-08"
   ),
   body(
