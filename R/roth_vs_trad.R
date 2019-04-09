@@ -69,6 +69,10 @@ html(
           "All contributions are made at the beginning of the year and make the same ROR each year."
         )
       )
+    ),
+    foot(
+      a("Bankrate.com's Roth vs. Traditional calculator", target = "_blank",
+        href = "https://www.bankrate.com/calculators/retirement/roth-traditional-ira-calculator.aspx")
     )
   )
 ) %>%

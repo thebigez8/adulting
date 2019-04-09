@@ -41,6 +41,8 @@ nav ul li.theme-bg:hover, button.toggler.inactive, button.overlay-toggler:hover
 nav ul li {border: solid 2px black; color: #fff;}
 nav ul li a {padding: 5px 10px; display: inline-block;}
 nav ul li a, h1 a {text-decoration: none; color: inherit;}
+footer {border-top: 2px solid black;}
+html.finance footer {border-color: #984ea3;}
 .width-3 {width: 25%;}
 .width-4 {width: 33.33333333%;}
 .width-6 {width: 50%;}

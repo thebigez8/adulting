@@ -91,6 +91,14 @@ navbar <- function(home = "../")
   )
 }
 
+foot <- function(...)
+{
+  tags$footer(
+    p0("References and Other Useful Links:"),
+    do.call(ul, lapply(list(...), li))
+  )
+}
+
 list.files("R/", "\\.R$", full.names = TRUE) %>%
   "["(. != "R/helpers.R") %>%
   "["(order(. == "R/index.R")) %>%
