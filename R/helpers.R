@@ -93,11 +93,16 @@ navbar <- function(home = "../")
 
 foot <- function(...)
 {
+  # if you change this, also edit parse_md.R
   tags$footer(
     p0("References and Other Useful Links:"),
     do.call(ul, lapply(list(...), li))
   )
 }
+
+source("R/parse_md.R")
+list.files("md/", "\\.md$", full.names = TRUE) %>%
+  walk(~ parse_md(print(.x)))
 
 list.files("R/", "\\.R$", full.names = TRUE) %>%
   "["(. != "R/helpers.R") %>%
