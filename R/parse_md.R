@@ -32,7 +32,7 @@ parse_md <- function(fn, prefix = "    ")
     str_replace_all("\\[(.*?)\\]\\((.*?)\\)", '<a href="\\2">\\1</a>') %>%
     str_replace("^## (.*)", "<h2>\\1</h2>") %>%
     str_replace("^### (.*)", "<h3>\\1</h3>") %>%
-    str_replace("\\*(.*)\\*", "<em>\\1</em>") %>%
+    str_replace_all("\\*(.*?)\\*", "<em>\\1</em>") %>%
     str_replace(
       "^\\[(\\d+)\\] (.*)",
       '  <li id="footnote-\\1"><a href="#ref-\\1" class="reference-link">^</a> \\2</li>'
