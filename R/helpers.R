@@ -31,7 +31,7 @@ overlay.img <- function(id, src, alt1, alt2)
 
 write2file <- function(x, file)
 {
-  cat("<!DOCTYPE html>",
+  cat('<!DOCTYPE html lang="en">',
       gsub("<(/?)header>", "<\\1head>", gsub("^  ", "", capture.output(x))),
       file = file, append = FALSE, sep = "\n")
 }
