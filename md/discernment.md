@@ -9,12 +9,15 @@ url: docs/faith/discernment.html
 
 ## Discerning God's Will for Your Life
 
+My discernment journey was a meandering one. I consider it to have five phases, each
+with a corresponding lesson. This is my journey:
+
 ### Step 1: Get yourself into a state of grace
 
 I consider my discernment to have begun in college. I had fallen away from the Church
 for a while. I was like an onion: my innermost desire (whether I knew it or not) was for God.
 My inner life, however, was not into my faith and did not trust God. My outer life
-still *looked*  like a Catholic; I still went to church and even confession (?!), but in reality
+still *looked*  like a Catholic; I still went to church and even confession (?!), but in reality,
 I was steeped in sin.
 
 The first rule of the discernment of spirits (which, of course, I had no idea about at the time)
@@ -46,7 +49,7 @@ Step 2: You gotta trust God.
 I knew that my way wasn't working, so I tried to throw myself at God.
 I toted with the ideas of NET (National Evangelization Team) and the seminary.
 My friends who knew me best were suspicious that neither was right for me.
-I sought their counsel, but didn't actually listen to them.
+I sought their counsel, but I didn't actually listen to them.
 
 Step 3: Ask people who know you well for advice. But then actually *consider* it.
 
@@ -58,10 +61,10 @@ I interviewed for NET. They invited me to serve, but I (somehow) realized that i
 God's will for my life, so I turned them down.
 
 I set my eyes on something bigger: seminary. I met with the Vocations Director
-several times, and got halfway through the application. At the time, I was finishing a
+several times and got halfway through the application. At the time, I was finishing a
 devotion to Mary. I felt uneasy about the seminary (which I attributed just to nerves),
 so I prayed a half-hearted novena of rosaries for Mary to help guide me. Another close
-friend reminded me that novenas aren't a subsitute for really sitting and reflecting on
+friend reminded me that novenas aren't a substitute for really sitting and reflecting on
 God's will. I, of course, didn't listen.
 
 Step 4: Pray novenas, but don't let them be your only method of discernment.
@@ -87,5 +90,5 @@ advantageous to switch doors.
 What does this have to do with discernment? Being a statistician, I would say that it means you'll
 make better decisions with more information. So trust in God and take a step. He won't let you down.
 
-
+Step 5: Take a step while trusting in God.
 
