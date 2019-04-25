@@ -1,9 +1,10 @@
 library(htmltools)
-Tags <- tags[names(tags) %in% c("div", "html", "body", "span", "a",
+Tags <- tags[names(tags) %in% c("div", "body", "span", "a",
                                 "tr", "th", "td", "thead", "tbody", "p",
                                 "select", "option", "input", "link", "nav",
                                 "ul", "ol", "li", "label", "button", "script",
                                 "section", "article", "em", "dl", "dt", "dd", "dfn")]
+html <- function(...) tags$html(lang="en", ...)
 library(purrr)
 walk2(names(Tags), Tags, ~ assign(.x, .y, envir = globalenv()))
 library(magrittr)
@@ -31,7 +32,7 @@ overlay.img <- function(id, src, alt1, alt2)
 
 write2file <- function(x, file)
 {
-  cat('<!DOCTYPE html lang="en">',
+  cat('<!DOCTYPE html>',
       gsub("<(/?)header>", "<\\1head>", gsub("^  ", "", capture.output(x))),
       file = file, append = FALSE, sep = "\n")
 }
