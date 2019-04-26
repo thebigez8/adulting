@@ -18,6 +18,6 @@ function calcMoney()
     var size = Number(document.getElementById("size"+i).value);
     var cost = Number(document.getElementById("cost"+i).value);
     var tmp = cost / (Math.PI * Math.pow(size / diam, 2));
-    document.getElementById("ppsu"+i).innerHTML = '$' + tmp.toFixed(2);
+    document.getElementById("ppsu"+i).innerHTML = '$' + tmp.toFixed(5);
   }
 }
