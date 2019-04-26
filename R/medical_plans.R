@@ -23,7 +23,6 @@ html(
   class = "finance theme-bg",
   HTMLhead(
     titl = "Medical Plan Comparison", js = c("toggle", "overlay", "medical_plans"),
-    keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay,Calculator",
     desc = "A comparison of two medical plans",
     date = "2018-09-18"
   ),
@@ -220,7 +219,6 @@ html(
   class = "finance theme-bg",
   HTMLhead(
     titl = "Medical Plan Definitions", js = "blank",
-    keywords = "Medical Plans,HSA,FSA,High Deductible,Premiums,Deductible,Copay",
     desc = "Definitions of relevant medical plan terminology.",
     date = "2018-11-11"
   ),

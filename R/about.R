@@ -3,7 +3,6 @@ html(
   class = "home theme-bg",
   HTMLhead(
     titl = "About", js = c("toggle", "index"), home = "",
-    keywords = "Finance,Fun,Faith,Outdoors",
     desc = "About Adulting",
     date = "2018-10-08"
   ),

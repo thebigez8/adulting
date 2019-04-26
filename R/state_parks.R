@@ -26,7 +26,6 @@ html(
   class = "outdoors theme-bg",
   HTMLhead(
     titl = "MN State Parks", home = "../../",
-    keywords = "Hiking,MN,Hiking Club,Hiking Trails,Minnesota,State Parks",
     desc = "Information about and reviews of MN State Parks",
     date = "2018-10-25"
   ),
@@ -67,7 +66,6 @@ html(
   class = "outdoors theme-bg",
   HTMLhead(
     titl = "MN State Parks Tour", home = "../../", js = c("overlay", "overlay_only"),
-    keywords = "MN,Minnesota,State Parks,three opt,travelling salesman",
     desc = "Efficient Tours of MN State Parks",
     date = "2018-11-19"
   ),

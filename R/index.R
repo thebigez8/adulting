@@ -1,11 +1,18 @@
 generate_article <- function(URL, prefix)
 {
   pg <- xml2::read_html(paste0(prefix, URL))
-  met <- rvest::html_nodes(pg, "meta, title")
-  titl <- gsub("^Adulting: ", "", rvest::html_text(met[[1]]))
+  titl <- pg %>%
+    rvest::html_nodes("title") %>%
+    rvest::html_text() %>%
+    gsub(pattern = "^Adulting: ", replacement = "")
+  met <- pg %>%
+    rvest::html_nodes("meta") %>%
+    rvest::html_attrs() %>%
+    "["(map_lgl(., ~ "name" %in% names(.x))) %>%
+    map(~ set_names(.x["content"], .x["name"])) %>%
+    unlist()
   clss <- strsplit(rvest::html_attr(pg, "class", default = ""), " ")[[1]][1]
-  date <- rvest::html_attrs(met)[[5]]["content"]
-  make_article(date, clss, titl, URL, rvest::html_attrs(met)[[3]]["content"])
+  make_article(met["date"], clss, titl, URL, met["description"])
 }
 
 make_article <- function(date, class, title, href, content)
@@ -46,7 +53,6 @@ html(
   class = "home theme-bg",
   HTMLhead(
     titl = "Home", js = c("toggle", "index"), home = "",
-    keywords = "Finance,Fun,Faith,Outdoors",
     desc = "Adulting Home Page",
     date = "2018-10-08"
   ),
@@ -84,7 +90,6 @@ make_index <- function(clss)
     class = paste(tolower(clss), "theme-bg"),
     HTMLhead(
       titl = clss, js = "blank", home = "../",
-      keywords = clss,
       desc = paste0("Adulting: ", clss),
       date = "2018-12-23"
     ),

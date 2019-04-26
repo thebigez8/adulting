@@ -60,7 +60,6 @@ parse_md <- function(fn, prefix = "    ")
     class = yam["class"],
     HTMLhead(
       titl = yam["title"], js = "blank",
-      keywords = yam["keywords"],
       desc = yam["desc"],
       date = yam["date"]
     ),

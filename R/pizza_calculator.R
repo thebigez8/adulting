@@ -22,7 +22,6 @@ html(
   class = "finance theme-bg",
   HTMLhead(
     titl = "Pizza Calculator", js = "pizza_calculator",
-    keywords = "Pizza,Calculator,Small,Medium,Large",
     desc = "A calculator to determine which of two pizzas is a better price",
     date = "2018-09-19"
   ),

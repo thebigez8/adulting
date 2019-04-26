@@ -25,7 +25,6 @@ html(
   class = "finance theme-bg",
   HTMLhead(
     titl = "Grocery Store Analysis", js = c("overlay", "overlay_only"),
-    keywords = "Aldi,Target,Costco,Walmart,Hy-Vee,Groceries,Linear Model",
     desc = "An analysis of 27 grocery items to determine the cheapest of 5 grocery stores",
     date = "2018-11-21"
   ),
@@ -120,8 +119,6 @@ html(
   class = "finance theme-bg",
   HTMLhead(
     titl = "Grocery Store Analysis, Revisited", js = c("overlay", "overlay_only"),
-    keywords = paste0("Aldi,Target,Costco,Walmart,Hy-Vee,Cub,Trader Joe's,Kwik Trip,",
-                      "Groceries,Linear Model,Linear Mixed Effects Model"),
     desc = "An analysis of 45 grocery items to determine the cheapest of 8 grocery stores",
     date = "2019-01-31"
   ),

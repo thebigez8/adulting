@@ -37,8 +37,7 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = "blank",
-                     keywords = "", desc = "", home = "../", date)
+HTMLhead <- function(titl, js = "blank", desc = "", home = "../", date)
 {
   tags$header(
     HTML("<!-- Global site tag (gtag.js) - Google Analytics -->"),
@@ -50,7 +49,6 @@ HTMLhead <- function(titl, js = "blank",
       "gtag('config', 'UA-130554917-1');"
     ),
     tags$title(paste0("Adulting: ", titl)),
-    tags$meta(name="keywords", content=paste0("adulting,", keywords)),
     tags$meta(name="description", content=desc),
     tags$meta(name="author", content="E Heinzen"),
     tags$meta(name="date", content=date),
