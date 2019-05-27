@@ -43,14 +43,14 @@
     </ul>
   </nav>
   <h2>Minnesota State Parks and Recreation Areas Tour</h2>
-  <p>Using a <a href="https://raw.githubusercontent.com/thebigez8/state_parks/master/three_opt.cpp">three-opt algorithm</a>, we found the following proposed shortest tour of all the MN state parks and recreation areas. The route is about 2850 miles long.</p>
-  <img src="https://raw.githubusercontent.com/thebigez8/state_parks/master/MN_state_parks_route.png" class="overlay-toggler" data-target="larger-image" alt="State Park Route Map"/>
+  <p>Using a <a href="https://raw.githubusercontent.com/thebigez8/state_parks/master/src/three_opt.cpp">three-opt algorithm</a>, we found the following proposed shortest tour of all the MN state parks and recreation areas. The route is about 2850 miles long.</p>
+  <img src="https://raw.githubusercontent.com/thebigez8/state_parks/master/img/MN_state_parks_route.png" class="overlay-toggler" data-target="larger-image" alt="State Park Route Map"/>
   <div class="overlay hidden" id="larger-image">
-    <img src="https://raw.githubusercontent.com/thebigez8/state_parks/master/MN_state_parks_route.png" alt="Larger State Park Route Map"/>
+    <img src="https://raw.githubusercontent.com/thebigez8/state_parks/master/img/MN_state_parks_route.png" alt="Larger State Park Route Map"/>
   </div>
   <p>Constructing a tour like this turns out to be a hard problem known as the "Travelling Salesman" problem. While there are <a href="http://www.math.uwaterloo.ca/tsp/index.html">algorithms</a> that can find the guaranteed shortest route, they get complicated, and complicated is no fun to program. Here, we'll try out the three-opt algorithm.</p>
   <p>In short, the <dfn>three-opt algorithm</dfn> starts with a random tour of the parks and at each step considers three pairs of connected parks. If a rearrangement of the connections gives a shorter tour, the algorithm picks the shortest such rearrangement. This continues until no better rearrangement is found. It is important to run the algorithm many times to ensure that it picks the <em>best</em> route instead of just a good one. Nevertheless, three-opt remains a heuristic, so the route presented here still may not be the <em>best</em>. All we do is propose that it's <a href="https://twitter.com/MathIsEH/status/1062203770816344064">pretty good</a>.</p>
-  <p>For reference, here are the parks in order of the route (also <a href="https://raw.githubusercontent.com/thebigez8/state_parks/master/optimal_map.csv">in a CSV</a>):</p>
+  <p>For reference, here are the parks in order of the route (also <a href="https://raw.githubusercontent.com/thebigez8/state_parks/master/data/optimal_map.csv">in a CSV</a>):</p>
   <ul>
     <li>Tettegouche State Park</li>
     <li>Temperance River State Park</li>

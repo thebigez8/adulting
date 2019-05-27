@@ -4,17 +4,20 @@
 #   html
 # }
 
-state.parks <- "rawdata/state_parks.csv" %>%
-  read.csv(header = TRUE, stringsAsFactors = FALSE) %>%
-  dplyr::arrange(-as.numeric(as.Date(date)))
-park_row <- function(name, ID, date, hc.len, len, summer, hc.rating, rating, experience)
+state.parks <- "https://raw.githubusercontent.com/thebigez8/state_parks/master/data/parks.tsv" %>%
+  read.table(header = TRUE, stringsAsFactors = FALSE, sep = "\t") %>%
+  dplyr::filter(ID != "") %>%
+  dplyr::arrange(-as.numeric(as.Date(date))) %>%
+  dplyr::select(Park, ID, date, hc.len, len, summer, hc.rating, rating, experience) %>%
+  dplyr::mutate(Park = ifelse(grepl(" State Park MN", Park), gsub(" State Park MN", "", Park), Park))
+park_row <- function(Park, ID, date, hc.len, len, summer, hc.rating, rating, experience)
 {
   home <- paste0("https://www.dnr.state.mn.us/state_parks/park.html?id=", ID, "#homepage")
   trails <- sub("#homepage", "#trails", home, fixed = TRUE)
   if(summer == "Y") summer <- "_summer"
   mappdf <- paste0("https://files.dnr.state.mn.us/maps/state_parks/", ID, summer, ".pdf")
   tr(
-    th(a(name, href = home)),
+    th(a(Park, href = home)),
     td(date),
     td(a("Map", href = mappdf)),
     td(a(paste0(hc.len, " (", len, ")"), href = trails)),
@@ -61,7 +64,7 @@ html(
   write2file(file = "docs/outdoors/MN_state_parks/index.html")
 
 spk.repo <- "https://raw.githubusercontent.com/thebigez8/state_parks/master/"
-tourcsv <- paste0(spk.repo, "optimal_map.csv")
+tourcsv <- paste0(spk.repo, "data/optimal_map.csv")
 html(
   class = "outdoors theme-bg",
   HTMLhead(
@@ -73,13 +76,13 @@ html(
     navbar(home = "../../"),
     h2("Minnesota State Parks and Recreation Areas Tour"),
     p0(
-      "Using a ", a("three-opt algorithm", href = paste0(spk.repo, "three_opt.cpp")),
+      "Using a ", a("three-opt algorithm", href = paste0(spk.repo, "src/three_opt.cpp")),
       ", we found the following proposed shortest tour of all the MN state parks and ",
       "recreation areas. The route is about 2850 miles long.", as.html = TRUE
     ),
     overlay.img(
       id = "larger-image",
-      src = paste0(spk.repo, "MN_state_parks_route.png"),
+      src = paste0(spk.repo, "img/MN_state_parks_route.png"),
       alt1 = "State Park Route Map", alt2 = "Larger State Park Route Map"
     ),
     p0(
