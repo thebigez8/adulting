@@ -37,7 +37,7 @@ write2file <- function(x, file)
       file = file, append = FALSE, sep = "\n")
 }
 
-HTMLhead <- function(titl, js = "blank", desc = "", home = "../", date)
+HTMLhead <- function(titl, js = "blank", css = NULL, desc = "", home = "../", date)
 {
   tags$header(
     HTML("<!-- Global site tag (gtag.js) - Google Analytics -->"),
@@ -53,7 +53,7 @@ HTMLhead <- function(titl, js = "blank", desc = "", home = "../", date)
     tags$meta(name="author", content="E Heinzen"),
     tags$meta(name="date", content=date),
     tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
-    link(rel="stylesheet", href=paste0(home, "styles.css")),
+    map(c("styles", css), ~ link(rel="stylesheet", href=paste0(home, "css/", .x, ".css"))),
     map(c(js, "init"), ~ script(src = paste0(home, "js/", .x, ".js")))
   )
 }

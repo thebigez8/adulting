@@ -21,7 +21,7 @@ pizza <- function(i)
 html(
   class = "finance theme-bg",
   HTMLhead(
-    titl = "Pizza Calculator", js = "pizza_calculator",
+    titl = "Pizza Calculator", js = "pizza_calculator", css = "pizza_calculator",
     desc = "A calculator to determine which of two pizzas is a better price",
     date = "2018-09-19"
   ),
