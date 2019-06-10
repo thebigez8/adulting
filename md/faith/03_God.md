@@ -24,14 +24,19 @@ since God is what is, He is [truth](02_what_is_truth.html).
 
 ### How do we know God exists?
 
-Why do things exist? That is, consider North America. North America exists, but it's not responsible for its own
-existence. That is, it's <dfn>contingent</dfn>. North America wouldn't exist, for instance, if the earth didn't
-exist. But the earth is also not reponsible for its own existence; it, too, is contingent. The earth wouldn't
+God's existence is objective: He either exists or He does not. He cannot exist for some people but not others.
+So how do we know He exists? Let's follow the
+[reasoning set forth by St. Thomas Aquinas](https://en.wikipedia.org/wiki/Five_Ways_(Aquinas)#Tertia_Via:_The_Argument_from_Contingency):
+
+Why do things exist? That is, consider North America. North America exists, but it didn't have to.
+That is, it's <dfn>contingent</dfn>. North America wouldn't exist, for instance, if the earth didn't
+exist. But the earth also didn't have to exist; it, too, is contingent. The earth wouldn't
 exist, for instance, if it were not for the oxygen and silicon atoms that make up its crust. But those atoms are
-not reponsible for their own existence either; they, too, are contingent. They would not exist, for instance, if
+didn't have to exist either; they, too, are contingent. They would not exist, for instance, if
 it were not for subatomic particles.
 
-We can continue in this vein until we come to the conclusion that everything in our universe is contingent upon
+We can continue in this vein until we come to the conclusion that everything in our universe exists,
+but none of it had to. That is, everything in the universe is contingent upon
 other things for their own existence. But we simply cannot have an infinite chain of contingencies. Why not?
 Because we haven't explained the existence of any item in the chain. For instance, suppose you have a train that's
 moving[2]. Each boxcar relies on the movement of the boxcar in front of it for its motion. Even if you have an
@@ -52,6 +57,11 @@ reponsible for the universe; that is, He created it.
 ### Common Objections
 
 Certainly there are objections to this line of reasoning.
+
+#### What if the universe were infinitely old?
+
+Even if the universe were infinitely old, it still exists even though it didn't have to. That is, it's still
+contingent and requires an explanation.
 
 #### Could physics explain the universe?
 

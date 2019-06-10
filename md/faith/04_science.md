@@ -8,6 +8,30 @@ url: "docs/faith/04_faith_and_science.html"
 
 ## Is God Incompatible with Science?
 
+### Faith and Science
+
+We already uncovered that science [cannot be the only source of truth](02_what_is_truth.html). Indeed, mathematics
+and philosophy are equally valid ways of discerning what is true. Faith/religion is the same way. In fact, the
+Catechism of the Catholic Church notes:
+
+<blockquote>
+  <p><i>Faith and science</i>: "Though faith is above reason, there can never be any real discrepancy between faith
+     and reason. Since the same God who reveals mysteries and infuses faith has bestowed the light of reason on the
+     human mind, God cannot deny himself, nor can truth ever contradict truth."</p>
+  <p>"Consequently, methodical research in all branches of knowledge, provided it is carried out in a truly
+     scientific manner and does not override moral laws, can never conflict with the faith, because the things of
+     the world and the things of faith derive from the same God. The humble and persevering investigator of the
+     secrets of nature is being led, as it were, by the hand of God in spite of himself, for it is God, the
+     conserver of all things, who made them what they are."</p>
+  <footer><cite>CCC, paragraph 159</cite></footer>
+</blockquote>
+
+In other words, if science and faith/reason/religion both pursue objective truth, they cannot come to different conclusions. It is simply not possible. Therefore, if there is a perceived conflict between faith and science, so too there must be a corresponding misunderstanding in faith or in science.
+
+Further, it is worth noting that faith and science cover entirely different spheres of knowledge: faith is concerned
+with the spiritual realm and with what *ought* to be, whereas science focuses on the physical realm and what exists
+therein.
+
 ### God isn't scientific (strictly speaking)
 
 God isn't scientific (strictly speaking). That is to say, because He is outside of space and time, He cannot be
