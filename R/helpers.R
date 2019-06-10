@@ -100,7 +100,7 @@ foot <- function(...)
 }
 
 source("R/parse_md.R")
-list.files("md/", "\\.md$", full.names = TRUE) %>%
+list.files("md/", "\\.md$", full.names = TRUE, recursive = TRUE) %>%
   walk(~ parse_md(print(.x)))
 
 list.files("R/", "\\.R$", full.names = TRUE) %>%

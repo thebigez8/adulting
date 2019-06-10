@@ -20,7 +20,7 @@ parse_md <- function(fn, prefix = "    ")
     head(dashes[2]) %>%
     "["(. != "---") %>%
     gsub(pattern = '"', replacement = "") %>%
-    str_split(": ") %>%
+    str_split(": ", n = 2) %>%
     lapply(function(x) set_names(x[2], x[1])) %>%
     unlist()
 
@@ -29,26 +29,32 @@ parse_md <- function(fn, prefix = "    ")
     tapply(cumsum(. == ""), paste0, collapse = " ") %>%
     trimws() %>%
     setdiff("") %>%
-    str_replace_all("\\[(.*?)\\]\\((.*?)\\)", '<a href="\\2">\\1</a>') %>%
+
+    # do the elements which don't belong in paragraphs
     str_replace("^## (.*)", "<h2>\\1</h2>") %>%
     str_replace("^### (.*)", "<h3>\\1</h3>") %>%
-    str_replace_all("\\*(.*?)\\*", "<em>\\1</em>") %>%
+    str_replace("^#### (.*)", "<h4>\\1</h4>") %>%
     str_replace(
       "^\\[(\\d+)\\] (.*)",
       '  <li id="footnote-\\1"><a href="#ref-\\1" class="reference-link">^</a> \\2</li>'
     ) %>%
     group_li("o") %>%
+    str_replace("^- (.*)", "  <li>\\1</li>") %>%
+    group_li("u") %>%
+
+    # replace with paragraphs and do all the inline stuff
+    str_replace("^(\\s*[^<\\s].*)", "<p>\\1</p>") %>%
     str_replace_all(
       "\\[(\\d+)\\]",
       '<sup><a href="#footnote-\\1" id="ref-\\1" class="reference-link">\\1</a></sup>'
     ) %>%
-    str_replace("^- (.*)", "  <li>\\1</li>") %>%
-    group_li("u") %>%
-    str_replace("^(\\s*[^<\\s].*)", "<p>\\1</p>") %>%
+    str_replace_all("\\[(.*?)\\]\\((.*?)\\)", '<a href="\\2">\\1</a>') %>%
+    str_replace_all("\\*(.*?)\\*", "<em>\\1</em>") %>%
+    str_replace_all("\\\\\\\\<", "<") %>%
     paste0(collapse = "\n") %>%
     str_replace(
-      "<p>References:</p>\n(<ol>(\n|.)+</ol>)",
-      "<footer><p>References and Other Useful Links:</p>\\1"
+      "<p>---Footnotes---</p>\n(<ol>(\n|.)+</ol>)",
+      "<footer>\n\\1\n</footer>"
     ) %>%
     str_split("\n") %>%
     "[["(1) %>%
