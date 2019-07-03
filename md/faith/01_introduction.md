@@ -2,7 +2,7 @@
 class: "faith theme-bg"
 title: "01: Introduction"
 desc: "The Catholic Faith as I Understand It"
-date: "2019-06-09"
+date: "2019-06-06"
 url: "docs/faith/01_introduction.html"
 ---
 

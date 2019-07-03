@@ -1,5 +1,5 @@
 ---
-title: Discerning God's Will for Your Life
+title: Extra: Discerning God's Will for Your Life
 date: "2019-04-22"
 desc: A talk on discerning God's will for your life
 keywords: discernment,God,will,faith

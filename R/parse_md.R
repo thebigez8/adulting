@@ -39,6 +39,8 @@ parse_md <- function(fn, prefix = "    ")
       '  <li id="footnote-\\1"><a href="#ref-\\1" class="reference-link">^</a> \\2</li>'
     ) %>%
     group_li("o") %>%
+    str_replace("^\\d+\\. (.*)", "  <li>\\1</li>") %>%
+    group_li("o") %>%
     str_replace("^- (.*)", "  <li>\\1</li>") %>%
     group_li("u") %>%
 

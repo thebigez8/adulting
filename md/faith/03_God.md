@@ -2,7 +2,7 @@
 class: "faith theme-bg"
 title: "03: What (Who) is God?"
 desc: "On the nature of God"
-date: "2019-06-09"
+date: "2019-06-08"
 url: "docs/faith/03_who_is_God.html"
 ---
 

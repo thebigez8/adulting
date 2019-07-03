@@ -2,7 +2,7 @@
 class: "faith theme-bg"
 title: "02: What is Truth?"
 desc: "A brief discussion of truth"
-date: "2019-06-09"
+date: "2019-06-07"
 url: "docs/faith/02_what_is_truth.html"
 ---
 
@@ -41,7 +41,10 @@ So perhaps the best way to know objective truth is to consider science? Certainl
 truth: we propose a hypothesis, we test that hypothesis by collecting data or conducting an experiment, and we
 analyze that data to see whether to accept or reject our hypothesis. But science can't be the *only* way to know
 truth. Most of math, for instance, isn't science; we don't conduct experiments or collect data to see if two plus
-two is four[2]. Indeed, the statement "truth only comes from science" is self-contradictory: what experiment can
+two is four[2]. Or consider historians, whose job it is to study the truth of what historical events. Likewise,
+historians are not scientists, and do not perform experiments to determine what events transpired. Clearly
+science cannot be the only way to know truth.
+Indeed, the statement "truth only comes from science" is self-contradictory: what experiment can
 you run to prove that truth only comes from science[3]?
 
 Perhaps instead truth comes from the Bible? Certainly some truth comes from the Bible (more on this later), but
@@ -53,6 +56,11 @@ nowadays (usually unknowingly, we should add): "what's true for you is true for 
 true for me", or "don't impose your truth on me". But this is yet another third contradiction: is it true for
 everyone that there's no truth for everyone?
 
+Or perhaps what's true is what the majority of people believe? Clearly this also isn't the case.
+Even if everyone on earth suddenly believed that the earth was flat, the earth would *not* suddenly become
+flat.
+
+So then how do we know truth?
 As Catholics, we believe that faith, science, and reason all contribute to knowledge of truth (but more on that
 later!).
 
