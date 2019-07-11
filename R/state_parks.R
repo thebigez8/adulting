@@ -47,7 +47,7 @@ html(
     div(
       class = "scroller-x",
       tags$table(
-        class = "bordered",
+        class = "bordered large-table",
         thead(
           th("Park"), th("Date Visited"), th("Map"),
           th("Hiking Club Length", tags$br(), "(Total Trails)"),

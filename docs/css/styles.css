@@ -111,5 +111,5 @@ img {width: 300px; height: auto;}
   .outputs-panel {padding: 0;}
   .overlay p {width: 90%;}
   th, td {padding: 5px;}
-  table {font-size: 0.8em;}
+  table.large-table {font-size: 0.8em;}
 }
