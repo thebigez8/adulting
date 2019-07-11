@@ -103,7 +103,9 @@ source("R/parse_md.R")
 list.files("md/", "\\.md$", full.names = TRUE, recursive = TRUE) %>%
   walk(~ parse_md(print(.x)))
 
+INTERNET <- TRUE
+
 list.files("R/", "\\.R$", full.names = TRUE) %>%
-  "["(. != "R/helpers.R") %>%
+  setdiff(c("R/helpers.R", if(!INTERNET) c("R/grocery.R", "R/state_parks.R"))) %>%
   "["(order(. == "R/index.R")) %>%
   walk(~ source(print(.x)))
