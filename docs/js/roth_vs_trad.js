@@ -6,7 +6,7 @@ function init()
   {
     if(inputs[i].type == "number") inputs[i].addEventListener("change", validateNumber);
   }
-  document.getElementById("submit").addEventListener("click", calcMoney);
+  gid("submit").addEventListener("click", calcMoney);
   calcMoney();
 }
 
@@ -32,17 +32,17 @@ function trad(currAge, retireAge, contribs, ror, currTax, retireTax, rorTaxSavin
 
 function calcMoney()
 {
-  var currAge = Number(document.getElementById("currAge").value);
-  var retireAge = Number(document.getElementById("retireAge").value);
-  var contribs = Number(document.getElementById("contribs").value);
-  var currTax = Number(document.getElementById("currTax").value) / 100;
-  var rorTaxSavings = Number(document.getElementById("rorTaxSavings").value) / 100;
-  var catchup = Number(document.getElementById("catchup").value);
+  var currAge = Number(gid("currAge").value);
+  var retireAge = Number(gid("retireAge").value);
+  var contribs = Number(gid("contribs").value);
+  var currTax = Number(gid("currTax").value) / 100;
+  var rorTaxSavings = Number(gid("rorTaxSavings").value) / 100;
+  var catchup = Number(gid("catchup").value);
   for(var ror = 1; ror <= 20; ror++)
   {
     for(var rtax = 5; rtax <= 35; rtax++)
     {
-      var x = document.getElementById("cell-" + rtax + "-" + ror);
+      var x = gid("cell-" + rtax + "-" + ror);
       var rth = roth(currAge, retireAge, contribs, ror/100, catchup);
       var trd = trad(currAge, retireAge, contribs, ror/100, currTax, rtax/100, rorTaxSavings, catchup);
       var dif = (rth - trd)/1000;

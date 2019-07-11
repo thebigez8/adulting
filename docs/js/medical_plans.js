@@ -7,11 +7,11 @@ function init()
     if(inputs[i].type == "number") inputs[i].addEventListener("change", validateNumber);
     inputs[i].addEventListener("change", calcMoney);
   }
-  document.getElementById("freqContribs").addEventListener("change", calcMoney);
-  document.getElementById("coverage").addEventListener("change", updateCoverage);
-  document.getElementById("mayobasic").addEventListener("click", mayobasic);
-  document.getElementById("mayoselect").addEventListener("click", mayoselect);
-  document.getElementById("mayopremier").addEventListener("click", mayopremier);
+  gid("freqContribs").addEventListener("change", calcMoney);
+  gid("coverage").addEventListener("change", updateCoverage);
+  gid("mayobasic").addEventListener("click", mayobasic);
+  gid("mayoselect").addEventListener("click", mayoselect);
+  gid("mayopremier").addEventListener("click", mayopremier);
 
   mayobasic();
   mayopremier();
@@ -24,22 +24,22 @@ function updateCoverage()
   mayobasic();
   mayopremier();
   (toggle(this))();
-  if(document.getElementById("coverage").value == "single")
+  if(gid("coverage").value == "single")
   {
-    document.getElementById("fsahsa2").max = 3500;
-  } else document.getElementById("fsahsa2").max = 7000;
+    gid("fsahsa2").max = 3500;
+  } else gid("fsahsa2").max = 7000;
 }
 
 function mayopresets(singlepremium, singlededuct, singleoopm,
                      fampremium, ppdeduct, famdeduct, ppoopm, famoopm,
                      coi, singlefsahsa, famfsahsa, column)
 {
-  if(document.getElementById("coverage").value == "single")
+  if(gid("coverage").value == "single")
   {
     for(var i = 2; i <= 4; i++)
     {
-      document.getElementById("cost" + i + column).value = 0;
-      document.getElementById("copay" + i + column).value = 0;
+      gid("cost" + i + column).value = 0;
+      gid("copay" + i + column).value = 0;
     }
     fampremium = singlepremium;
     ppdeduct = singlededuct;
@@ -48,13 +48,13 @@ function mayopresets(singlepremium, singlededuct, singleoopm,
     famoopm = singleoopm;
     famfsahsa = singlefsahsa;
   }
-  document.getElementById("premium" + column).value = fampremium;
-  document.getElementById("ppdeduct" + column).value = ppdeduct;
-  document.getElementById("famdeduct" + column).value = famdeduct;
-  document.getElementById("ppoopm" + column).value = ppoopm;
-  document.getElementById("famoopm" + column).value = famoopm;
-  document.getElementById("coi" + column).value = coi;
-  document.getElementById("fsahsa" + column).value = famfsahsa;
+  gid("premium" + column).value = fampremium;
+  gid("ppdeduct" + column).value = ppdeduct;
+  gid("famdeduct" + column).value = famdeduct;
+  gid("ppoopm" + column).value = ppoopm;
+  gid("famoopm" + column).value = famoopm;
+  gid("coi" + column).value = coi;
+  gid("fsahsa" + column).value = famfsahsa;
   calcMoney();
 }
 function mayopremier(){mayopresets(105*12, 500, 2500, 310*12, 500, 1000, 2500, 5000, 20, 2500, 2650, 1);}
@@ -63,22 +63,22 @@ function mayobasic(){mayopresets(20*12, 2000, 5000, 45*12, 4000, 4000, 5000, 100
 
 function medicalplan(column)
 {
-  var ppdeduct = Number(document.getElementById("ppdeduct" + column).value);
-  var famdeduct = Number(document.getElementById("famdeduct" + column).value);
-  var ppoopm = Number(document.getElementById("ppoopm" + column).value);
-  var famoopm = Number(document.getElementById("famoopm" + column).value);
-  var coi = Number(document.getElementById("coi" + column).value) / 100;
+  var ppdeduct = Number(gid("ppdeduct" + column).value);
+  var famdeduct = Number(gid("famdeduct" + column).value);
+  var ppoopm = Number(gid("ppoopm" + column).value);
+  var famoopm = Number(gid("famoopm" + column).value);
+  var coi = Number(gid("coi" + column).value) / 100;
   var costs = [
-    document.getElementById("cost1" + column).value,
-    document.getElementById("cost2" + column).value,
-    document.getElementById("cost3" + column).value,
-    document.getElementById("cost4" + column).value
+    gid("cost1" + column).value,
+    gid("cost2" + column).value,
+    gid("cost3" + column).value,
+    gid("cost4" + column).value
   ];
   var copays = [
-    document.getElementById("copay1" + column).value,
-    document.getElementById("copay2" + column).value,
-    document.getElementById("copay3" + column).value,
-    document.getElementById("copay4" + column).value
+    gid("copay1" + column).value,
+    gid("copay2" + column).value,
+    gid("copay3" + column).value,
+    gid("copay4" + column).value
   ];
 
   var totalSpent = 0;
@@ -119,21 +119,21 @@ function medicalplan(column)
 
 function calcMoney()
 {
-  var premium1 = Number(document.getElementById("premium1").value);
-  var premium2 = Number(document.getElementById("premium2").value);
+  var premium1 = Number(gid("premium1").value);
+  var premium2 = Number(gid("premium2").value);
 
-  var fsa = Number(document.getElementById("fsahsa1").value);
+  var fsa = Number(gid("fsahsa1").value);
   var oop1 = Math.max(fsa, medicalplan(1)) + premium1;
   var oop2 = medicalplan(2) + premium2;
 
-  document.getElementById("oop1").innerHTML = '$' + oop1.toFixed(2);
-  document.getElementById("oop2").innerHTML = '$' + oop2.toFixed(2);
+  gid("oop1").innerHTML = '$' + oop1.toFixed(2);
+  gid("oop2").innerHTML = '$' + oop2.toFixed(2);
 
   // fsa and hsa
-  var hsa = Number(document.getElementById("fsahsa2").value);
-  var tax = Number(document.getElementById("currTax").value) / 100;
-  var ror = Number(document.getElementById("rorHSA").value) / 100;
-  var freqContribs = Number(document.getElementById("freqContribs").value);
+  var hsa = Number(gid("fsahsa2").value);
+  var tax = Number(gid("currTax").value) / 100;
+  var ror = Number(gid("rorHSA").value) / 100;
+  var freqContribs = Number(gid("freqContribs").value);
 
   var fsaSavings = tax * (fsa + premium1);
    // minus hsa because we're adding it in when we calculate our interest gained
@@ -142,8 +142,8 @@ function calcMoney()
   {
     hsaSavings += (hsa / freqContribs) * Math.pow(1 + ror, i / freqContribs);
   }
-  document.getElementById("savings1").innerHTML = '$' + fsaSavings.toFixed(2);
-  document.getElementById("savings2").innerHTML = '$' + hsaSavings.toFixed(2);
-  document.getElementById("total1").innerHTML = '$' + (oop1 - fsaSavings).toFixed(2);
-  document.getElementById("total2").innerHTML = '$' + (oop2 - hsaSavings).toFixed(2);
+  gid("savings1").innerHTML = '$' + fsaSavings.toFixed(2);
+  gid("savings2").innerHTML = '$' + hsaSavings.toFixed(2);
+  gid("total1").innerHTML = '$' + (oop1 - fsaSavings).toFixed(2);
+  gid("total2").innerHTML = '$' + (oop2 - hsaSavings).toFixed(2);
 }

@@ -54,7 +54,7 @@ HTMLhead <- function(titl, js = "blank", css = NULL, desc = "", home = "../", da
     tags$meta(name="date", content=date),
     tags$meta(name="viewport", content="width=device-width, initial-scale=1"),
     map(c("styles", css), ~ link(rel="stylesheet", href=paste0(home, "css/", .x, ".css"))),
-    map(c(js, "init"), ~ script(src = paste0(home, "js/", .x, ".js")))
+    map(c("gid", js, "init"), ~ script(src = paste0(home, "js/", .x, ".js")))
   )
 }
 
