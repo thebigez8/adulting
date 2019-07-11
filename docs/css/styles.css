@@ -81,13 +81,15 @@ article.outdoors div.right:after {content: "Filed under Outdoors";}
 article.fun div.right:after {content: "Filed under Fun";}
 
 
-
+.inputs-panel-group {margin-top: 15px; border-radius: 5px;}
 .inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px;}
+.inputs-panel-group .inputs-panel {margin-top: 0;}
 .outputs-panel {padding: 0 15px;}
 .inputs-panel label, .inputs-table label {display: inline-block; width: 100%;}
 .inputs-panel input, .inputs-panel select,
   .inputs-table input, .inputs-table select
   {display: block; width: 100%; margin: 10px 0; padding: 5px;}
+.inputs-panel input[type="checkbox"] {display: inline-block; width: initial;}
 .inputs-panel input:read-only {background-color: #ddd;}
 .scroller-x {overflow-x: auto;}
 .scroller-none {overflow: hidden;}

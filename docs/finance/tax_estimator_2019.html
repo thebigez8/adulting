@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="finance theme-bg">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130554917-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-130554917-1');
+  </script>
+  <title>Adulting: 2019 Tax Estimator</title>
+  <meta name="description" content="A very simple 2019 tax estimation tool"/>
+  <meta name="author" content="E Heinzen"/>
+  <meta name="date" content="2019-07-10"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <script src="../js/gid.js"></script>
+  <script src="../js/toggle.js"></script>
+  <script src="../js/overlay.js"></script>
+  <script src="../js/taxes.js"></script>
+  <script src="../js/init.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="../index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul class="row">
+      <li class="left finance theme-bg theme-border">
+        <a href="../finance/index.html">Finance</a>
+      </li>
+      <li class="left faith theme-bg theme-border">
+        <a href="../faith/index.html">Faith</a>
+      </li>
+      <li class="left fun theme-bg theme-border">
+        <a href="../fun/index.html">Fun</a>
+      </li>
+      <li class="left outdoors theme-bg theme-border">
+        <a href="../outdoors/index.html">Outdoors</a>
+      </li>
+      <li class="left home theme-bg theme-border">
+        <a href="../about.html">About</a>
+      </li>
+    </ul>
+  </nav>
+  <p class="disclaimer">This app is only intended to be used as a estimator, to get a general idea of your tax burden. It is a simplification, and as such, actual taxes may differ from what is presented here.</p>
+  <h2>2019 Tax Estimatation</h2>
+  <div class="row inputs-panel-group bordered">
+    <div class="col width-3 inputs-panel">
+      <h3>Basic Info</h3>
+      <label for="filing">Filing Status</label>
+      <select id="filing" class="toggler" data-target="spouse">
+        <option value="single">Single</option>
+        <option value="joint" selected="selected">Married filing Jointly</option>
+      </select>
+      <div class="row">
+        <div class="left width-6">
+          <label for="over65">
+            <input type="checkbox" id="over65"/>
+            Over 65?
+          </label>
+        </div>
+        <div class="left width-6">
+          <label for="blind">
+            <input type="checkbox" id="blind"/>
+            Blind?
+          </label>
+        </div>
+      </div>
+      <div class="row toggleable spouse">
+        <div class="left width-6">
+          <label for="over65spouse">
+            <input type="checkbox" id="over65spouse"/>
+            Spouse Over 65?
+          </label>
+        </div>
+        <div class="left width-6">
+          <label for="blindspouse">
+            <input type="checkbox" id="blindspouse"/>
+            Spouse Blind?
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col width-3 inputs-panel">
+      <h3>Income</h3>
+      <label for="wages">Wages</label>
+      <input type="number" id="wages" value="70000" step="1000" min="0"/>
+      <div class="toggleable spouse">
+        <label for="wagesspouse">Wages (spouse)</label>
+        <input type="number" id="wagesspouse" value="70000" step="1000" min="0"/>
+      </div>
+      <label for="otherincome">Other Income (interest, capital gains, etc.)</label>
+      <input type="number" id="otherincome" value="0" step="1000" min="0"/>
+    </div>
+    <div class="col width-3 inputs-panel">
+      <h3>Federal Deductions</h3>
+      <div class="row">
+        <div class="left">
+          <label for="deductions">Federal Tax Deductions</label>
+        </div>
+        <div class="left">
+          <button class="overlay-toggler theme-bg theme-border finance" data-target="deductions-help">?</button>
+          <div class="overlay hidden" id="deductions-help">
+            <p>Count here any pre-tax payroll deductions: contributions to 401(k) or 403(b) plans, contributions to HSAs or FSAs, health insurance, etc.</p>
+          </div>
+        </div>
+      </div>
+      <input type="number" id="deductions" value="2800" step="1000" min="0"/>
+      <div class="toggleable spouse">
+        <label for="deductionsspouse">Federal Tax Deductions (spouse)</label>
+        <input type="number" id="deductionsspouse" value="2800" step="1000" min="0"/>
+      </div>
+      <div class="row">
+        <label for="standard">Standard or Itemized Deduction<br>(whichever is larger)</label>
+        <div class="left width-6">
+          <input type="number" id="standard" value="0" readonly="readonly"/>
+        </div>
+        <div class="left width-6">
+          <input type="number" id="itemized" value="0" step="1000" min="0"/>
+        </div>
+      </div>
+    </div>
+    <div class="col width-3 inputs-panel">
+      <h3>Federal Credits</h3>
+      <label for="credits">Credits</label>
+      <input type="number" id="credits" value="0" step="1000" min="0"/>
+    </div>
+  </div>
+  <div class="row inputs-panel-group bordered">
+    <div class="col inputs-panel width-3">
+      <h3>FICA taxes</h3>
+      <div class="row">
+        <div class="left">
+          <label for="fica">Portion of Federal Deduction that is FICA-free</label>
+        </div>
+        <div class="left">
+          <button class="overlay-toggler theme-bg theme-border finance" data-target="fica-help">?</button>
+          <div class="overlay hidden" id="fica-help">
+            <p>Some of the federal deductions above are also not subject to FICA tax, including health insurance premiums, contributions to HSAs and FSAs, and small amounts of group universal life premiums.</p>
+          </div>
+        </div>
+      </div>
+      <input type="number" id="fica" value="0" step="1000" min="0"/>
+      <div class="toggleable spouse">
+        <label for="ficaspouse">Portion of Spouse's Federal Deduction that is FICA-free</label>
+        <input type="number" id="ficaspouse" value="0" step="1000" min="0"/>
+      </div>
+    </div>
+  </div>
+  <div class="row inputs-panel-group">
+    <div class="col width-12 outputs-panel">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Federal</th>
+            <th>FICA (Social Security)</th>
+            <th>FICA (Medicare)</th>
+            <th>Total Taxes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Taxable Income</th>
+            <td id="taxablefed"></td>
+            <td id="taxabless"></td>
+            <td id="taxablemed"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <th>Marginal Tax Rate</th>
+            <td id="marginalfed"></td>
+            <td id="marginalss"></td>
+            <td id="marginalmed"></td>
+            <td></td>
+          </tr>
+          <tr class="thickbottom">
+            <th>Effective Tax Rate</th>
+            <td id="effectivefed"></td>
+            <td id="effectivess"></td>
+            <td id="effectivemed"></td>
+            <td id="effectivetotal"></td>
+          </tr>
+          <tr>
+            <th>Taxes Owed</th>
+            <td id="fedtaxes"></td>
+            <td id="sstaxes"></td>
+            <td id="medtaxes"></td>
+            <td id="totaltaxes"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
