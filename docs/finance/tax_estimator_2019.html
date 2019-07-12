@@ -124,7 +124,7 @@
     </div>
     <div class="col width-3 inputs-panel">
       <h3>Federal Credits</h3>
-      <label for="credits">Credits</label>
+      <label for="credits">Federal Tax Credits</label>
       <input type="number" id="credits" value="0" step="1000" min="0"/>
     </div>
   </div>
@@ -148,6 +148,55 @@
         <input type="number" id="ficaspouse" value="0" step="1000" min="0"/>
       </div>
     </div>
+    <div class="col inputs-panel width-3">
+      <h3>State</h3>
+      <div class="row">
+        <div class="left">
+          <label for="state">State</label>
+        </div>
+        <div class="left">
+          <button class="overlay-toggler theme-bg theme-border finance" data-target="state-help">?</button>
+          <div class="overlay hidden" id="state-help">
+            <p>MN has 4 tax brackets in 2019: 5.35%, 6.80% (as of May), 7.85%, and 9.85%. It also now follows the same standard deduction schema that the federal taxes use.</p>
+          </div>
+        </div>
+      </div>
+      <select id="state">
+        <option value="mn">Minnesota</option>
+      </select>
+    </div>
+    <div class="col inputs-panel width-3">
+      <h3>State Deductions</h3>
+      <div class="row">
+        <div class="left">
+          <label for="statedeductions">Additional State Tax Deductions</label>
+        </div>
+        <div class="left">
+          <button class="overlay-toggler theme-bg theme-border finance" data-target="state-deductions-help">?</button>
+          <div class="overlay hidden" id="state-deductions-help">
+            <p>States sometimes allow additional deductions beyond what Federal taxes allow. Enter those here.</p>
+          </div>
+        </div>
+      </div>
+      <input type="number" id="statedeductions" value="0" step="1000" min="0"/>
+      <div class="row">
+        <div class="left">
+          <label for="stateexemptions">State Tax Exemptions</label>
+        </div>
+        <div class="left">
+          <button class="overlay-toggler theme-bg theme-border finance" data-target="state-exemptions-help">?</button>
+          <div class="overlay hidden" id="state-exemptions-help">
+            <p>MN allows for deductions up to $4250 per dependent in 2019.</p>
+          </div>
+        </div>
+      </div>
+      <input type="number" id="stateexemptions" value="0" step="1000" min="0"/>
+    </div>
+    <div class="col inputs-panel width-3">
+      <h3>State Credits</h3>
+      <label for="statecredits">State Tax Credits</label>
+      <input type="number" id="statecredits" value="0" step="1000" min="0"/>
+    </div>
   </div>
   <div class="row inputs-panel-group scroller-x">
     <div class="col width-12 outputs-panel">
@@ -158,6 +207,7 @@
             <th>Federal</th>
             <th>FICA (Social Security)</th>
             <th>FICA (Medicare)</th>
+            <th>State</th>
             <th>Total Taxes</th>
           </tr>
         </thead>
@@ -167,6 +217,7 @@
             <td id="taxablefed"></td>
             <td id="taxabless"></td>
             <td id="taxablemed"></td>
+            <td id="taxablestate"></td>
             <td></td>
           </tr>
           <tr>
@@ -174,6 +225,7 @@
             <td id="marginalfed"></td>
             <td id="marginalss"></td>
             <td id="marginalmed"></td>
+            <td id="marginalstate"></td>
             <td></td>
           </tr>
           <tr class="thickbottom">
@@ -181,6 +233,7 @@
             <td id="effectivefed"></td>
             <td id="effectivess"></td>
             <td id="effectivemed"></td>
+            <td id="effectivestate"></td>
             <td id="effectivetotal"></td>
           </tr>
           <tr>
@@ -188,6 +241,7 @@
             <td id="fedtaxes"></td>
             <td id="sstaxes"></td>
             <td id="medtaxes"></td>
+            <td id="statetaxes"></td>
             <td id="totaltaxes"></td>
           </tr>
         </tbody>

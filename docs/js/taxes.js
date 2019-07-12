@@ -53,7 +53,6 @@ function calcTaxes()
   var itemized = Number(gid("itemized").value);
   var deductions = Number(gid("deductions").value);
   var deductionsspouse = Number(gid("deductionsspouse").value);
-  var credits = Number(gid("credits").value);
 
   var income = wages + otherincome;
   var federal = income - Math.max(standard, itemized) - deductions;
@@ -62,12 +61,13 @@ function calcTaxes()
     income += wagesspouse;
     federal += wagesspouse - deductionsspouse;
   }
-  var fedtaxes = getFederalTax(federal, filing) - credits;
+  var fedtaxes = getTieredTax(federal, filing, "fed") - Number(gid("credits").value);
   gid("taxablefed").innerHTML = "$" + federal.toFixed(2);
   gid("fedtaxes").innerHTML = "$" + fedtaxes.toFixed(2);
   gid("effectivefed").innerHTML = (100*fedtaxes/income).toFixed(2) + "%";
 
   ////
+
   var medtaxable = wages - Number(gid("fica").value);
   var medtaxes = getMedTaxes(medtaxable);
   var SStaxable = Math.min(medtaxable, 132900);
@@ -97,28 +97,58 @@ function calcTaxes()
   gid("sstaxes").innerHTML = "$" + SStaxes.toFixed(2);
   gid("effectivess").innerHTML = (100*SStaxes/income).toFixed(2) + "%";
 
-  gid("totaltaxes").innerHTML = "$" + (fedtaxes + medtaxes + SStaxes).toFixed(2);
-  gid("effectivetotal").innerHTML = (100*(fedtaxes + medtaxes + SStaxes)/income).toFixed(2) + "%";
+  ////
+
+  var statedeductions = Number(gid("statedeductions").value);
+  var stateexemptions = Number(gid("stateexemptions").value);
+  var statecredits = Number(gid("statecredits").value);
+  var statetaxable = federal - statedeductions - stateexemptions;
+  var statetaxes = getTieredTax(statetaxable, filing, "state") - statecredits;
+
+  gid("taxablestate").innerHTML = "$" + statetaxable.toFixed(2);
+  gid("statetaxes").innerHTML = "$" + statetaxes.toFixed(2);
+  gid("effectivestate").innerHTML = (100*statetaxes/income).toFixed(2) + "%";
+
+  ////
+
+  gid("totaltaxes").innerHTML = "$" + (fedtaxes + medtaxes + SStaxes + statetaxes).toFixed(2);
+  gid("effectivetotal").innerHTML = (100*(fedtaxes + medtaxes + SStaxes + statetaxes)/income).toFixed(2) + "%";
 }
 
-function getFederalTax(taxable, filing)
+function getTieredTax(taxable, filing, which)
 {
   var out = 0;
-  var taxes = [0.1, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37];
+  var taxes;
   var brackets;
-  if(filing == "single")
+  if(which == "fed")
   {
-    brackets = [0, 9700, 39475, 84200, 160725, 204100, 510300, Infinity];
-  } else   if(filing == "joint")
+    taxes = [0.1, 0.12, 0.22, 0.24, 0.32, 0.35, 0.37];
+    if(filing == "single")
+    {
+      brackets = [0, 9700, 39475, 84200, 160725, 204100, 510300, Infinity];
+    } else   if(filing == "joint")
+    {
+      brackets = [0, 19400, 78950, 168400, 321450, 408200, 612350, Infinity];
+    }
+  } else if(which == "state")
   {
-    brackets = [0, 19400, 78950, 168400, 321450, 408200, 612350, Infinity];
+    taxes = [0.0535, 0.068, 0.0785, 0.0985];
+    if(filing == "single")
+    {
+      brackets = [0, 26520, 87110, 163890, Infinity];
+    } else   if(filing == "joint")
+    {
+      brackets = [0, 38770, 154020, 273150, Infinity];
+    }
   }
+
+  gid("marginal" + which).innerHTML = "0.00%";
   for(var i = 0; i < taxes.length; i++)
   {
     out += taxes[i]*(Math.min(brackets[i+1], taxable) - brackets[i])*(taxable > brackets[i]);
     if(taxable > brackets[i])
     {
-      gid("marginalfed").innerHTML = (100*taxes[i]).toFixed(2) + "%";
+      gid("marginal" + which).innerHTML = (100*taxes[i]).toFixed(2) + "%";
     }
   }
   return out;

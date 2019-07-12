@@ -113,7 +113,7 @@ html(
       div(
         class="col width-3 inputs-panel",
         h3("Federal Credits"),
-        label(`for`="credits", "Credits"),
+        label(`for`="credits", "Federal Tax Credits"),
         input(type="number", id="credits", value=0, step=1000, min=0)
       )
     ),
@@ -138,6 +138,51 @@ html(
           label(`for`="ficaspouse", "Portion of Spouse's Federal Deduction that is FICA-free"),
           input(type="number", id="ficaspouse", value=0, step=1000, min=0)
         )
+      ),
+      div(
+        class = "col inputs-panel width-3",
+        h3("State"),
+        div(
+          class = "row",
+          div(class = "left", label(`for`="state", "State")),
+          div(class = "left", overlay(
+            "state-help", button.class = "finance",
+            "MN has 4 tax brackets in 2019: 5.35%, 6.80% (as of May), 7.85%, and 9.85%. ",
+            "It also now follows the same standard deduction schema that the federal taxes use."
+          ))
+        ),
+        select(
+          id="state",
+          option(value="mn", "Minnesota")
+        )
+      ),
+      div(
+        class = "col inputs-panel width-3",
+        h3("State Deductions"),
+        div(
+          class = "row",
+          div(class = "left", label(`for`="statedeductions", "Additional State Tax Deductions")),
+          div(class = "left", overlay(
+            "state-deductions-help", button.class = "finance",
+            "States sometimes allow additional deductions beyond what Federal taxes allow. Enter those here."
+          ))
+        ),
+        input(type="number", id="statedeductions", value=0, step=1000, min=0),
+        div(
+          class = "row",
+          div(class = "left", label(`for`="stateexemptions", "State Tax Exemptions")),
+          div(class = "left", overlay(
+            "state-exemptions-help", button.class = "finance",
+            "MN allows for deductions up to $4250 per dependent in 2019."
+          ))
+        ),
+        input(type="number", id="stateexemptions", value=0, step=1000, min=0)
+      ),
+      div(
+        class = "col inputs-panel width-3",
+        h3("State Credits"),
+        label(`for`="statecredits", "State Tax Credits"),
+        input(type="number", id="statecredits", value=0, step=1000, min=0)
       )
     ),
     div(
@@ -150,6 +195,7 @@ html(
             th("Federal"),
             th("FICA (Social Security)"),
             th("FICA (Medicare)"),
+            th("State"),
             th("Total Taxes")
           )),
           tbody(
@@ -158,6 +204,7 @@ html(
               td(id="taxablefed"),
               td(id="taxabless"),
               td(id="taxablemed"),
+              td(id="taxablestate"),
               td()
             ),
             tr(
@@ -165,6 +212,7 @@ html(
               td(id="marginalfed"),
               td(id="marginalss"),
               td(id="marginalmed"),
+              td(id="marginalstate"),
               td()
             ),
             tr(
@@ -173,6 +221,7 @@ html(
               td(id="effectivefed"),
               td(id="effectivess"),
               td(id="effectivemed"),
+              td(id="effectivestate"),
               td(id="effectivetotal")
             ),
             tr(
@@ -180,6 +229,7 @@ html(
               td(id="fedtaxes"),
               td(id="sstaxes"),
               td(id="medtaxes"),
+              td(id="statetaxes"),
               td(id="totaltaxes")
             )
           )
