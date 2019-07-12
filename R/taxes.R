@@ -141,7 +141,7 @@ html(
       )
     ),
     div(
-      class = "row inputs-panel-group",
+      class = "row inputs-panel-group scroller-x",
       div(
         class = "col width-12 outputs-panel",
         tags$table(
