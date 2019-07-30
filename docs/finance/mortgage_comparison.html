@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="finance theme-bg">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130554917-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-130554917-1');
+  </script>
+  <title>Adulting: Mortgage Comparison</title>
+  <meta name="description" content="A comparison of two mortgages"/>
+  <meta name="author" content="E Heinzen"/>
+  <meta name="date" content="2019-07-30"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../css/styles.css"/>
+  <script src="../js/gid.js"></script>
+  <script src="../js/mortgage_comparison.js"></script>
+  <script src="../js/init.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="../index.html">Adulting</a>
+  </h1>
+  <nav>
+    <ul class="row">
+      <li class="left finance theme-bg theme-border">
+        <a href="../finance/index.html">Finance</a>
+      </li>
+      <li class="left faith theme-bg theme-border">
+        <a href="../faith/index.html">Faith</a>
+      </li>
+      <li class="left fun theme-bg theme-border">
+        <a href="../fun/index.html">Fun</a>
+      </li>
+      <li class="left outdoors theme-bg theme-border">
+        <a href="../outdoors/index.html">Outdoors</a>
+      </li>
+      <li class="left home theme-bg theme-border">
+        <a href="../about.html">About</a>
+      </li>
+    </ul>
+  </nav>
+  <p class="disclaimer">This app is only intended to be used as a guide to help decide which mortgage to select. It is a simplification, and as such, actual costs and savings may differ from what is presented here.</p>
+  <div class="row">
+    <div class="col width-3 inputs-panel bordered">
+      <h2>Input</h2>
+      <label for="mortgage">Mortgage</label>
+      <select id="mortgage">
+        <option value="180">15 year fixed</option>
+        <option value="360" selected="selected">30 year fixed</option>
+      </select>
+      <label for="inflation">Inflation Rate (%)</label>
+      <input type="number" id="inflation" value="2" step="1" min="0" max="10"/>
+    </div>
+    <div class="col width-9 outputs-panel">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Loan 1</th>
+            <th>Loan 2</th>
+          </tr>
+        </thead>
+        <tbody class="inputs-table thickbottom">
+          <tr>
+            <th>Loan amount</th>
+            <td>
+              <input type="number" id="loan1" step="1000" min="0" value="250000"/>
+            </td>
+            <td>
+              <input type="number" id="loan2" step="1000" min="0" value="250000"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Rate (%)</th>
+            <td>
+              <input type="number" id="rate1" value="3.75" step="1" min="0" max="50"/>
+            </td>
+            <td>
+              <input type="number" id="rate2" value="3.875" step="1" min="0" max="50"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Fees to get this loan (e.g., points)</th>
+            <td>
+              <input type="number" id="fee1" step="100" min="0" value="1000"/>
+            </td>
+            <td>
+              <input type="number" id="fee2" step="100" min="0" value="0"/>
+            </td>
+          </tr>
+        </tbody>
+        <tbody class="outputs-table">
+          <tr>
+            <th>Total paid (in today's dollars)</th>
+            <td id="total1"></td>
+            <td id="total2"></td>
+          </tr>
+          <tr>
+            <th>Monthly mortgage payments</th>
+            <td id="monthly1"></td>
+            <td id="monthly2"></td>
+          </tr>
+          <tr>
+            <th>Which is better?</th>
+            <td id="breakeven" colspan="2"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
