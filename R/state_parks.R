@@ -4,12 +4,15 @@
 #   html
 # }
 
-state.parks <- "https://raw.githubusercontent.com/thebigez8/state_parks/master/data/parks.tsv" %>%
-  read.table(header = TRUE, stringsAsFactors = FALSE, sep = "\t") %>%
+state.parks <- "https://raw.githubusercontent.com/thebigez8/state_parks/master/data/parks.txt" %>%
+  readr::read_delim("|", col_types = readr::cols(), na = "NA") %>%
   dplyr::filter(ID != "") %>%
   dplyr::arrange(-as.numeric(as.Date(date))) %>%
   dplyr::select(Park, ID, date, hc.len, len, summer, hc.rating, rating, experience) %>%
-  dplyr::mutate(Park = ifelse(grepl(" State Park MN", Park), gsub(" State Park MN", "", Park), Park))
+  dplyr::mutate(
+    date = replace(as.character(date), is.na(date), ""),
+    Park = ifelse(grepl(" State Park MN", Park), gsub(" State Park MN", "", Park), Park)
+  )
 park_row <- function(Park, ID, date, hc.len, len, summer, hc.rating, rating, experience)
 {
   home <- paste0("https://www.dnr.state.mn.us/state_parks/park.html?id=", ID, "#homepage")
