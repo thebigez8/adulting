@@ -26,7 +26,7 @@ html(
           option(value="360", "30 year fixed", selected = "selected")
         ),
         label(`for`="inflation", "Inflation Rate (%)"),
-        input(type="number", id="inflation", value=2, step=1, min=0, max=10)
+        input(type="number", id="inflation", value=2, step=1, min=0)
       ),
       div(
         class = "col width-9 outputs-panel",
@@ -41,13 +41,13 @@ html(
             ),
             tr(
               th("Rate (%)"),
-              td(input(type="number", id="rate1", value = 3.750, step=1, min=0, max = 50)),
-              td(input(type="number", id="rate2", value = 3.875, step=1, min=0, max = 50))
+              td(input(type="number", id="rate1", value=3.750, step=0.125, min=0, max=50)),
+              td(input(type="number", id="rate2", value=3.875, step=0.125, min=0, max=50))
             ),
             tr(
-              th("Fees to get this loan (e.g., points)"),
-              td(input(type="number", id="fee1", step=100, min=0, value=1000)),
-              td(input(type="number", id="fee2", step=100, min=0, value=0))
+              th("Fees or credits to get this loan (e.g., points)"),
+              td(input(type="number", id="fee1", step=100, value=1000)),
+              td(input(type="number", id="fee2", step=100, value=0))
             )
           ),
           tbody(
