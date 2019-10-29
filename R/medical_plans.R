@@ -50,14 +50,14 @@ html(
         ),
         div(
           class="row",
-          div(class="left", label(`for`="currTax", "Current Tax Rate")),
+          div(class="left", label(`for`="currTax", "Marginal Tax Rate")),
           div(class="left", overlay(
             "tax-help", button.class = "finance", as.html = TRUE,
             "Note that contributions to HSAs and FSAs, along with medical premiums, ",
             "are entirely tax-free. In other words, they are not subject to federal, ",
             "state, or FICA tax. See ",
             a("this calculator's help page", href = "medical_plan_definitions.html"),
-            " for more details."
+            " for more details. See also ", a("this tax estimator", href = "tax_estimator_2019.html"), "."
           ))
         ),
         input(type="number", id="currTax", value=35, step=1, min=0, max=100),
@@ -306,7 +306,7 @@ html(
           dd0(
             "A Flexible Spending Account (FSA) is a pre-tax account used to cover medical expenses. It is ",
             "usually funded through payroll deductions, and it has a yearly contribution limit imposed ",
-            "by the IRS ($2650 per FSA). Since it's pre-tax, you save money on taxes by contributing. ",
+            "by the IRS. Since it's pre-tax, you save money on taxes by contributing. ",
             "Note, however, that FSAs are usually use-it-or-lose-it. In other words, if you contribute ",
             "more to the FSA than you need for medical expenses, the rest is lost (although some plans ",
             "allow for a small roll-over from year to year). Finally, note also that you can't have an ",
@@ -318,7 +318,7 @@ html(
           dd0(
             "A Health Savings Account (HSA) is similar to an FSA, in that it is a pre-tax account usually ",
             "funded by payroll deductions that is used to cover medical expenses. The IRS also imposes limits ",
-            "on HSA contributions ($3500 for an individual, $7000 for a family). However, HSAs are not ",
+            "on HSA contributions. However, HSAs are not ",
             "use-it-or-lose-it, and money in the HSA can be invested (which makes it almost like a ",
             "tax-free retirement account if you don't touch the money for a while). You can only contribute ",
             "to an HSA if you're on a HDHP (but you can withdraw money to cover expenses at a later date, ",
