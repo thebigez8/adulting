@@ -57,7 +57,7 @@ function mayopresets(singlepremium, singlededuct, singleoopm,
   gid("fsahsa" + column).value = famfsahsa;
   calcMoney();
 }
-function mayopremier(){mayopresets(105*12, 500, 2500, 310*12, 500, 1000, 2500, 5000, 20, 2500, 2650, 1);}
+function mayopremier(){mayopresets(105*12, 500, 2500, 310*12, 500, 1000, 2500, 5000, 20, 2650, 2650, 1);}
 function mayoselect(){mayopresets(60*12, 1000, 4000, 175*12, 1000, 2000, 4000, 8000, 20, 2650, 2650, 1);}
 function mayobasic(){mayopresets(20*12, 2000, 5000, 45*12, 4000, 4000, 5000, 10000, 20, 3500, 7000, 2);}
 
