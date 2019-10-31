@@ -59,8 +59,13 @@ function make_plotly()
   var plan2 = total_costs_of_scenarios(2, "Traditional (higher deductible)");
   var plan3 = total_costs_of_scenarios(3, "High Deductible");
 
-  var titles = {yaxis: {title: "Total Cost"}, xaxis: {title: "Person 1 Medical Expenses"}};
+  var layout = {
+    yaxis: {title: "Total Cost"},
+    xaxis: {title: "Person 1 Medical Expenses"},
+    showlegend: true,
+    legend: {x: 0, y: 1.25}
+  };
 
-  Plotly.newPlot("vis", [plan1, plan2, plan3], titles);
+  Plotly.newPlot("vis", [plan1, plan2, plan3], layout);
 
 }
