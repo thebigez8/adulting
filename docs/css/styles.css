@@ -108,10 +108,14 @@ table.bordered th, table.bordered td {border: 1px solid black;}
 .overlay img {width: auto; max-width: 800px; height: auto; margin: 50px auto; display: block;}
 img {width: 300px; height: auto;}
 
+.showifsmall {display: none;}
 @media (max-width: 575px){
   .col {width: 100%;} /* overrule any other widths specified */
   .outputs-panel {padding: 0;}
   .overlay p {width: 90%;}
   th, td {padding: 5px;}
   table.large-table {font-size: 0.8em;}
+  .hideifsmall {display: none;}
+  tr.showifsmall {display: table-row;}
+  .showifsmall.hidden {display: none;} /* use the hidden */
 }
