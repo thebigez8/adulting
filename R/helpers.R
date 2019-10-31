@@ -40,14 +40,14 @@ write2file <- function(x, file)
 HTMLhead <- function(titl, js = "blank", css = NULL, desc = "", home = "../", date, externaljs = NULL)
 {
   tags$header(
-    HTML("<!-- Global site tag (gtag.js) - Google Analytics -->"),
-    tags$script(async=NA, src="https://www.googletagmanager.com/gtag/js?id=UA-130554917-1"),
-    tags$script(
-      "window.dataLayer = window.dataLayer || [];",
-      "function gtag(){dataLayer.push(arguments);}",
-      "gtag('js', new Date());",
-      "gtag('config', 'UA-130554917-1');"
-    ),
+    # HTML("<!-- Global site tag (gtag.js) - Google Analytics -->"),
+    # tags$script(async=NA, src="https://www.googletagmanager.com/gtag/js?id=UA-130554917-1"),
+    # tags$script(
+    #   "window.dataLayer = window.dataLayer || [];",
+    #   "function gtag(){dataLayer.push(arguments);}",
+    #   "gtag('js', new Date());",
+    #   "gtag('config', 'UA-130554917-1');"
+    # ),
     tags$title(paste0("Adulting: ", titl)),
     tags$meta(name="description", content=desc),
     tags$meta(name="author", content="E Heinzen"),
