@@ -80,7 +80,7 @@ html(
           option(value=12, "Once per Month")
         ),
         label(`for`="rorHSA", "Rate of Return on HSA"),
-        input(type="number", id="rorHSA", value=5, step=1, min=0),
+        input(type="number", id="rorHSA", value=0, step=1, min=0),
         label("Presets:"),
         div(
           class = "row",
@@ -268,6 +268,8 @@ html(
         ),
         fsahsahelp[[2]],
         copayshelp[[2]],
+        p0("This plot shows the total cost of the three plans, holding fixed the costs for persons 2 - 4 ",
+           "(if applicable) and person 1's copays, but varying person 1's medical expenses."),
         div(id = "vis")
       )
     )
