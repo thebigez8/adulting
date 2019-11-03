@@ -2,13 +2,14 @@ fsahsahelp <- overlay(
   "fsa-hsa-help", button.class = "finance", as.html = TRUE,
   "There are different rules governing how much you can contribute to an ",
   "HSA vs. an FSA. In short, ", em("each plan holder"), " is allowed to contribute ",
-  "$2650 in 2019 to an FSA (so that if you're on a family plan, you're stuck at $2750). On ",
+  "$2700 in 2020 to an FSA (so that if you're on a family plan, you're stuck at $2700). On ",
   "the flip side, if you're on a single-coverage HDHP, you can contribute $3550 ",
-  "in 2019 to an HSA, and $7100 if you have family coverage. Finally, note that ",
+  "in 2020 to an HSA, and $7100 if you have family coverage. Finally, note that ",
   "contributions to an FSA are usually lost (although some plans allow for small roll-overs), ",
   "so that you shouldn't contribute more to an FSA than your yearly expenses. On the other ",
   "hand, HSAs roll over (and can accrue interest!), so there's no need to limit contributions ",
-  "based on yearly expenses. See ",
+  "based on yearly expenses. Finally, note that if one spouse contributes to an FSA, the other is ",
+  "no longer eligible to contribute to an HSA, even if the latter is covered by a HDHP. See ",
   a("this calculator's help page", href = "medical_plan_definitions.html"), " for more details."
 )
 copayshelp <- overlay(
@@ -114,7 +115,7 @@ html(
               td(input(type="number", id="ppdeduct2", step=1, min=0)),
               td(input(type="number", id="ppdeduct3", step=1, min=0))
             ),
-            showifsmalltr("Family Deductible"),
+            showifsmalltr("Family Deductible", class = "toggleable family"),
             tr(
               class = "toggleable family",
               th("Family Deductible", class="hideifsmall"),
@@ -129,7 +130,7 @@ html(
               td(input(type="number", id="ppoopm2", step=1, min=0)),
               td(input(type="number", id="ppoopm3", step=1, min=0))
             ),
-            showifsmalltr("Family Out of Pocket Max"),
+            showifsmalltr("Family Out of Pocket Max", class = "toggleable family"),
             tr(
               class = "toggleable family",
               th("Family Out of Pocket Max", class="hideifsmall"),
