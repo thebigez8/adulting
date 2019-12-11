@@ -37,7 +37,7 @@ therein.
 God isn't scientific (strictly speaking). That is to say, because He is outside of space and time, He cannot be
 definitively detected by science (whose realm is things inside of space and time). But that doesn't mean that He
 doesn't exist; we've [already shown He does](03_who_is_God.html). Additionally, He revealed himself by sending
-Jesus Christ into the world (but more on that [later](#)).
+Jesus Christ into the world (but more on that [later](05_who_is_Jesus.html)).
 
 In addition, just because God is outside the world does not mean that He is not intimately involved in it. Indeed,
 He reveals Himself through private revelation and through miracles.
@@ -75,4 +75,4 @@ These souls were not evolved.
 [2] Consider Darwin's finches, or the Peppered Moth, both of which saw distinct phenotypic changes in a single
 human lifetime.
 
-[&lt;&lt; Previous](03_who_is_God.html) | [Next &gt;&gt;](05_what_is_love.html)
+[&lt;&lt; Previous](03_who_is_God.html) | [Next &gt;&gt;](05_who_is_Jesus.html)

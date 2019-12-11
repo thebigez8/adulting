@@ -1,9 +1,9 @@
 ---
 class: "faith theme-bg"
-title: "05: What is Love?"
+title: "07: What is Love?"
 desc: "A Discussion of Love"
-date: "2019-07-02"
-url: "docs/faith/05_what_is_love.html"
+date: "2019-12-10"
+url: "docs/faith/07_what_is_love.html"
 ---
 
 ## What is Love?
@@ -57,4 +57,4 @@ the beloved, and the love between them. This is precisely why God, who is love i
 
 
 
-[&lt;&lt; Previous](04_faith_and_science.html) | Next &gt;&gt;
+[&lt;&lt; Previous](06_lamb_of_God.html) | [Next &gt;&gt;]()
