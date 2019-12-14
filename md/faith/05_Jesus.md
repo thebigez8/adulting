@@ -56,7 +56,14 @@ Some may hold the view that Jesus never claimed to be God. Even if that were so 
 claimed to take away people's sins. But no one except God can take away people's sins, so we're back to
 square one.
 
-The fourth view is of course the one Christians hold.
+For everyone else, it will suffice to say that these views are problematic because of what Jesus taught, did, and said.
+The crowds (and indeed the Apostles!) would not have been impressed with Him were He a liar; that is,
+He backed up His claims with miracles. Additionally, Jesus taught intellectually consistent, high-octane content.
+He deftly navigated through the Pharisees' and Sadducees' traps (I'm thinking here of (1) the woman caught in adultery;
+(2) the paying of taxes to Caesar; and (3) the question of the woman who married 7 brothers). A lunatic would have a
+hard time putting all that together. 
+
+After everything is considered, then, we're left with the fourth view: the one Christians hold.
 
 ### Why be Christian
 

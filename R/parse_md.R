@@ -46,6 +46,7 @@ parse_md <- function(fn, prefix = "    ")
 
     # replace with paragraphs and do all the inline stuff
     str_replace("^(\\s*[^<\\s].*)", "<p>\\1</p>") %>%
+    # str_replace('^(<blockquote cite=(".*")>.*</blockquote>)', "<a href=\\2>\\1</a>") %>%
     str_replace_all(
       "\\[(\\d+)\\]",
       '<sup><a href="#footnote-\\1" id="ref-\\1" class="reference-link">\\1</a></sup>'
