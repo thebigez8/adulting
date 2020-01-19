@@ -1,0 +1,8 @@
+.inputs-panel input[type="checkbox"] {margin: 4px;}
+.scale label {width: 100%; height: 25px; border: 2px solid transparent;}
+.scale input[type="checkbox"] {display: none;}
+.scale input[type="checkbox"]:checked ~ label {border: 2px solid black;}
+
+@media (max-width: 1020px){
+  .col {width: 100%;} /* overrule any other widths specified */
+}
