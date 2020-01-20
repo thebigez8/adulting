@@ -1,5 +1,5 @@
 
-tab <- "../native_plants/html/native_plants.html" %>%
+tab <- "https://raw.githubusercontent.com/thebigez8/native_plants/master/html/native_plants.html" %>%
   xml2::read_html() %>%
   rvest::html_node("table") %>%
   as.character() %>%

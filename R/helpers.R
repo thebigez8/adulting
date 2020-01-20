@@ -107,6 +107,6 @@ list.files("md/", "\\.md$", full.names = TRUE, recursive = TRUE) %>%
 INTERNET <- TRUE
 
 list.files("R/", "\\.R$", full.names = TRUE) %>%
-  setdiff(c("R/helpers.R", if(!INTERNET) c("R/grocery.R", "R/state_parks.R"))) %>%
+  setdiff(c("R/helpers.R", if(!INTERNET) c("R/grocery.R", "R/state_parks.R", "R/native_plants.R"))) %>%
   "["(order(. == "R/index.R")) %>%
   walk(~ source(print(.x), local = new.env(parent = globalenv())))
