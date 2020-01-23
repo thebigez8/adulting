@@ -51,9 +51,15 @@ function updateTable()
     }
 
     var matchfeat = gid("feature").value == "no filter" || elt.dataset[gid("feature").value] == 1;
-    console.log(elt.dataset);
 
-    if(matchzone && matchtype && matchsun && matchmoist && matchph && matchfeat)
+    var matchmn = false;
+    for(var mn = 1; mn < 10; mn++)
+    {
+      matchmn = matchmn || (gid("mn-" + mn).checked && elt.dataset["mn" + mn] == 1) ||
+        (gid("mn-unk").checked && elt.dataset["mn" + mn] == 2);
+    }
+
+    if(matchzone && matchtype && matchsun && matchmoist && matchph && matchfeat && matchmn)
     {
       anyshown = true;
       elt.classList.remove("hidden");

@@ -39,6 +39,27 @@ html(
           )
         ),
         div(
+          class = "text-center centered mn",
+          "Region of MN"
+        ),
+        map(0:2, function(r) {
+          div(
+            class = "row centered mn",
+            map(3*r + (1:3), function(i) {
+              div(
+                class = "mn-region left width-4",
+                input(type="checkbox", id=paste0("mn-", i), checked=NA),
+                label(`for`=paste0("mn-", i), class="text-center", c("NW", "NC", "NE", "WC", "C", "EC", "SW", "SC", "SE")[i])
+              )
+            })
+          )
+        }),
+        div(
+          class = "centered mn mn-region",
+          input(type="checkbox", id="mn-unk", checked=NA),
+          label(`for`="mn-unk", class="text-center", "?")
+        ),
+        div(
           class = "row",
           div(class = "left text-left width-6", "Sunny"),
           div(class = "left text-right width-5", "Shady")
