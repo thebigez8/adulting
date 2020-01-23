@@ -61,22 +61,25 @@ html(
     section(
       class = "tag-filters",
       h2("New pages:"),
-      span("Filter by tag:"),
-      button(
-        "Finance", type = "button", `data-target` = "finance",
-        class = "finance theme-bg theme-border toggler"
-      ),
-      button(
-        "Faith", type = "button", `data-target` = "faith",
-        class = "faith theme-bg theme-border toggler"
-      ),
-      button(
-        "Fun", type = "button", `data-target` = "fun",
-        class = "fun theme-bg theme-border toggler"
-      ),
-      button(
-        "Outdoors", type = "button", `data-target` = "outdoors",
-        class = "outdoors theme-bg theme-border toggler"
+      div(
+        class="hidden",
+        span("Filter by tag:"),
+        button(
+          "Finance", type = "button", `data-target` = "finance",
+          class = "finance theme-bg theme-border toggler"
+        ),
+        button(
+          "Faith", type = "button", `data-target` = "faith",
+          class = "faith theme-bg theme-border toggler"
+        ),
+        button(
+          "Fun", type = "button", `data-target` = "fun",
+          class = "fun theme-bg theme-border toggler"
+        ),
+        button(
+          "Outdoors", type = "button", `data-target` = "outdoors",
+          class = "outdoors theme-bg theme-border toggler"
+        )
       ),
       get_pgs("")
     )
