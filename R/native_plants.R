@@ -1,4 +1,13 @@
 
+TYPES <- c("deciduous shrub & small tree", "deciduous tree", "evergreen conifer", "fern",
+           "flower & groundcover", "grass & sedge", "vine")
+
+"https://raw.githubusercontent.com/thebigez8/native_plants/master/html/native_plants.json" %>%
+  readLines() %>%
+  paste0(c("var plants = ", rep("", times = length(.) - 1)), ., c(rep("", times = length(.) - 1), ";")) %>%
+  c(paste0("var plant_types = [", paste0('"', TYPES, '"', collapse = ", "), "];\n"), .) %>%
+  writeLines("docs/js/native_plants_data.js")
+
 tab <- "https://raw.githubusercontent.com/thebigez8/native_plants/master/html/native_plants.html" %>%
   xml2::read_html() %>%
   rvest::html_node("table") %>%
@@ -7,13 +16,10 @@ tab <- "https://raw.githubusercontent.com/thebigez8/native_plants/master/html/na
   gsub(pattern = "><", replacement = ">\n<", fixed = TRUE) %>%
   HTML()
 
-TYPES <- c("deciduous shrub & small tree", "deciduous tree", "evergreen conifer", "fern",
-           "flower & groundcover", "grass & sedge", "vine")
-
 html(
   class = "outdoors theme-bg",
   HTMLhead(
-    titl = "MN Native Plants", js = "native_plants", css = "native_plants",
+    titl = "MN Native Plants", js = c("native_plants_data", "native_plants"), css = "native_plants",
     desc = "A searchable list of MN-native plants",
     date = "2020-01-17"
   ),
@@ -114,23 +120,23 @@ html(
             id="feature",
             option(value="no filter", "no filter"),
             option(value="prairie", "native to prairie"),
-            option(value="deciduousforest", "native to deciduous forest"),
-            option(value="coniferousforest", "native to coniferous forest"),
-            option(value="butterflynectar", "good for butterfly nectar"),
-            option(value="butterflylarval", "good for butterfly larvae"),
+            option(value="deciduous_forest", "native to deciduous forest"),
+            option(value="coniferous_forest", "native to coniferous forest"),
+            option(value="butterfly_nectar", "good for butterfly nectar"),
+            option(value="butterfly_larval", "good for butterfly larvae"),
             option(value="hummingbirds", "good for hummingbirds"),
-            option(value="moistsoil", "good for moist soil"),
+            option(value="moist_soil", "good for moist soil"),
             option(value="pond", "good for ponds"),
-            option(value="shallowwater", "good for shallow water"),
-            option(value="rocksunny", "good for rocks (sunny)"),
-            option(value="rockshady", "good for rocks (shady)"),
+            option(value="shallow_water", "good for shallow water"),
+            option(value="rock_sunny", "good for rocks (sunny)"),
+            option(value="rock_shady", "good for rocks (shady)"),
             option(value="groundcover", "good for groundcover"),
-            option(value="deerresistant", "good for deer resistance"),
-            option(value="shadegarden", "good for shade gardens"),
-            option(value="mixedborder", "good for mixed borders"),
-            option(value="frontyardsunny", "good for front yards (sunny)"),
-            option(value="frontyardshady", "good for front yards (shady)"),
-            option(value="frontyardwoody", "good for front yards (woody)")
+            option(value="deer_resistant", "good for deer resistance"),
+            option(value="shade_garden", "good for shade gardens"),
+            option(value="mixed_border", "good for mixed borders"),
+            option(value="front_yard_sunny", "good for front yards (sunny)"),
+            option(value="front_yard_shady", "good for front yards (shady)"),
+            option(value="front_yard_woody", "good for front yards (woody)")
           )
         )
       ),

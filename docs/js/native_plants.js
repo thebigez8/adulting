@@ -14,56 +14,60 @@ function updateTable()
 {
   var trlist = gid("plant-tbody").getElementsByTagName("tr");
   anyshown = false;
+
   for(var r = 0; r < trlist.length; r++)
   {
-    var elt = trlist[r];
+    var trelt = trlist[r];
+    var elt = plants[r];
+    if(trelt.id != elt.id) console.log("Warning: a mismatch occured.");
+
     var matchzone = false;
     for(var z = 1; z < 5; z++)
     {
-      matchzone = matchzone || (gid("zone-" + z).checked && elt.dataset["zone" + z] == 1);
+      matchzone = matchzone || (gid("zone-" + z).checked && elt.Zone_list.includes(z));
     }
 
     var matchtype = false;
     for(var t = 1; t < 8; t++)
     {
-      matchtype = matchtype || (gid("type-" + t).checked && elt.dataset.type == t);
+      matchtype = matchtype || (gid("type-" + t).checked && elt.Type == plant_types[t-1]);
     }
 
     var matchsun = false;
     for(var s = 0; s < 11; s++)
     {
-      matchsun = matchsun || (gid("sun-" + s).checked && elt.dataset["sun" + s] == 1) ||
-        (gid("sun-unk").checked && elt.dataset["sun" + s] == 2);
+      matchsun = matchsun || (gid("sun-" + s).checked && elt.Sun_list.includes(s)) ||
+        (gid("sun-unk").checked && elt.Sun_list.length == 0);
     }
 
     var matchmoist = false;
     for(var m = 0; m < 6; m++)
     {
-      matchmoist = matchmoist || (gid("moisture-" + m).checked && elt.dataset["moisture" + m] == 1) ||
-        (gid("moisture-unk").checked && elt.dataset["moisture" + m] == 2);
+      matchmoist = matchmoist || (gid("moisture-" + m).checked && elt.Moisture_list.includes(m)) ||
+        (gid("moisture-unk").checked && elt.Moisture_list.length == 0);
     }
 
     var matchph = false;
     for(var p = 0; p < 7; p++)
     {
-      matchph = matchph || (gid("ph-" + p).checked && elt.dataset["ph" + p] == 1) ||
-        (gid("ph-unk").checked && elt.dataset["ph" + p] == 2);
+      matchph = matchph || (gid("ph-" + p).checked && elt.PH_list.includes(p)) ||
+        (gid("ph-unk").checked && elt.PH_list.length == 0);
     }
 
-    var matchfeat = gid("feature").value == "no filter" || elt.dataset[gid("feature").value] == 1;
+    var matchfeat = gid("feature").value == "no filter" || elt.Feature_list.includes(gid("feature").value);
 
     var matchmn = false;
     for(var mn = 1; mn < 10; mn++)
     {
-      matchmn = matchmn || (gid("mn-" + mn).checked && elt.dataset["mn" + mn] == 1) ||
-        (gid("mn-unk").checked && elt.dataset["mn" + mn] == 2);
+      matchmn = matchmn || (gid("mn-" + mn).checked && elt.MN_list.includes(mn)) ||
+        (gid("mn-unk").checked && elt.MN_list.length == 0);
     }
 
     if(matchzone && matchtype && matchsun && matchmoist && matchph && matchfeat && matchmn)
     {
       anyshown = true;
-      elt.classList.remove("hidden");
-    } else elt.classList.add("hidden");
+      trelt.classList.remove("hidden");
+    } else trelt.classList.add("hidden");
   }
   if(anyshown)
   {
