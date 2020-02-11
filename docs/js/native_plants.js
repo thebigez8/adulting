@@ -19,7 +19,7 @@ function updateTable()
   {
     var trelt = trlist[r];
     var elt = plants[r];
-    if(trelt.id != elt.id) console.log("Warning: a mismatch occured.");
+    //if(trelt.id != elt.id) console.log("Warning: a mismatch occured.");
 
     var matchzone = false;
     for(var z = 1; z < 5; z++)
