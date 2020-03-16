@@ -29,6 +29,8 @@ Finance isn't complicated (but it may be *difficult*). Here's the basic outline:
   
 1. Pay off your house early.
 
+<div class="footnotes">
+
 These steps are a consensus of information from these sources:
 
 - The Little Book of Common Sense Investing, Jack Bogle
@@ -42,3 +44,4 @@ These steps are a consensus of information from these sources:
 
 - Dave Ramsey's [Baby Steps](https://www.daveramsey.com/dave-ramsey-7-baby-steps)
 
+</div>
