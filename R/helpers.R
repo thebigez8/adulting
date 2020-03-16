@@ -94,7 +94,8 @@ navbar <- function(home = "../")
 foot <- function(...)
 {
   # if you change this, also edit parse_md.R
-  tags$footer(
+  div(
+    class = "footnotes",
     p0("References and Other Useful Links:"),
     do.call(ul, lapply(list(...), li))
   )

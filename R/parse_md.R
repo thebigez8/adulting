@@ -57,7 +57,7 @@ parse_md <- function(fn, prefix = "    ")
     paste0(collapse = "\n") %>%
     str_replace(
       "<p>---Footnotes---</p>\n(<ol>(\n|.)+</ol>)",
-      "<footer>\n\\1\n</footer>"
+      "<div class='footnotes'>\n\\1\n</div>"
     ) %>%
     str_split("\n") %>%
     "[["(1) %>%
