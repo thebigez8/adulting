@@ -13,7 +13,7 @@ html(
       "tax burden. It is a simplification, and as such, actual taxes may differ ",
       "from what is presented here."
     ),
-    h2("2019 Tax Estimatation"),
+    h2("2019 Tax Estimator"),
     # p0("Note that 2018 tax reforms did away with exemptions."),
     div(
       class="row inputs-panel-group bordered",

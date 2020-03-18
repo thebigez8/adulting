@@ -25,12 +25,12 @@ html(
   ),
   body(
     navbar(),
-    h2("Native Plants"),
+    h2("Minnesota Native Plants"),
     div(
       class="row",
       div(
         class="col width-3 inputs-panel bordered",
-        h2("Filter"),
+        h3("Filter"),
         div(
           class = "row",
           div(

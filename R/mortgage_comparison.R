@@ -14,11 +14,12 @@ html(
       "which mortgage to select. It is a simplification, and as such, actual costs and savings ",
       "may differ from what is presented here."
     ),
+    h2("Mortgage Comparison"),
     div(
       class="row",
       div(
         class="col width-3 inputs-panel bordered",
-        h2("Input"),
+        h3("Input"),
         label(`for`="mortgage", "Mortgage"),
         select(
           id="mortgage",

@@ -23,17 +23,18 @@ retireTable <- function(ror = 1:20, retireTax = 35:5)
 html(
   class = "finance theme-bg",
   HTMLhead(
-    titl = "Roth vs. Traditional", js = "roth_vs_trad", css = "roth_vs_trad",
+    titl = "Roth vs. Traditional Comparison", js = "roth_vs_trad", css = "roth_vs_trad",
     desc = "A comparison of Roth vs. Traditional Retirement Accounts",
     date = "2018-09-15"
   ),
   body(
     navbar(),
+    h2("Roth vs. Traditional Comparison"),
     div(
       class="row",
       div(
         class="col width-3 inputs-panel bordered",
-        h2("Input"),
+        h3("Input"),
         label(`for`="currAge", "Current Age"),
         input(type="number", id="currAge", value=25, step=1, min=0),
         label(`for`="retireAge", "Age at Retirement"),

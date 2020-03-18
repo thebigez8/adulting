@@ -36,11 +36,12 @@ html(
       " for help and explanations.",
       as.html = TRUE
     ),
+    h2("Medical Plan Comparison"),
     div(
       class="row",
       div(
         class="col width-3 inputs-panel bordered",
-        h2("Input"),
+        h3("Input"),
         label(`for`="coverage", "Coverage"),
         select(
           id="coverage",
@@ -224,6 +225,7 @@ html(
   ),
   body(
     navbar(),
+    h2("Medical Plan Definitions"),
     div(
       class="row",
       p0(

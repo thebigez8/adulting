@@ -41,6 +41,12 @@ nav ul li.theme-bg:hover, button.toggler.inactive, button.overlay-toggler:hover
 nav ul li {border: solid 2px black; color: #fff;}
 nav ul li a {padding: 5px 10px; display: inline-block;}
 nav ul li a, h1 a {text-decoration: none; color: inherit;}
+h2 {margin: 20px 0 8px 0;}
+h3 {margin: 24px 0 8px 0;}
+h2 + h3 {margin: 8px 0;}
+.inputs-panel > h3, article > h3 {margin-top: 15px;}
+h4 {margin: 24px 0 8px 0;}
+h3 + h4 {margin: 8px 0;}
 .footnotes {border-top: 2px solid black;}
 blockquote p {margin: 10px 0;}
 blockquote {margin: 1em 0; padding: 0 20px; border-left: 5px solid #bbb;}
@@ -60,7 +66,7 @@ html.finance .footnotes {border-color: #984ea3;}
 .text-left {text-align: left;}
 .text-center {text-align: center;}
 .text-right {text-align: right;}
-p {margin: 15px 0;}
+p {margin: 8px 0;}
 th, td {text-align: center; padding: 5px 10px;}
 
 .hidden {display:none;}
@@ -72,7 +78,7 @@ button.overlay-toggler {border: 1px solid black; border-radius: 5px; font-size: 
 img.overlay-toggler {cursor: pointer;}
 img.overlay-toggler:hover {opacity: 0.5;}
 
-article {padding: 0 15px; margin-top: 10px;}
+article {padding: 0 15px; margin-top: 8px;}
 article.bordered{border-left-width: 5px; border-radius: 0 5px 5px 0;}
 article.finance {border-left-color: #984ea3;}
 article.faith {border-left-color: #377eb8;}
@@ -85,8 +91,8 @@ article.outdoors div.right:after {content: "Filed under Outdoors";}
 article.fun div.right:after {content: "Filed under Fun";}
 
 
-.inputs-panel-group {margin-top: 15px; border-radius: 5px;}
-.inputs-panel {padding: 0 15px 15px 15px; margin-top: 15px; border-radius: 5px;}
+.inputs-panel-group {margin-top: 8px; border-radius: 5px;}
+.inputs-panel {padding: 0 15px 15px 15px; margin-top: 8px; border-radius: 5px;}
 .inputs-panel-group .inputs-panel {margin-top: 0;}
 .outputs-panel {padding: 0 15px;}
 .inputs-panel label, .inputs-table label {display: inline-block; width: 100%;}
