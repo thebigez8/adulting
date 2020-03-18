@@ -43,4 +43,4 @@ This definition is critical, because along with it come several important points
 
 
 
-[&lt;&lt; Previous](06_lamb_of_God.html) | [Next &gt;&gt;]()
+[&lt;&lt; Previous](06_lamb_of_God.html) | [Next &gt;&gt;](#)
