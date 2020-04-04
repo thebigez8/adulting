@@ -31,26 +31,14 @@ html(
       div(
         class="col width-3 inputs-panel bordered",
         h3("Filter"),
-        div(
-          class = "row",
-          div(
-            class = "left width-8",
-            label(`for`="type", "Type of Plant"),
-            map(1:7, ~ label(input(type="checkbox", id=paste0("type-", .x), name="type", checked=NA), TYPES[.x]))
-          ),
-          div(
-            class = "left width-4",
-            label(`for`="zone", "Zone"),
-            map(1:4, ~ label(input(type="checkbox", id=paste0("zone-", .x), name="zone", checked=NA), paste("Zone", .x)))
-          )
-        ),
-        div(
-          class = "text-center centered mn",
-          "Region of MN"
-        ),
+        label(`for`="type", "Type of Plant", class="plantlabel"),
+        map(1:7, ~ label(input(type="checkbox", id=paste0("type-", .x), name="type", checked=NA), TYPES[.x])),
+        label(`for`="zone", "Zone", class="plantlabel"),
+        map(1:4, ~ label(input(type="checkbox", id=paste0("zone-", .x), name="zone", checked=NA), paste("Zone", .x))),
+        label("Region of MN", class = "mn plantlabel"),
         map(0:2, function(r) {
           div(
-            class = "row centered mn",
+            class = "row mn",
             map(3*r + (1:3), function(i) {
               div(
                 class = "mn-region left width-4",
@@ -61,12 +49,12 @@ html(
           )
         }),
         div(
-          class = "centered mn mn-region",
+          class = "mn mn-region",
           input(type="checkbox", id="mn-unk", checked=NA),
           label(`for`="mn-unk", class="text-center", "?")
         ),
         div(
-          class = "row",
+          class = "row plantlabel",
           div(class = "left text-left width-6", "Sunny"),
           div(class = "left text-right width-5", "Shady")
         ),
@@ -82,7 +70,7 @@ html(
           })
         ),
         div(
-          class = "row",
+          class = "row plantlabel",
           div(class = "left text-left width-3", "Dry"),
           div(class = "left text-right width-3", "Submerged")
         ),
@@ -98,7 +86,7 @@ html(
           })
         ),
         div(
-          class = "row",
+          class = "row plantlabel",
           div(class = "left text-left width-3", "Acidic"),
           div(class = "left text-right width-4", "Alkaline")
         ),
@@ -115,7 +103,7 @@ html(
         ),
         div(
           class = "row",
-          label(`for`="feature", "Notable Feature"),
+          label(`for`="feature", "Notable Feature", class="plantlabel"),
           select(
             id="feature",
             option(value="no filter", "no filter"),
@@ -147,7 +135,7 @@ html(
           "Plants which are native to MN but not appropriate for landscaping are ignored (in particular, the American ",
           "Elm and the Dwarf Trout Lily)."
         ),
-        div(class="scroller-x", tab),
+        div(class="scroller-x", id="native-plants-table", tab),
         p("Sorry, no plants match those criteria.", id="nomatch")
       )
     ),

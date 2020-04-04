@@ -43,60 +43,54 @@
   <div class="row">
     <div class="col width-3 inputs-panel bordered">
       <h3>Filter</h3>
-      <div class="row">
-        <div class="left width-8">
-          <label for="type">Type of Plant</label>
-          <label>
-            <input type="checkbox" id="type-1" name="type" checked/>
-            deciduous shrub &amp; small tree
-          </label>
-          <label>
-            <input type="checkbox" id="type-2" name="type" checked/>
-            deciduous tree
-          </label>
-          <label>
-            <input type="checkbox" id="type-3" name="type" checked/>
-            evergreen conifer
-          </label>
-          <label>
-            <input type="checkbox" id="type-4" name="type" checked/>
-            fern
-          </label>
-          <label>
-            <input type="checkbox" id="type-5" name="type" checked/>
-            flower &amp; groundcover
-          </label>
-          <label>
-            <input type="checkbox" id="type-6" name="type" checked/>
-            grass &amp; sedge
-          </label>
-          <label>
-            <input type="checkbox" id="type-7" name="type" checked/>
-            vine
-          </label>
-        </div>
-        <div class="left width-4">
-          <label for="zone">Zone</label>
-          <label>
-            <input type="checkbox" id="zone-1" name="zone" checked/>
-            Zone 1
-          </label>
-          <label>
-            <input type="checkbox" id="zone-2" name="zone" checked/>
-            Zone 2
-          </label>
-          <label>
-            <input type="checkbox" id="zone-3" name="zone" checked/>
-            Zone 3
-          </label>
-          <label>
-            <input type="checkbox" id="zone-4" name="zone" checked/>
-            Zone 4
-          </label>
-        </div>
-      </div>
-      <div class="text-center centered mn">Region of MN</div>
-      <div class="row centered mn">
+      <label for="type" class="plantlabel">Type of Plant</label>
+      <label>
+        <input type="checkbox" id="type-1" name="type" checked/>
+        deciduous shrub &amp; small tree
+      </label>
+      <label>
+        <input type="checkbox" id="type-2" name="type" checked/>
+        deciduous tree
+      </label>
+      <label>
+        <input type="checkbox" id="type-3" name="type" checked/>
+        evergreen conifer
+      </label>
+      <label>
+        <input type="checkbox" id="type-4" name="type" checked/>
+        fern
+      </label>
+      <label>
+        <input type="checkbox" id="type-5" name="type" checked/>
+        flower &amp; groundcover
+      </label>
+      <label>
+        <input type="checkbox" id="type-6" name="type" checked/>
+        grass &amp; sedge
+      </label>
+      <label>
+        <input type="checkbox" id="type-7" name="type" checked/>
+        vine
+      </label>
+      <label for="zone" class="plantlabel">Zone</label>
+      <label>
+        <input type="checkbox" id="zone-1" name="zone" checked/>
+        Zone 1
+      </label>
+      <label>
+        <input type="checkbox" id="zone-2" name="zone" checked/>
+        Zone 2
+      </label>
+      <label>
+        <input type="checkbox" id="zone-3" name="zone" checked/>
+        Zone 3
+      </label>
+      <label>
+        <input type="checkbox" id="zone-4" name="zone" checked/>
+        Zone 4
+      </label>
+      <label class="mn plantlabel">Region of MN</label>
+      <div class="row mn">
         <div class="mn-region left width-4">
           <input type="checkbox" id="mn-1" checked/>
           <label for="mn-1" class="text-center">NW</label>
@@ -110,7 +104,7 @@
           <label for="mn-3" class="text-center">NE</label>
         </div>
       </div>
-      <div class="row centered mn">
+      <div class="row mn">
         <div class="mn-region left width-4">
           <input type="checkbox" id="mn-4" checked/>
           <label for="mn-4" class="text-center">WC</label>
@@ -124,7 +118,7 @@
           <label for="mn-6" class="text-center">EC</label>
         </div>
       </div>
-      <div class="row centered mn">
+      <div class="row mn">
         <div class="mn-region left width-4">
           <input type="checkbox" id="mn-7" checked/>
           <label for="mn-7" class="text-center">SW</label>
@@ -138,11 +132,11 @@
           <label for="mn-9" class="text-center">SE</label>
         </div>
       </div>
-      <div class="centered mn mn-region">
+      <div class="mn mn-region">
         <input type="checkbox" id="mn-unk" checked/>
         <label for="mn-unk" class="text-center">?</label>
       </div>
-      <div class="row">
+      <div class="row plantlabel">
         <div class="left text-left width-6">Sunny</div>
         <div class="left text-right width-5">Shady</div>
       </div>
@@ -196,7 +190,7 @@
           <label for="sun-unk" class="text-center rdbu-unk">?</label>
         </div>
       </div>
-      <div class="row">
+      <div class="row plantlabel">
         <div class="left text-left width-3">Dry</div>
         <div class="left text-right width-3">Submerged</div>
       </div>
@@ -230,7 +224,7 @@
           <label for="moisture-unk" class="text-center rdbu-unk">?</label>
         </div>
       </div>
-      <div class="row">
+      <div class="row plantlabel">
         <div class="left text-left width-3">Acidic</div>
         <div class="left text-right width-4">Alkaline</div>
       </div>
@@ -269,7 +263,7 @@
         </div>
       </div>
       <div class="row">
-        <label for="feature">Notable Feature</label>
+        <label for="feature" class="plantlabel">Notable Feature</label>
         <select id="feature">
           <option value="no filter">no filter</option>
           <option value="prairie">native to prairie</option>
@@ -295,7 +289,7 @@
     </div>
     <div class="col width-9 outputs-panel">
       <p>Below is a list of native plants with which to landscape, based on a book by Lynn M. Steiner (see below). Plants which are native to MN but not appropriate for landscaping are ignored (in particular, the American Elm and the Dwarf Trout Lily).</p>
-      <div class="scroller-x"><table>
+      <div class="scroller-x" id="native-plants-table"><table>
         <thead>
           <tr>
             <th>Scientific Name</th>
