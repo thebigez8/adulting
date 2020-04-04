@@ -26,14 +26,20 @@ html.outdoors .overlay {background-color: #4daf4a; background-color: rgba(77,175
 
 * {box-sizing: border-box;}
 body {background-color: #fff; padding: 0 8px 8px 8px; margin: 8px; font-size: 16px;}
-h1 {margin: 8px 0;}
+h1 {margin: 8px 0 0 0;}
 html h1:after {font-size: 0.5em;}
 html.home h1:after {content: "HOME";}
 html.finance h1:after {content: "FINANCE"; color: #984ea3;}
 html.faith h1:after {content: "FAITH"; color: #377eb8;}
 html.outdoors h1:after {content: "OUTDOORS"; color: #4daf4a;}
 html.fun h1:after {content: "FUN"; color: #e41a1c;}
+#tagline {margin-top: -4px; margin-left: 16px;}
 nav {background-color: #eee; margin: 0 -8px; padding: 0;}
+html.finance nav {background-color: #984ea3;}
+html.faith nav {background-color: #377eb8;}
+html.outdoors nav {background-color: #4daf4a;}
+html.fun nav {background-color: #e41a1c;}
+
 .row:after, article:after {content: " "; display: table; clear: both;}
 nav ul {list-style-type: none; margin: 0; padding: 0;}
 nav ul li.theme-bg:hover, button.toggler.inactive, button.overlay-toggler:hover

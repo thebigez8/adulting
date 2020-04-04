@@ -63,6 +63,7 @@ navbar <- function(home = "../")
 {
   tagList(
     h1(a("Adulting", href = paste0(home, "index.html"))),
+    p(tags$i("Growing up made easier"), id = "tagline"),
     nav(
       ul(
         class = "row",
